@@ -1,6 +1,6 @@
 from random import randint
 N=1000
-f=open("largefile","w")
+f=open("input.txt","w")
 k=0
 while True:
  n=randint(0,N)

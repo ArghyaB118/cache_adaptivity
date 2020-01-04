@@ -33,8 +33,11 @@ sortedTempFileHandlerList = []
 cwd = os.getcwd()
 print cwd
 #the split file operations
-largeFileName = 'largefile'
-smallFileSize = 10
+#largeFileName = 'largefile'
+#smallFileSize = 10
+
+largeFileName = "input.txt"
+smallFileSize = 1000
 
 import mmap
 with open(largeFileName, "r+b") as f:
@@ -51,7 +54,7 @@ with open(largeFileName, "r+b") as f:
         size += 1
         if size % smallFileSize == 0:
         	tempBuffer = sorted(tempBuffer, key = lambda no: int(no.strip()))
-        	tempFile = tempfile.NamedTemporaryFile(dir = cwd + '/temp-files', delete = False)
+        	tempFile = tempfile.NamedTemporaryFile(dir = cwd + '/temp-files-python', delete = False)
         	tempFile.writelines(tempBuffer)
         	tempFile.seek(0)
         	sortedTempFileHandlerList.append(tempFile)
@@ -66,7 +69,7 @@ with open(largeFileName, "r+b") as f:
     	list.append(heapnode(item, tempFileHandler))
 
     construct_heap(list)
-    file = open('sortedCompleteData.txt', 'w')
+    file = open('output-python.txt', 'w')
     file.close()
     while True:
         min = list[0]
@@ -82,7 +85,7 @@ with open(largeFileName, "r+b") as f:
         list[0] = heapnode(item, fileHandler)
         heapify(list, 0, len(list))
     for no in sorted_output:
-        file = open('sortedCompleteData.txt', 'a')
+        file = open('output-python.txt', 'a')
         file.write(str(no) + '\n')
         file.close()
 '''
