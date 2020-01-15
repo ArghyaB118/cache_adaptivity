@@ -1,58 +1,41 @@
 /* C++ program for Merge Sort */
 #include<iostream> 
+#include <queue>
+#include <vector>
 using namespace std;
-// Merges two subarrays of arr[]. 
-// First subarray is arr[l..m] 
-// Second subarray is arr[m+1..r] 
-void merge(int arr[], int temp_arr[], int l, int m, int r) { 
-	int i, j, k; 
-	int n1 = m - l + 1; 
-	int n2 = r - m; 
 
-	/* Copy data to temp arrays L[] and R[] */
-	for (i = 0; i < n1; i++) 
-		temp_arr[i] = arr[l + i]; 
-	for (j = 0; j < n2; j++) 
-		temp_arr[n1 + j] = arr[m + 1+ j]; 
 
-	/* Merge the temp arrays back into arr[l..r]*/
-	i = 0; // Initial index of first subarray 
-	j = 0; // Initial index of second subarray 
-	k = l; // Initial index of merged subarray 
-	while (i < n1 && j < n2) { 
-		if (temp_arr[i] <= temp_arr[n1 + j]) { 
-			arr[k] = temp_arr[i]; 
-			i++; 
-		} 
-		else { 
-			arr[k] = temp_arr[n1 + j]; 
-			j++; 
-		} 
-		k++; 
-	} 
-	/* Copy the remaining elements of L[], if there are any */
-	while (i < n1) { 
-		arr[k] = temp_arr[i]; 
-		i++; 
-		k++; 
+typedef pair<int, pair<int, int> > ppi;
+
+void merge(int arr[], int temp_arr[], int l, int m, int r, int k) {
+	int itr = 0;
+	priority_queue<ppi, vector<ppi>, greater<ppi> > pq;
+	for (int i = 0; i < k; i++) {
+		pq.push({arr[l + i*m], {i, 0}});
 	}
-	/* Copy the remaining elements of R[], if there are any */
-	while (j < n2) { 
-		arr[k] = temp_arr[n1 + j]; 
-		j++; 
-		k++; 
-	} 
-} 
+	while (pq.empty() == false) {
+		ppi curr = pq.top();
+		pq.pop();
+		temp_arr[itr] = curr.first; itr++;
+		int i = curr.second.first;   
+        int j = curr.second.second;
+        if (j + 1 < m) 
+            pq.push({arr[i*m + j + 1], {i, j + 1}});
+	}
+	for (int i = 0 ; i < m*k; i++)
+		arr[i + l] = temp_arr[i];
+}
 
 /* l is for left index and r is right index of the 
 sub-array of arr to be sorted */
-void mergeSort(int arr[], int l, int r, int temp_arr[], int b) { 
+void mergeSort(int arr[], int l, int r, int temp_arr[], int b, int k) { 
 	if (l < r && r - l > b) {
 		// Same as (l+r)/2, but avoids overflow for large l and h 
-		int m = l+(r-l)/2; 
-		mergeSort(arr, l, m, temp_arr, b); 
-		mergeSort(arr, m+1, r, temp_arr, b);
-		merge(arr, temp_arr, l, m, r);
+		int m = (r - l + 1) / k; 
+		for (int i = 0; i < k; ++i) {
+			mergeSort(arr, l + i*m, l + i*m + m, temp_arr, b, k); 
+		}
+		merge(arr, temp_arr, l, m, r, k);
 	}
 	else if (l < r && r - l <= b) {
 		// Same as (l+r)/2, but avoids overflow for large l and h 
@@ -64,7 +47,6 @@ void mergeSort(int arr[], int l, int r, int temp_arr[], int b) {
 		for (int i = 0; i < b; i++) {
 			arr[i + l] = temp_arr[i]; 
 		}
-		merge(arr, temp_arr, l, m, r); 
 	}
 } 
 
@@ -88,14 +70,14 @@ void rootMergeSort(int arr[], int *arr_first, int *arr_last, int base_case, int 
 	int* temp_arr = NULL;
 	temp_arr = new int[num_elements];
 
-	mergeSort(arr, 0, num_elements - 1, temp_arr, base_case);
+	mergeSort(arr, 0, num_elements, temp_arr, base_case, k);
 	delete [] temp_arr; temp_arr = NULL; // to deallocate memory for temp array
 }
 
 /* Driver program to test above functions */
 int main() 
 { 
-	const unsigned long long num_elements = 256;
+	const unsigned long long num_elements = 512;
 	const unsigned long long base_case = 32;
 	int k = 4;
 	int arr[num_elements];

@@ -64,7 +64,7 @@ void mergeSort(int arr[], int l, int r, int temp_arr[], int b) {
 		for (int i = 0; i < b; i++) {
 			arr[i + l] = temp_arr[i]; 
 		}
-		merge(arr, temp_arr, l, m, r); 
+		//merge(arr, temp_arr, l, m, r); 
 	}
 } 
 
@@ -88,14 +88,14 @@ void rootMergeSort(int arr[], int *arr_first, int *arr_last, int base_case) {
 	int* temp_arr = NULL;
 	temp_arr = new int[num_elements];
 
-	mergeSort(arr, 0, num_elements - 1, temp_arr, base_case);
+	mergeSort(arr, 0, num_elements, temp_arr, base_case);
 	delete [] temp_arr; temp_arr = NULL; // to deallocate memory for temp array
 }
 
 /* Driver program to test above functions */
 int main() 
 { 
-	const unsigned long long num_elements = 256;
+	const unsigned long long num_elements = 128;
 	const unsigned long long base_case = 32;
 	int arr[num_elements];
 	for (unsigned long long i = 0; i < num_elements; i++) {
