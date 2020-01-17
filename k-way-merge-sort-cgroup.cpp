@@ -10,6 +10,7 @@
 #include <string>
 #include <fcntl.h>
 #include <queue>
+#include <algorithm>
 using namespace std;
 
 
@@ -200,7 +201,7 @@ int main(int argc, char *argv[]){
 		//std::cout << array[i].val << "\t";
   //}
 
-  const unsigned long long num_elements = 512;
+  //const unsigned long long num_elements = 512;
   const unsigned long long base_case = 32;
   int k = 4;
   int arr[num_elements];

@@ -1,6 +1,7 @@
 /* C++ program for Merge Sort */
-#include<iostream> 
+#include <iostream> 
 #include <queue>
+#include <algorithm>
 using namespace std;
 
 

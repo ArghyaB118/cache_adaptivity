@@ -1,5 +1,6 @@
 /* C++ program for Merge Sort */
-#include<iostream> 
+#include <iostream> 
+#include <algorithm>
 using namespace std;
 // Merges two subarrays of arr[]. 
 // First subarray is arr[l..m] 
