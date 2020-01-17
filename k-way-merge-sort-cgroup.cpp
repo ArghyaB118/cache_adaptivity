@@ -1,4 +1,3 @@
-#include "funnelSort.h"
 #include <iostream>
 #include <cstdlib>
 #include <sys/types.h>
@@ -205,10 +204,10 @@ int main(int argc, char *argv[]){
   const unsigned long long base_case = 32;
   int k = 4;
   int arr[num_elements];
-  if (((arr = (int) mmap(0, sizeof(int)*num_elements, PROT_READ | PROT_WRITE, MAP_SHARED , fdout, 0)) == (int)MAP_FAILED)){
-       printf ("mmap error for output with code");
-       return 0;
-   }
+  //if (((arr = (int) mmap(0, sizeof(int)*num_elements, PROT_READ | PROT_WRITE, MAP_SHARED , fdout, 0)) == (int)MAP_FAILED)){
+    //   printf ("mmap error for output with code");
+      // return 0;
+   //}
 
   for (unsigned long long i = 0; i < num_elements; i++) {
     arr[i] = rand() % 10000;
