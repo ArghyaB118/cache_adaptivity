@@ -1,7 +1,6 @@
 /* C++ program for Merge Sort */
 #include<iostream> 
 #include <queue>
-#include <vector>
 using namespace std;
 
 
@@ -13,7 +12,7 @@ void merge(int arr[], int temp_arr[], int l, int m, int r, int k) {
 	for (int i = 0; i < k; i++) {
 		pq.push({arr[l + i*m], {i, 0}});
 	}
-	while (pq.empty() == false) {
+	while (!pq.empty()) {
 		ppi curr = pq.top();
 		pq.pop();
 		temp_arr[itr] = curr.first; itr++;
@@ -82,7 +81,7 @@ int main()
 	int k = 4;
 	int arr[num_elements];
 	for (unsigned long long i = 0; i < num_elements; i++) {
-		arr[i] = rand() % 1000;
+		arr[i] = rand() % 10000;
   	}
   	cout << "given array is" << endl;  
 	printArray(arr, num_elements);
