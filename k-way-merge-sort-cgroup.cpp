@@ -174,13 +174,13 @@ int main(int argc, char *argv[]){
 		exit(1);
 	}
 
-	int fdout;
-
-	if ((fdout = open ("nullbytes", O_RDWR, 0x0777 )) < 0){
-		printf ("can't create nullbytes for writing\n");
-		return 0;
-	}
-	const int data_in_megabytes = 1024;
+//	int fdout;
+//
+//	if ((fdout = open ("nullbytes", O_RDWR, 0x0777 )) < 0){
+//		printf ("can't create nullbytes for writing\n");
+//		return 0;
+//	}
+	const int data_in_megabytes = 1;
   const unsigned long long num_elements = data_in_megabytes*1024*1024/4;
 
 	//Int* array;
@@ -202,7 +202,7 @@ int main(int argc, char *argv[]){
   //}
 
   //const unsigned long long num_elements = 512;
-  const unsigned long long base_case = 32;
+  const unsigned long long base_case = 16384;
   int k = 4;
   int arr[num_elements];
   //if (((arr = (int) mmap(0, sizeof(int)*num_elements, PROT_READ | PROT_WRITE, MAP_SHARED , fdout, 0)) == (int)MAP_FAILED)){
@@ -242,6 +242,6 @@ int main(int argc, char *argv[]){
   printArray(arr, num_elements);
 
 	std::cout << "Total sorting time: " << duration << "\n";
-	std::cout << "Size of record: " << sizeof(Int) << std::endl;
+//	std::cout << "Size of record: " << sizeof(Int) << std::endl;
   return 0;
 }
