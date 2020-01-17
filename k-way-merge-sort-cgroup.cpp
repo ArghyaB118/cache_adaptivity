@@ -12,7 +12,7 @@
 #include <queue>
 #include <algorithm>
 using namespace std;
-
+#define TYPE int
 
 typedef pair<int, pair<int, int> > ppi;
 
@@ -204,11 +204,12 @@ int main(int argc, char *argv[]){
   //const unsigned long long num_elements = 512;
   const unsigned long long base_case = 16384;
   int k = 4;
-  int arr[num_elements];
-  //if (((arr = (int) mmap(0, sizeof(int)*num_elements, PROT_READ | PROT_WRITE, MAP_SHARED , fdout, 0)) == (int)MAP_FAILED)){
-    //   printf ("mmap error for output with code");
-      // return 0;
-   //}
+  //int arr[num_elements];
+  TYPE* arr;
+  if (((arr = (TYPE*) mmap(0, sizeof(int)*num_elements, PROT_READ | PROT_WRITE, MAP_SHARED , fdout, 0)) == (TYPE*)MAP_FAILED)){
+      printf ("mmap error for output with code");
+      return 0;
+  }
 
   for (unsigned long long i = 0; i < num_elements; i++) {
     arr[i] = rand() % 10000;
