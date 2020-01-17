@@ -68,10 +68,6 @@ void printArray(int A[], int size) {
   cout << endl; 
 } 
 
-//void rootMergeSort(int arr[], int num_elements, int base_case) {
-//  int temp_arr[num_elements];
-//  mergeSort(arr, 0, num_elements - 1, temp_arr, base_case); 
-//}
 
 void rootMergeSort(int arr[], int *arr_first, int *arr_last, int base_case, int k) {
   int num_elements = arr_last - arr_first;
@@ -83,23 +79,6 @@ void rootMergeSort(int arr[], int *arr_first, int *arr_last, int base_case, int 
   mergeSort(arr, 0, num_elements, temp_arr, base_case, k);
   delete [] temp_arr; temp_arr = NULL; // to deallocate memory for temp array
 }
-
-
-class Int
-{
-	public:
-		int val;
-    Int(int i = 0): val(i) {}
-};
-
-class Integer_comparator
-{
-	public:
-		bool operator () (const Int& a, const Int& b) const
-		{
-			return (a.val < b.val);
-		}
-};
 
 std::vector<std::string> split(std::string mystring, std::string delimiter)
 {
@@ -119,7 +98,6 @@ std::vector<std::string> split(std::string mystring, std::string delimiter)
     }
     return subStringList;
 }
-
 
 std::string exec(std::string cmd){
     std::array<char, 128> buffer;
@@ -180,31 +158,16 @@ int main(int argc, char *argv[]){
 		printf ("can't create nullbytes for writing\n");
 		return 0;
 	}
-	const int data_in_megabytes = 128;
+	const int data_in_megabytes = atoi(argv[2]);
   const unsigned long long num_elements = data_in_megabytes*1024*1024/4;
-
-	//Int* array;
-	//if (((array = (Int*) mmap(0, sizeof(Int)*num_elements, PROT_READ | PROT_WRITE, MAP_SHARED , fdout, 0)) == (Int*)MAP_FAILED)){
-		//	 printf ("mmap error for output with code");
-		//	 return 0;
-	 //}
 
  	std::cout << "Running lazy funnel sort on an array of size: " << (int)num_elements << "\n";
 
 	std::vector<long> io_stats = {0,0};
 	print_io_data(io_stats, "Printing I/O statistics at program start @@@@@ \n");
 
-	//Integer_comparator comp;
-  //for (unsigned long long i = 0; i < num_elements; i++){
-    //records[i] = Integer(57-i);
-		//array[i] = Int(rand() % 1000);
-		//std::cout << array[i].val << "\t";
-  //}
-
-  //const unsigned long long num_elements = 512;
   const unsigned long long base_case = atoi(argv[1])*1024*1024/4;
   int k = 4;
-  //int arr[num_elements];
   TYPE* arr;
   if (((arr = (TYPE*) mmap(0, sizeof(int)*num_elements, PROT_READ | PROT_WRITE, MAP_SHARED , fdout, 0)) == (TYPE*)MAP_FAILED)){
       printf ("mmap error for output with code");
@@ -215,10 +178,10 @@ int main(int argc, char *argv[]){
     arr[i] = rand() % 10000;
   }
 
-  limit_memory(std::stol(argv[1])*1024*1024,argv[2]);
+  limit_memory(std::stol(argv[1])*1024*1024,argv[3]);
 
-  cout << "given array is" << endl;  
-  printArray(arr, num_elements);
+  //cout << "given array is" << endl;  
+  //printArray(arr, num_elements);
 
 	std::cout << "\n==================================================================\n";
 
@@ -228,21 +191,14 @@ int main(int argc, char *argv[]){
 
 	print_io_data(io_stats, "Printing I/O statistics just before sorting start @@@@@ \n");
 
-	//FunnelSort::sort<class Int, class Integer_comparator>(&array[0], &array[num_elements], comp);
-  /*for (int i = 0; i < num_elements; i++){
-    std::cout << array[i].val << "\t";
-  }*/
-
   rootMergeSort(arr, &arr[0], &arr[num_elements - 1], base_case, k);
 	duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
-
-	std::cout << std::endl;
+  std::cout << "\n==================================================================\n";
 	print_io_data(io_stats, "Printing I/O statistics just after sorting start @@@@@ \n");
 
-  cout << "sorted array is" << endl;  
-  printArray(arr, num_elements);
+  //cout << "sorted array is" << endl;  
+  //printArray(arr, num_elements);
 
 	std::cout << "Total sorting time: " << duration << "\n";
-//	std::cout << "Size of record: " << sizeof(Int) << std::endl;
   return 0;
 }
