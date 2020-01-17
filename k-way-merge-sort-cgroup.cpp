@@ -174,13 +174,13 @@ int main(int argc, char *argv[]){
 		exit(1);
 	}
 
-//	int fdout;
-//
-//	if ((fdout = open ("nullbytes", O_RDWR, 0x0777 )) < 0){
-//		printf ("can't create nullbytes for writing\n");
-//		return 0;
-//	}
-	const int data_in_megabytes = 1;
+	int fdout;
+
+	if ((fdout = open ("nullbytes", O_RDWR, 0x0777 )) < 0){
+		printf ("can't create nullbytes for writing\n");
+		return 0;
+	}
+	const int data_in_megabytes = 128;
   const unsigned long long num_elements = data_in_megabytes*1024*1024/4;
 
 	//Int* array;
@@ -202,7 +202,7 @@ int main(int argc, char *argv[]){
   //}
 
   //const unsigned long long num_elements = 512;
-  const unsigned long long base_case = 16384;
+  const unsigned long long base_case = atoi(argv[1])*1024*1024/4;
   int k = 4;
   //int arr[num_elements];
   TYPE* arr;
