@@ -19,7 +19,14 @@ https://www.geeksforgeeks.org/merge-sort/
 #https://github.com/melvilgit/external-Merge-Sort/tree/4924e5d6546141a86ca43bf9d011103fa9d7054a
 #https://www.techiedelight.com/external-merge-sort/
 
-# External MergeSort in Python
+
+# the final implementation
+#how_to_run
+#./executables/k-way-merge-sort-cgroup <memory allowed to the function in MiB> <size of the data in MiB> <cgroup name>
+sudo ./cache_ex.sh cache-test-arghya
+sudo cgexec -g memory:cache-test-arghya ./executables/k-way-merge-sort-cgroup 64 256 cache-test-arghya
+
+# External MergeSort in Python (explanation of the theory as a quick note)
 
   Implemented *Pythonic* way as well as *low level native External Merge Sort*
   
