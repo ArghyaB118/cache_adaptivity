@@ -160,14 +160,19 @@ int main(int argc, char *argv[]){
 	}
 	const int data_in_megabytes = atoi(argv[2]);
   const unsigned long long num_elements = data_in_megabytes*1024*1024/4;
-
- 	std::cout << "Running lazy funnel sort on an array of size: " << (int)num_elements << "\n";
-
 	std::vector<long> io_stats = {0,0};
+	std::cout << "\n==================================================================\n";
 	print_io_data(io_stats, "Printing I/O statistics at program start @@@@@ \n");
 
   const unsigned long long base_case = atoi(argv[1])*1024*1024/4;
-  int k = 4;
+  int k;
+  if ((int)base_case * 16 == (int)num_elements || (int)base_case * 4 == (int)num_elements)
+	k = 4;
+  else if ((int)base_case * 8 == (int)num_elements)
+	k = 8;
+  else if ((int)num_elements % ((int)base_case * 2) == 0)
+  	k = 2;
+  std::cout << "Running " << k <<"-way merge sort on an array of size: " << (int)num_elements << " with base case " << (int)base_case << std::endl;
   TYPE* arr;
   if (((arr = (TYPE*) mmap(0, sizeof(int)*num_elements, PROT_READ | PROT_WRITE, MAP_SHARED , fdout, 0)) == (TYPE*)MAP_FAILED)){
       printf ("mmap error for output with code");
@@ -182,18 +187,15 @@ int main(int argc, char *argv[]){
 
   //cout << "given array is" << endl;  
   //printArray(arr, num_elements);
-
-	std::cout << "\n==================================================================\n";
-
 	std::clock_t start;
   double duration;
 	start = std::clock();
-
+	std::cout << "\n==================================================================\n";
 	print_io_data(io_stats, "Printing I/O statistics just before sorting start @@@@@ \n");
 
   rootMergeSort(arr, &arr[0], &arr[num_elements - 1], base_case, k);
 	duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
-  std::cout << "\n==================================================================\n";
+	std::cout << "\n==================================================================\n";
 	print_io_data(io_stats, "Printing I/O statistics just after sorting start @@@@@ \n");
 
   //cout << "sorted array is" << endl;  
