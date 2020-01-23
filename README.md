@@ -25,6 +25,11 @@ https://www.geeksforgeeks.org/merge-sort/
 #./executables/k-way-merge-sort-cgroup <memory allowed to the function in MiB> <size of the data in MiB> <cgroup name>
 sudo ./cache_ex.sh cache-test-arghya
 sudo cgexec -g memory:cache-test-arghya ./executables/k-way-merge-sort-cgroup 64 256 cache-test-arghya
+  
+# the implementation of funnel sort added
+#related files: bin_merge.h, buf.h, funnelSort.h, k_way_merger.h, funnel_sort.cpp
+sudo ./cache_ex.sh cache-test-arghya
+sudo cgexec -g memory:cache-test-arghya ./executables/funnel_sort 64 256 cache-test-arghya
 
 # External MergeSort in Python (explanation of the theory as a quick note)
 
