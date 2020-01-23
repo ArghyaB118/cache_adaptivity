@@ -5,6 +5,8 @@ g++ k-way-merge-sort.cpp -o ./executables/k-way-merge-sort
 sudo chmod a+x ./executables/k-way-merge-sort
 g++ k-way-merge-sort-cgroup.cpp -o ./executables/k-way-merge-sort-cgroup
 sudo chmod a+x ./executables/k-way-merge-sort-cgroup
+g++ funnel_sort.cpp -o ./executables/funnel_sort
+sudo chmod a+x ./executables/funnel_sort
 
 if [ -d  "/var/cgroups/$1" ]
 then

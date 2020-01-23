@@ -165,7 +165,7 @@ int main(int argc, char *argv[]){
 	print_io_data(io_stats, "Printing I/O statistics at program start @@@@@ \n");
 
   const unsigned long long base_case = atoi(argv[1])*1024*1024/4;
-  int k;
+  int k; //= (int)num_elements / (int)base_case;
   if ((int)base_case * 16 == (int)num_elements || (int)base_case * 4 == (int)num_elements)
 	k = 4;
   else if ((int)base_case * 8 == (int)num_elements)
@@ -180,7 +180,7 @@ int main(int argc, char *argv[]){
   }
 
   for (unsigned long long i = 0; i < num_elements; i++) {
-    arr[i] = rand() % 10000;
+    arr[i] = rand() % 100000;
   }
 
   limit_memory(std::stol(argv[1])*1024*1024,argv[3]);
