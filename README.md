@@ -7,7 +7,7 @@
 createFile.py
 em-merge-sort.py
 
-#cpp_codes
+#cpp-codes
 createLargeFile.cpp
 em-merge-sort.cpp //using MinHeap implementation and merge sort
 em-merge-sort-lib.cpp //using priority queue and STL sorting
@@ -21,7 +21,7 @@ https://www.geeksforgeeks.org/merge-sort/
 
 
 # the final implementation
-#how-to-run: ./executables/k-way-merge-sort-cgroup <memory-allowed-to-the-function-in-MiB> <size-of-the-data-in-MiB> <cgroup-name>
+#how-to-run: ./executables/k-way-merge-sort-cgroup memory-allowed-to-the-function-in-MiB size-of-the-data-in-MiB cgroup-name
 
 sudo ./cache_ex.sh cache-test-arghya
 
