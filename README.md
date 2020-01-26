@@ -21,7 +21,7 @@ https://www.geeksforgeeks.org/merge-sort/
 
 
 # the final implementation
-#how_to_run: ./executables/k-way-merge-sort-cgroup <memory allowed to the function in MiB> <size of the data in MiB> <cgroup name>
+#how-to-run: ./executables/k-way-merge-sort-cgroup <memory-allowed-to-the-function-in-MiB> <size-of-the-data-in-MiB> <cgroup-name>
 
 sudo ./cache_ex.sh cache-test-arghya
 
