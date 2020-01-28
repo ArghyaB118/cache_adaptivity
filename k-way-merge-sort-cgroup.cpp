@@ -16,49 +16,6 @@ using namespace std;
 
 typedef pair<int, pair<int, int> > ppi;
 
-void merge(int arr[], int temp_arr[], int l, int m, int r, int k) {
-  int itr = 0;
-  priority_queue<ppi, vector<ppi>, greater<ppi> > pq;
-  for (int i = 0; i < k; i++) {
-    pq.push({arr[l + i*m], {i, 0}});
-  }
-  while (!pq.empty()) {
-    ppi curr = pq.top();
-    pq.pop();
-    temp_arr[itr] = curr.first; itr++;
-    int i = curr.second.first;   
-        int j = curr.second.second;
-        if (j + 1 < m) 
-            pq.push({arr[i*m + j + 1], {i, j + 1}});
-  }
-  for (int i = 0 ; i < m*k; i++)
-    arr[i + l] = temp_arr[i];
-}
-
-
-/* l is for left index and r is right index of the 
-sub-array of arr to be sorted */
-void mergeSort(int arr[], int l, int r, int temp_arr[], int b, int k) { 
-  if (l < r && r - l > b) {
-    // Same as (l+r)/2, but avoids overflow for large l and h 
-    int m = (r - l + 1) / k; 
-    for (int i = 0; i < k; ++i) {
-      mergeSort(arr, l + i*m, l + i*m + m, temp_arr, b, k); 
-    }
-    merge(arr, temp_arr, l, m, r, k);
-  }
-  else if (l < r && r - l <= b) {
-    // Same as (l+r)/2, but avoids overflow for large l and h 
-    int m = l+(r-l)/2;
-    for (int i = 0; i < b; i++) {
-      temp_arr[i] = arr[i + l]; 
-    }
-    sort(temp_arr, temp_arr + b);
-    for (int i = 0; i < b; i++) {
-      arr[i + l] = temp_arr[i]; 
-    }
-  }
-} 
 
 /* UTILITY FUNCTIONS */
 /* Function to print an array */
@@ -67,18 +24,6 @@ void printArray(int A[], int size) {
     cout << A[i] << " ";
   cout << endl; 
 } 
-
-
-void rootMergeSort(int arr[], int *arr_first, int *arr_last, int base_case, int k) {
-  int num_elements = arr_last - arr_first;
-  //int temp_arr[num_elements];
-
-  int* temp_arr = NULL;
-  temp_arr = new int[num_elements];
-
-  mergeSort(arr, 0, num_elements, temp_arr, base_case, k);
-  delete [] temp_arr; temp_arr = NULL; // to deallocate memory for temp array
-}
 
 std::vector<std::string> split(std::string mystring, std::string delimiter)
 {
@@ -113,19 +58,6 @@ std::string exec(std::string cmd){
     return result;
 }
 
-void limit_memory(long memory_in_bytes, const char* string2){
-  std::cout << "Entering limit memory function\n";
-  std::string string = std::to_string(memory_in_bytes);
-  std::string command = std::string("bash -c \"echo ") + string + std::string(" > /var/cgroups/") + string2 + std::string("/memory.limit_in_bytes\"");
-  std::cout << "Command: " << command << std::endl;
-  int return_code = system(command.c_str());
-  //std::cout << "Memory usage: " << exec(std::string("cat /var/cgroups/") + string2 + std::string("/memory.usage_in_bytes")) << std::endl;
-  if (return_code != 0){
-    std::cout << "Error. Unable to set cgroup memory " << string << " Code: " << return_code << "\n";
-    std::cout << "Memory usage: " << exec(std::string("cat /var/cgroups/") + string2 + std::string("/memory.usage_in_bytes")) << std::endl;
-  }
-  std::cout << "Limiting cgroup memory: " << string << " bytes\n";
-}
 
 void print_io_data(std::vector<long>& data, std::string header){
   std::cout << header;
@@ -144,6 +76,83 @@ void print_io_data(std::vector<long>& data, std::string header){
   }
 }
 
+void limit_memory(long memory_in_bytes, const char* string2){
+  std::cout << "Entering limit memory function\n";
+  std::string string = std::to_string(memory_in_bytes);
+  std::string command = std::string("bash -c \"echo ") + string + std::string(" > /var/cgroups/") + string2 + std::string("/memory.limit_in_bytes\"");
+  std::cout << "Command: " << command << std::endl;
+  int return_code = system(command.c_str());
+  //std::cout << "Memory usage: " << exec(std::string("cat /var/cgroups/") + string2 + std::string("/memory.usage_in_bytes")) << std::endl;
+  if (return_code != 0){
+    std::cout << "Error. Unable to set cgroup memory " << string << " Code: " << return_code << "\n";
+    std::cout << "Memory usage: " << exec(std::string("cat /var/cgroups/") + string2 + std::string("/memory.usage_in_bytes")) << std::endl;
+  }
+  std::cout << "Limiting cgroup memory: " << string << " bytes\n";
+}
+
+
+void merge(int arr[], int temp_arr[], int l, int m, int r, int k) {
+  int itr = 0;
+  priority_queue<ppi, vector<ppi>, greater<ppi> > pq;
+  for (int i = 0; i < k; i++) {
+    pq.push({arr[l + i*m], {i, 0}});
+  }
+  while (!pq.empty()) {
+    ppi curr = pq.top();
+    pq.pop();
+    temp_arr[itr] = curr.first; itr++;
+    int i = curr.second.first;   
+        int j = curr.second.second;
+        if (j + 1 < m) 
+            pq.push({arr[i*m + j + 1], {i, j + 1}});
+  }
+  for (int i = 0 ; i < m*k; i++)
+    arr[i + l] = temp_arr[i];
+}
+
+
+/* l is for left index and r is right index of the 
+sub-array of arr to be sorted */
+void mergeSort(int arr[], int l, int r, int temp_arr[], int b, int k, int data_in_megabytes, int memory_given_MB) { 
+  if (l < r && r - l > b) {
+    // Same as (l+r)/2, but avoids overflow for large l and h 
+    int m = (r - l + 1) / k; 
+    for (int i = 0; i < k; ++i) {
+      mergeSort(arr, l + i*m, l + i*m + m, temp_arr, b, k, data_in_megabytes, memory_given_MB); 
+    }
+	long memory = data_in_megabytes*1024*1024;
+    limit_memory(memory,"cache-test-arghya");
+    merge(arr, temp_arr, l, m, r, k);
+	memory = memory_given_MB*1024*1024;
+    limit_memory(memory,"cache-test-arghya");
+  }
+  else if (l < r && r - l <= b) {
+    // Same as (l+r)/2, but avoids overflow for large l and h 
+    int m = l+(r-l)/2;
+    for (int i = 0; i < b; i++) {
+      temp_arr[i] = arr[i + l]; 
+    }
+    sort(temp_arr, temp_arr + b);
+    for (int i = 0; i < b; i++) {
+      arr[i + l] = temp_arr[i]; 
+    }
+  }
+} 
+
+
+
+void rootMergeSort(int arr[], int *arr_first, int *arr_last, int base_case, int k, int data_in_megabytes, int memory_given_MB) {
+  int num_elements = arr_last - arr_first;
+  //int temp_arr[num_elements];
+
+  int* temp_arr = NULL;
+  temp_arr = new int[num_elements];
+
+  mergeSort(arr, 0, num_elements, temp_arr, base_case, k, data_in_megabytes, memory_given_MB);
+  delete [] temp_arr; temp_arr = NULL; // to deallocate memory for temp array
+}
+
+
 int main(int argc, char *argv[]){
 	srand (time(NULL));
 
@@ -159,6 +168,7 @@ int main(int argc, char *argv[]){
 		return 0;
 	}
 	const int data_in_megabytes = atoi(argv[2]);
+        const int memory_given_MB = atoi(argv[1]);	
   const unsigned long long num_elements = data_in_megabytes*1024*1024/4;
 	std::vector<long> io_stats = {0,0};
 	std::cout << "\n==================================================================\n";
@@ -183,17 +193,18 @@ int main(int argc, char *argv[]){
     arr[i] = rand() % 100000;
   }
 
-  limit_memory(std::stol(argv[1])*1024*1024,argv[3]);
-
   //cout << "given array is" << endl;  
   //printArray(arr, num_elements);
 	std::clock_t start;
   double duration;
 	start = std::clock();
+  std::ofstream out ("mem_profile.txt", std::ofstream::out); 
+  out << duration << " " << atoi(argv[1])*1024*1024 << std::endl;
+  limit_memory(std::stol(argv[1])*1024*1024,argv[3]);
 	std::cout << "\n==================================================================\n";
 	print_io_data(io_stats, "Printing I/O statistics just before sorting start @@@@@ \n");
 
-  rootMergeSort(arr, &arr[0], &arr[num_elements - 1], base_case, k);
+  rootMergeSort(arr, &arr[0], &arr[num_elements - 1], base_case, k, data_in_megabytes, memory_given_MB);
 	duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
 	std::cout << "\n==================================================================\n";
 	print_io_data(io_stats, "Printing I/O statistics just after sorting start @@@@@ \n");
@@ -202,5 +213,6 @@ int main(int argc, char *argv[]){
   //printArray(arr, num_elements);
 
 	std::cout << "Total sorting time: " << duration << "\n";
-  return 0;
+ out.close();  
+ return 0;
 }
