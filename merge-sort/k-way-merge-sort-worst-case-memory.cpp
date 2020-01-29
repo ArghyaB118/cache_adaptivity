@@ -11,11 +11,14 @@
 #include <fcntl.h>
 #include <queue>
 #include <algorithm>
+#include <fstream>
 using namespace std;
 #define TYPE int
 
 typedef pair<int, pair<int, int> > ppi;
-
+std::clock_t start;
+double duration;
+std::ofstream out;
 
 /* UTILITY FUNCTIONS */
 /* Function to print an array */
@@ -120,10 +123,15 @@ void mergeSort(int arr[], int l, int r, int temp_arr[], int b, int k, int data_i
     for (int i = 0; i < k; ++i) {
       mergeSort(arr, l + i*m, l + i*m + m, temp_arr, b, k, data_in_megabytes, memory_given_MB); 
     }
-	long memory = data_in_megabytes*1024*1024;
+    //long memory = data_in_megabytes*1024*1024;
+    long memory = (r - l + 1) * 4 + 1000;
+    duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
+    out << duration << " " << memory << std::endl;
     limit_memory(memory,"cache-test-arghya");
     merge(arr, temp_arr, l, m, r, k);
-	memory = memory_given_MB*1024*1024;
+    memory = memory_given_MB*1024*1024;
+    duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
+    out << duration << " " << memory << std::endl; 
     limit_memory(memory,"cache-test-arghya");
   }
   else if (l < r && r - l <= b) {
@@ -195,10 +203,8 @@ int main(int argc, char *argv[]){
 
   //cout << "given array is" << endl;  
   //printArray(arr, num_elements);
-	std::clock_t start;
-  double duration;
 	start = std::clock();
-  std::ofstream out ("mem_profile.txt", std::ofstream::out); 
+  out = std::ofstream("mem_profile.txt", std::ofstream::out); 
   out << duration << " " << atoi(argv[1])*1024*1024 << std::endl;
   limit_memory(std::stol(argv[1])*1024*1024,argv[3]);
 	std::cout << "\n==================================================================\n";

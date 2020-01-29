@@ -1,15 +1,17 @@
 #!/bin/bash
-g++ binary-merge-sort.cpp -o ./executables/binary-merge-sort
+g++ ./merge-sort/binary-merge-sort.cpp -o ./executables/binary-merge-sort
 sudo chmod a+x ./executables/binary-merge-sort
-g++ k-way-merge-sort.cpp -o ./executables/k-way-merge-sort
+g++ ./merge-sort/k-way-merge-sort.cpp -o ./executables/k-way-merge-sort
 sudo chmod a+x ./executables/k-way-merge-sort
-g++ k-way-merge-sort-cgroup.cpp -o ./executables/k-way-merge-sort-cgroup
-sudo chmod a+x ./executables/k-way-merge-sort-cgroup
-g++ funnel_sort.cpp -o ./executables/funnel_sort
+g++ ./merge-sort/k-way-merge-sort-constant-memory.cpp -o ./executables/k-way-merge-sort-constant-memory
+sudo chmod a+x ./executables/k-way-merge-sort-constant-memory
+g++ ./merge-sort/k-way-merge-sort-worst-case-memory.cpp -o ./executables/k-way-merge-sort-worst-case-memory
+sudo chmod a+x ./executables/k-way-merge-sort-worst-case-memory
+g++ ./funnel-sort/funnel_sort.cpp -o ./executables/funnel_sort
 sudo chmod a+x ./executables/funnel_sort
-g++ cache_adaptive.cpp -o ./executables/cache-adaptive
+g++ ./matrix-mul/cache_adaptive.cpp -o ./executables/cache-adaptive
 sudo chmod a+x ./executables/cache-adaptive
-g++ non_cache_adaptive.cpp -o ./executables/non-cache-adaptive
+g++ ./matrix-mul/non_cache_adaptive.cpp -o ./executables/non-cache-adaptive
 sudo chmod a+x ./executables/non-cache-adaptive
 
 
