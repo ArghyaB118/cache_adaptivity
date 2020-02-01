@@ -127,7 +127,7 @@ int main(int argc, char *argv[]){
 
 	print_io_data(io_stats, "Printing I/O statistics just before sorting start @@@@@ \n");
 
-	FunnelSort::sort<class int, class Integer_comparator>(&arr[0], &arr[num_elements], comp);
+	FunnelSort::sort<int, class Integer_comparator>(&arr[0], &arr[num_elements], comp);
   /*for (int i = 0; i < num_elements; i++){
     std::cout << array[i].val << "\t";
   }*/
@@ -136,6 +136,5 @@ int main(int argc, char *argv[]){
 	std::cout << std::endl;
 	print_io_data(io_stats, "Printing I/O statistics just after sorting start @@@@@ \n");
 	std::cout << "Total sorting time: " << duration << "\n";
-	std::cout << "Size of record: " << sizeof(Int) << std::endl;
   return 0;
 }

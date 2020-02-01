@@ -10,6 +10,8 @@ g++ ./merge-sort/k-way-merge-sort-worst-case-memory.cpp -o ./executables/k-way-m
 chmod a+x ./executables/k-way-merge-sort-worst-case-memory
 g++ ./funnel-sort/funnel_sort.cpp -o ./executables/funnel_sort
 chmod a+x ./executables/funnel_sort
+g++ ./funnel-sort/funnel-sort-int.cpp -o ./executables/funnel-sort-int
+chmod a+x ./executables/funnel-sort-int
 g++ ./matrix-mul/cache_adaptive.cpp -o ./executables/cache-adaptive
 chmod a+x ./executables/cache-adaptive
 g++ ./matrix-mul/non_cache_adaptive.cpp -o ./executables/non-cache-adaptive
@@ -35,11 +37,16 @@ cgexec -g memory:$3 ./executables/k-way-merge-sort-constant-memory $1 $2 $3
 sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
 sudo bash -c "echo 1 > /var/cgroups/$3/memory.oom_control"
 
-cgexec -g memory:$3 ./executables/funnel_sort $1 $2 $3
+cgexec -g memory:$3 ./executables/funnel-sort-int $1 $2 $3
 
-sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
-sudo bash -c "echo 1 > /var/cgroups/$3/memory.oom_control"
+#sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
+#sudo bash -c "echo 1 > /var/cgroups/$3/memory.oom_control"
 
-cgexec -g memory:$3 ./executables/k-way-merge-sort-worst-case-memory $1 $2 $3
+#cgexec -g memory:$3 ./executables/funnel_sort $1 $2 $3
+
+#sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
+#sudo bash -c "echo 1 > /var/cgroups/$3/memory.oom_control"
+
+#cgexec -g memory:$3 ./executables/k-way-merge-sort-worst-case-memory $1 $2 $3
 
 
