@@ -1,0 +1,18 @@
+Running lazy funnel sort on an array of size: 67108864
+Printing I/O statistics at program start @@@@@ 
+Bytes read: 331776, Bytes written: 0
+
+Entering limit memory function
+Command: bash -c "echo 67108864 > /var/cgroups/cache-test-arghya/memory.limit_in_bytes"
+Limiting cgroup memory: 67108864 bytes
+
+==================================================================
+Printing I/O statistics just before sorting start @@@@@ 
+Bytes read: 268881920, Bytes written: 268439552
+
+
+Printing I/O statistics just after sorting start @@@@@ 
+Bytes read: 758382592, Bytes written: 575463424
+
+Total sorting time: 61.1054
+Size of record: 4

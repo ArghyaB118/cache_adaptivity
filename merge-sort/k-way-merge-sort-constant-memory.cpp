@@ -162,7 +162,7 @@ int main(int argc, char *argv[]){
 
 	int fdout;
 
-	if ((fdout = open ("nullbytes", O_RDWR, 0x0777 )) < 0){
+	if ((fdout = open ("/home/arghya/EM-MergeSort/merge-sort/nullbytes", O_RDWR, 0x0777 )) < 0){
 		printf ("can't create nullbytes for writing\n");
 		return 0;
 	}
@@ -188,9 +188,9 @@ int main(int argc, char *argv[]){
       return 0;
   }
 
-  for (unsigned long long i = 0; i < num_elements; i++) {
-    arr[i] = rand() % 100000;
-  }
+  //for (unsigned long long i = 0; i < num_elements; i++) {
+   // arr[i] = rand() % 100000;
+  //}
 
   //cout << "given array is" << endl;  
   //printArray(arr, num_elements);
