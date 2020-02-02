@@ -197,9 +197,9 @@ int main(int argc, char *argv[]){
       return 0;
   }
 
-  for (unsigned long long i = 0; i < num_elements; i++) {
-    arr[i] = rand() % 100000;
-  }
+//  for (unsigned long long i = 0; i < num_elements; i++) {
+  //  arr[i] = rand() % 100000;
+ // }
 
   //cout << "given array is" << endl;  
   //printArray(arr, num_elements);

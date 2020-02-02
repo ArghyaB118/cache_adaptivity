@@ -181,6 +181,7 @@ int main(int argc, char *argv[]){
 	k = 8;
   else if ((int)num_elements % ((int)base_case * 2) == 0)
   	k = 2;
+  //k = 1023;
   std::cout << "Running " << k <<"-way merge sort on an array of size: " << (int)num_elements << " with base case " << (int)base_case << std::endl;
   TYPE* arr;
   if (((arr = (TYPE*) mmap(0, sizeof(int)*num_elements, PROT_READ | PROT_WRITE, MAP_SHARED , fdout, 0)) == (TYPE*)MAP_FAILED)){
@@ -197,7 +198,7 @@ int main(int argc, char *argv[]){
 	start = std::clock();
   out = std::ofstream("mem_profile.txt", std::ofstream::out); 
   out << duration << " " << atoi(argv[1])*1024*1024 << std::endl;
-  limit_memory(std::stol(argv[1])*1024*1024,argv[3]);
+  limit_memory(std::stol(argv[1])*1024*1024 + 1000,argv[3]);
 	std::cout << "\n==================================================================\n";
 	print_io_data(io_stats, "Printing I/O statistics just before sorting start @@@@@ \n");
 
@@ -206,8 +207,8 @@ int main(int argc, char *argv[]){
 	std::cout << "\n==================================================================\n";
 	print_io_data(io_stats, "Printing I/O statistics just after sorting start @@@@@ \n");
 
-  //cout << "sorted array is" << endl;  
-  //printArray(arr, num_elements);
+//  cout << "sorted array is" << endl;  
+//  printArray(arr, num_elements);
 
 	std::cout << "Total sorting time: " << duration << "\n";
  out.close();  
