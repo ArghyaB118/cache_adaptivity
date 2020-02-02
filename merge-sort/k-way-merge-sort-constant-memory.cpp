@@ -155,7 +155,7 @@ void rootMergeSort(int arr[], int *arr_first, int *arr_last, int base_case, int 
 int main(int argc, char *argv[]){
 	srand (time(NULL));
 
-	if (argc < 2){
+	if (argc < 3){
 		std::cout << "Insufficient arguments! Usage: funnel_sort <memory_limit> <cgroup_name>\n";
 		exit(1);
 	}

@@ -12,6 +12,9 @@
 #include <fcntl.h>
 using namespace std;
 #define TYPE int
+std::clock_t start;
+double duration;
+std::ofstream out;
 
 class Integer_comparator
 {
@@ -90,7 +93,7 @@ void print_io_data(std::vector<long>& data, std::string header){
 int main(int argc, char *argv[]){
 	srand (time(NULL));
 
-	if (argc < 2){
+	if (argc < 3){
 		std::cout << "Insufficient arguments! Usage: funnel_sort <memory_limit> <cgroup_name>\n";
 		exit(1);
 	}
@@ -103,38 +106,32 @@ int main(int argc, char *argv[]){
 	}
 	const int data_in_megabytes = atoi(argv[2]);
   const unsigned long long num_elements = data_in_megabytes*1024*1024/4;
+  std::vector<long> io_stats = {0,0};
+  std::cout << "\n==================================================================\n";
+  print_io_data(io_stats, "Printing I/O statistics at program start @@@@@ \n");
 
+  std::cout << "Running lazy funnel sort on an array of size: " << (int)num_elements << "\n";
 	TYPE* arr;
     if (((arr = (TYPE*) mmap(0, sizeof(int)*num_elements, PROT_READ | PROT_WRITE, MAP_SHARED , fdout, 0)) == (TYPE*)MAP_FAILED)){
         printf ("mmap error for output with code");
         return 0;
     }
 
- 	std::cout << "Running lazy funnel sort on an array of size: " << (int)num_elements << "\n";
-
-	std::vector<long> io_stats = {0,0};
-	print_io_data(io_stats, "Printing I/O statistics at program start @@@@@ \n");
-
 	Integer_comparator comp;
 
+
+  start = std::clock();
+  out = std::ofstream("mem_profile.txt", std::ofstream::out); 
+  out << duration << " " << atoi(argv[1])*1024*1024 << std::endl;
   limit_memory(std::stol(argv[1])*1024*1024,argv[3]);
+  std::cout << "\n==================================================================\n";
+  print_io_data(io_stats, "Printing I/O statistics just before sorting start @@@@@ \n");
 
-	std::cout << "\n==================================================================\n";
-
-	std::clock_t start;
-  double duration;
-	start = std::clock();
-
-	print_io_data(io_stats, "Printing I/O statistics just before sorting start @@@@@ \n");
-
-	FunnelSort::sort<int, class Integer_comparator>(&arr[0], &arr[num_elements], comp);
-  /*for (int i = 0; i < num_elements; i++){
-    std::cout << array[i].val << "\t";
-  }*/
-	duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
-
-	std::cout << std::endl;
-	print_io_data(io_stats, "Printing I/O statistics just after sorting start @@@@@ \n");
+  FunnelSort::sort<int, class Integer_comparator>(&arr[0], &arr[num_elements], comp);
+  duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
+  std::cout << "\n==================================================================\n";
+  print_io_data(io_stats, "Printing I/O statistics just after sorting start @@@@@ \n");
 	std::cout << "Total sorting time: " << duration << "\n";
-  return 0;
+ out.close(); 
+ return 0;
 }
