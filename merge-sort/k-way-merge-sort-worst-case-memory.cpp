@@ -124,7 +124,7 @@ void mergeSort(int arr[], int l, int r, int temp_arr[], int b, int k, int data_i
       mergeSort(arr, l + i*m, l + i*m + m, temp_arr, b, k, data_in_megabytes, memory_given_MB); 
     }
     //long memory = data_in_megabytes*1024*1024;
-    long memory = (r - l + 1) * 4 + 1000;
+    long memory = (r - l + 1) + 1000;
     duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
     out << duration << " " << memory << std::endl;
     limit_memory(memory,"cache-test-arghya");

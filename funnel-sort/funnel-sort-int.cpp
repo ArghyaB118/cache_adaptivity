@@ -122,8 +122,8 @@ int main(int argc, char *argv[]){
 
 
   start = std::clock();
-  out = std::ofstream("mem_profile.txt", std::ofstream::out); 
-  out << duration << " " << atoi(argv[1])*1024*1024 << std::endl;
+//  out = std::ofstream("mem_profile.txt", std::ofstream::out); 
+//  out << duration << " " << atoi(argv[1])*1024*1024 << std::endl;
   limit_memory(std::stol(argv[1])*1024*1024,argv[3]);
   std::cout << "\n==================================================================\n";
   print_io_data(io_stats, "Printing I/O statistics just before sorting start @@@@@ \n");

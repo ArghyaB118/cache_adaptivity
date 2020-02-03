@@ -66,4 +66,4 @@ while [ $STATUS -ge 1 ] && [ $X -lt "${#XYZ[@]}" ]; do
    STATUS=$(ps ax|grep "$PID"|wc -l)
 done 
 
-
+echo "Success!"
