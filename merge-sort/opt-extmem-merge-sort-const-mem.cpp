@@ -117,7 +117,7 @@ void merge(int arr[], int temp_arr[], int l, int m, int r, int k) {
 /* l is for left index and r is right index of the 
 sub-array of arr to be sorted */
 void mergeSort(int arr[], int l, int r, int temp_arr[], int b, int k, int data_in_megabytes, int memory_given_MB) { 
-  //cout << l << " " << r << endl;
+  cout << l << " " << r << endl;
   if (l < r && r - l > b) {
     // Same as (l+r)/2, but avoids overflow for large l and h 
     int m = (r - l + 1) / k; 
@@ -126,12 +126,12 @@ void mergeSort(int arr[], int l, int r, int temp_arr[], int b, int k, int data_i
     }
     merge(arr, temp_arr, l, m, r, k);
   }
-  else if (l < r && r - l <= b) {
-    for (int i = 0; i < b; i++) {
+  else if (l < r && r - l + 1 <= b) {
+    for (int i = 0; i < r - l + 1; i++) {
       temp_arr[i] = arr[i + l]; 
     }
     sort(temp_arr, temp_arr + b);
-    for (int i = 0; i < b; i++) {
+    for (int i = 0; i < r - l + 1; i++) {
       arr[i + l] = temp_arr[i]; 
     }
   }
@@ -174,25 +174,12 @@ int main(int argc, char *argv[]){
 	std::vector<long> io_stats = {0,0};
 	std::cout << "\n==================================================================\n";
 	print_io_data(io_stats, "Printing I/O statistics at program start @@@@@ \n");
-  
-  //int k; //= (int)num_elements / (int)base_case;
-  //if ((int)base_case * 16 == (int)num_elements || (int)base_case * 4 == (int)num_elements)
-	//k = 4;
-  //else if ((int)base_case * 8 == (int)num_elements)
-	//k = 8;
-  //else if ((int)num_elements % ((int)base_case * 2) == 0)
-  //	k = 2;
-  //k = 1023;
   std::cout << "Running " << k <<"-way merge sort on an array of size: " << (int)num_elements << " with base case " << (int)base_case << std::endl;
   TYPE* arr;
   if (((arr = (TYPE*) mmap(0, sizeof(int)*num_elements, PROT_READ | PROT_WRITE, MAP_SHARED , fdout, 0)) == (TYPE*)MAP_FAILED)){
       printf ("mmap error for output with code");
       return 0;
   }
-
-  //for (unsigned long long i = 0; i < num_elements; i++) {
-   // arr[i] = rand() % 100000;
-  //}
 
   //cout << "given array is" << endl;  
   //printArray(arr, num_elements);
