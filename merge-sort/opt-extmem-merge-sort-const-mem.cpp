@@ -116,18 +116,17 @@ void merge(int arr[], int temp_arr[], int l, int m, int r, int k) {
 
 /* l is for left index and r is right index of the 
 sub-array of arr to be sorted */
-void mergeSort(int arr[], int l, int r, int temp_arr[], unsigned long long b, unsigned long long k, int data_in_megabytes, int memory_given_MB) { 
+void mergeSort(int arr[], int l, int r, int temp_arr[], int b, int k, int data_in_megabytes, int memory_given_MB) { 
+  //cout << l << " " << r << endl;
   if (l < r && r - l > b) {
     // Same as (l+r)/2, but avoids overflow for large l and h 
     int m = (r - l + 1) / k; 
     for (int i = 0; i < k; ++i) {
-      mergeSort(arr, l + i*m, l + i*m + m, temp_arr, b, k, data_in_megabytes, memory_given_MB); 
+      mergeSort(arr, l + i*m, l + i*m + m - 1, temp_arr, b, k, data_in_megabytes, memory_given_MB); 
     }
     merge(arr, temp_arr, l, m, r, k);
   }
   else if (l < r && r - l <= b) {
-    // Same as (l+r)/2, but avoids overflow for large l and h 
-    int m = l+(r-l)/2;
     for (int i = 0; i < b; i++) {
       temp_arr[i] = arr[i + l]; 
     }
@@ -140,8 +139,8 @@ void mergeSort(int arr[], int l, int r, int temp_arr[], unsigned long long b, un
 
 
 
-void rootMergeSort(int arr[], int *arr_first, int *arr_last, unsigned long long base_case, unsigned long long k, int data_in_megabytes, int memory_given_MB) {
-  unsigned long long num_elements = arr_last - arr_first;
+void rootMergeSort(int arr[], int *arr_first, int *arr_last, int base_case, int k, int data_in_megabytes, int memory_given_MB) {
+  int num_elements = arr_last - arr_first;
   //int temp_arr[num_elements];
 
   int* temp_arr = NULL;
@@ -166,11 +165,12 @@ int main(int argc, char *argv[]){
 		printf ("can't create nullbytes for writing\n");
 		return 0;
 	}
-	const int data_in_megabytes = atoi(argv[2]);
+  const int data_in_megabytes = atoi(argv[2]);
   const int memory_given_MB = atoi(argv[1]);	
   const unsigned long long num_elements = data_in_megabytes * 1024 * 1024 / 4;
   const unsigned long long base_case = memory_given_MB * 1024 * 1024 / 4;
-  const unsigned long long k = memory_given_MB * 1024 * 1024 / 64;
+  int k  = (int)num_elements / (int)base_case;
+  //int k = memory_given_MB * 256; // memory_given_MB * 1024 * 1024 / (4 * 1024);
 	std::vector<long> io_stats = {0,0};
 	std::cout << "\n==================================================================\n";
 	print_io_data(io_stats, "Printing I/O statistics at program start @@@@@ \n");
@@ -199,7 +199,7 @@ int main(int argc, char *argv[]){
 	start = std::clock();
   out = std::ofstream("mem_profile.txt", std::ofstream::out); 
   out << duration << " " << atoi(argv[1])*1024*1024 << std::endl;
-  limit_memory(std::stol(argv[1])*1024*1024 + 1000,argv[3]);
+  limit_memory(2 * (std::stol(argv[1])*1024*1024 + 8192), argv[3]);
 	std::cout << "\n==================================================================\n";
 	print_io_data(io_stats, "Printing I/O statistics just before sorting start @@@@@ \n");
 

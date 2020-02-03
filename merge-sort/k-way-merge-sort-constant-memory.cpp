@@ -121,13 +121,11 @@ void mergeSort(int arr[], int l, int r, int temp_arr[], int b, int k, int data_i
     // Same as (l+r)/2, but avoids overflow for large l and h 
     int m = (r - l + 1) / k; 
     for (int i = 0; i < k; ++i) {
-      mergeSort(arr, l + i*m, l + i*m + m, temp_arr, b, k, data_in_megabytes, memory_given_MB); 
+      mergeSort(arr, l + i*m, l + i*m + m - 1, temp_arr, b, k, data_in_megabytes, memory_given_MB); 
     }
     merge(arr, temp_arr, l, m, r, k);
   }
   else if (l < r && r - l <= b) {
-    // Same as (l+r)/2, but avoids overflow for large l and h 
-    int m = l+(r-l)/2;
     for (int i = 0; i < b; i++) {
       temp_arr[i] = arr[i + l]; 
     }

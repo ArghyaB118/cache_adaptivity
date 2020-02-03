@@ -16,6 +16,8 @@ g++ ./matrix-mul/cache_adaptive.cpp -o ./executables/cache-adaptive
 chmod a+x ./executables/cache-adaptive
 g++ ./matrix-mul/non_cache_adaptive.cpp -o ./executables/non-cache-adaptive
 chmod a+x ./executables/non-cache-adaptive
+g++ ./merge-sort/opt-extmem-merge-sort-const-mem.cpp -o ./executables/opt-extmem-merge-sort-const-mem
+chmod a+x ./executables/opt-extmem-merge-sort-const-mem
 
 
 if [ -d  "/var/cgroups/$1" ]
@@ -32,6 +34,7 @@ chmod a+x ./executables/make-unsorted-data
 sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
 sudo bash -c "echo 1 > /var/cgroups/$3/memory.oom_control"
 
+cgexec -g memory:$3 ./executables/opt-extmem-merge-sort-const-mem $1 $2 $3
 cgexec -g memory:$3 ./executables/k-way-merge-sort-constant-memory $1 $2 $3
 
 sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
