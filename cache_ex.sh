@@ -28,11 +28,11 @@ cgcreate -g "memory:$1" -t arghya:arghya
 
 g++ ./large-file-creation/make-unsorted-data.cpp -o ./executables/make-unsorted-data
 chmod a+x ./executables/make-unsorted-data
-./executables/make-unsorted-data $2
-sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
-sudo bash -c "echo 1 > /var/cgroups/$3/memory.oom_control"
+#./executables/make-unsorted-data $2
+#sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
+#sudo bash -c "echo 1 > /var/cgroups/$3/memory.oom_control"
 
-cgexec -g memory:$3 ./executables/opt-extmem-merge-sort-const-mem $1 $2 $3
+#cgexec -g memory:$3 ./executables/opt-extmem-merge-sort-const-mem $1 $2 $3
 
 
 ./executables/make-unsorted-data $2

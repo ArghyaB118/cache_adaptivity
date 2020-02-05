@@ -9,6 +9,7 @@
 #include <unistd.h>
 #include <memory>
 #include <string>
+#include <cstring>
 #include <fcntl.h>
 #include <queue>
 #include <algorithm>
@@ -67,7 +68,7 @@ void mergeSort(int arr[], int l, int r, int temp_arr[], int b, int k, int data_i
       mergeSort(arr, l + i*m, l + i*m + m - 1, temp_arr, b, k, data_in_megabytes, memory_given_MB); 
     }
 //	cout << "here" << endl;
-    limit_memory(4 * memory_given_MB*1024*1024 + 8192, cgroup_name);  
+    //CacheHelper::limit_memory(4 * memory_given_MB*1024*1024 + 8192, cgroup_name);  
     merge(arr, temp_arr, l, m, r, k);
   }
   else if (l < r && r - l + 1 <= b) {
@@ -117,12 +118,12 @@ int main(int argc, char *argv[]){
   const unsigned long long base_case = memory_given_MB * 1024 * 1024 / 4;
   cgroup_name = new char[strlen(argv[3]) + 1](); strncpy(cgroup_name,argv[3],strlen(argv[3]));
   //int k  = (int)num_elements / (int)base_case;
-  int k = memory_given_MB * 256; // memory_given_MB * 1024 * 1024 / (4 * 1024);
+  int k = memory_given_MB * 256 / 8; // memory_given_MB * 1024 * 1024 / (4 * 1024);
 	std::cout << "\n==================================================================\n";
 	CacheHelper::print_io_data(io_stats, "Printing I/O statistics at program start @@@@@ \n");
   std::cout << "Running " << k <<"-way merge sort on an array of size: " << (int)num_elements << " with base case " << (int)base_case << std::endl;
   TYPE* arr;
-  if (((arr = (TYPE*) mmap(0, sizeof(int)*num_elements, PROT_READ | PROT_WRITE, MAP_SHARED , fdout, 0)) == (TYPE*)MAP_FAILED)){
+  if (((arr = (TYPE*) mmap(0, sizeof(TYPE)*num_elements, PROT_READ | PROT_WRITE, MAP_SHARED , fdout, 0)) == (TYPE*)MAP_FAILED)){
       printf ("mmap error for output with code");
       return 0;
   }
