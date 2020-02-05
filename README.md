@@ -34,6 +34,23 @@ sudo ./cache_ex.sh cache-test-arghya
 
 sudo cgexec -g memory:cache-test-arghya ./executables/funnel_sort 64 256 cache-test-arghya
 
+
+-------------------------
+#added report as submodule
+#for adding submodules
+$ git submodule add https://git.overleaf.com/5dc193b499c6b80001900717 theory/
+$ cat .gitmodules //to check
+#for submodules pull
+$ git submodule update --init --recursive
+$ cd theory
+$ git pull
+#for submodules push
+$ cd your_submodule
+$ git checkout master
+$ git commit -a -m "commit in submodule"
+$ git push
+-------------------------
+
 # External MergeSort in Python (explanation of the theory as a quick note)
 
   Implemented *Pythonic* way as well as *low level native External Merge Sort*
