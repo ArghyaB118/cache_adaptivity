@@ -98,18 +98,23 @@ void merge(int arr[], int temp_arr[], int l, int m, int r, int k) {
   int itr = 0;
   priority_queue<ppi, vector<ppi>, greater<ppi> > pq;
   for (int i = 0; i < k; i++) {
-    pq.push({arr[l + i*m], {i, 0}});
+	for (int j = 0; j < 1024; j++){
+   		 pq.push({arr[l + i*m + j], {i, j}});
+	}
   }
   while (!pq.empty()) {
-    ppi curr = pq.top();
+    ppi curr = pq.top();// cout << sizeof(curr) << endl;
     pq.pop();
     temp_arr[itr] = curr.first; itr++;
     int i = curr.second.first;   
         int j = curr.second.second;
-        if (j + 1 < m) 
-            pq.push({arr[i*m + j + 1], {i, j + 1}});
+        if (j + 1 < m && (j + 1) % 1024 == 0) {
+		for (int p = 0; p < 1024; p++) {
+			pq.push({arr[i*m + j + p], {i, j + p + 1}});
+		}
+	} 
   }
-  for (int i = 0 ; i < m*k; i++)
+  for (int i = 0 ; i < m * k; i++)
     arr[i + l] = temp_arr[i];
 }
 
@@ -117,23 +122,27 @@ void merge(int arr[], int temp_arr[], int l, int m, int r, int k) {
 /* l is for left index and r is right index of the 
 sub-array of arr to be sorted */
 void mergeSort(int arr[], int l, int r, int temp_arr[], int b, int k, int data_in_megabytes, int memory_given_MB) { 
-  cout << l << " " << r << endl;
-  if (l < r && r - l > b) {
+  //cout << l << " " << r << endl;
+  if (l < r && r - l + 1 > b) {
     // Same as (l+r)/2, but avoids overflow for large l and h 
     int m = (r - l + 1) / k; 
     for (int i = 0; i < k; ++i) {
       mergeSort(arr, l + i*m, l + i*m + m - 1, temp_arr, b, k, data_in_megabytes, memory_given_MB); 
     }
+//	cout << "here" << endl;
+    limit_memory(4 * memory_given_MB*1024*1024 + 8192, "cache-test-arghya");  
     merge(arr, temp_arr, l, m, r, k);
   }
   else if (l < r && r - l + 1 <= b) {
+//	cout << "i'm here" << endl;
     for (int i = 0; i < r - l + 1; i++) {
       temp_arr[i] = arr[i + l]; 
     }
-    sort(temp_arr, temp_arr + b);
+    sort(temp_arr, temp_arr + r - l + 1);
     for (int i = 0; i < r - l + 1; i++) {
       arr[i + l] = temp_arr[i]; 
     }
+//      cout << "leaving here" << endl; 
   }
 } 
 
@@ -169,8 +178,8 @@ int main(int argc, char *argv[]){
   const int memory_given_MB = atoi(argv[1]);	
   const unsigned long long num_elements = data_in_megabytes * 1024 * 1024 / 4;
   const unsigned long long base_case = memory_given_MB * 1024 * 1024 / 4;
-  int k  = (int)num_elements / (int)base_case;
-  //int k = memory_given_MB * 256; // memory_given_MB * 1024 * 1024 / (4 * 1024);
+  //int k  = (int)num_elements / (int)base_case;
+  int k = memory_given_MB * 256; // memory_given_MB * 1024 * 1024 / (4 * 1024);
 	std::vector<long> io_stats = {0,0};
 	std::cout << "\n==================================================================\n";
 	print_io_data(io_stats, "Printing I/O statistics at program start @@@@@ \n");
@@ -186,7 +195,7 @@ int main(int argc, char *argv[]){
 	start = std::clock();
   out = std::ofstream("mem_profile.txt", std::ofstream::out); 
   out << duration << " " << atoi(argv[1])*1024*1024 << std::endl;
-  limit_memory(2 * (std::stol(argv[1])*1024*1024 + 8192), argv[3]);
+  limit_memory(std::stol(argv[1])*1024*1024, argv[3]);
 	std::cout << "\n==================================================================\n";
 	print_io_data(io_stats, "Printing I/O statistics just before sorting start @@@@@ \n");
 
@@ -197,8 +206,14 @@ int main(int argc, char *argv[]){
 
 //  cout << "sorted array is" << endl;  
 //  printArray(arr, num_elements);
-
 	std::cout << "Total sorting time: " << duration << "\n";
- out.close();  
+ out.close();
+//introduced code for checking the accuracy of sorting result
+  for (int i = 0 ; i < num_elements; i++) {
+	if (arr[i] > arr[i + 1]) {
+		cout << "bad result" << endl;
+		break; 
+	}
+  } 
  return 0;
 }
