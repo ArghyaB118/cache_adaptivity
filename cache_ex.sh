@@ -26,6 +26,12 @@ fi
 
 cgcreate -g "memory:$1" -t arghya:arghya
 
+if [ ! -f "/home/arghya/EM-MergeSort/merge-sort/nullbytes" ]
+then
+  echo "First creating file for storing data."
+  dd if=/dev/urandom of=nullbytes count=16384 bs=1048576
+fi
+
 g++ ./large-file-creation/make-unsorted-data.cpp -o ./executables/make-unsorted-data
 chmod a+x ./executables/make-unsorted-data
 #./executables/make-unsorted-data $2
@@ -34,7 +40,7 @@ chmod a+x ./executables/make-unsorted-data
 
 #cgexec -g memory:$3 ./executables/opt-extmem-merge-sort-const-mem $1 $2 $3
 
-
+#code for constant memory profile
 ./executables/make-unsorted-data $2
 sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
 sudo bash -c "echo 1 > /var/cgroups/$3/memory.oom_control"
@@ -92,7 +98,7 @@ STATUS=$(ps ax|grep "$PID"|wc -l)
 CURRENT=$1 * 1024 * 1024
 while [ $STATUS -ge 1 ] ; do
 	sleep 5
-	if (( $RANDOM % 2 == 1 )) || (( $CURRENT == $STARTINGMEMORY*1024*1024 ));
+	if (( $RANDOM % 2 == 1 )) || (( $CURRENT == $1 * 1024 * 1024 ));
 	then
 		echo "increasing memory"
 		let CURRENT = CURRENT + $1 * 1024 * 1024
