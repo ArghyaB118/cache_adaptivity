@@ -48,6 +48,8 @@ sudo bash -c "echo 1 > /var/cgroups/$3/memory.oom_control"
 
 cgexec -g memory:$3 ./executables/funnel-sort-int $1 $2 $3
 
+#code for worst case memory profile
+
 #./executables/make-unsorted-data $2
 #sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
 #sudo bash -c "echo 1 > /var/cgroups/$3/memory.oom_control"
@@ -76,6 +78,30 @@ cgexec -g memory:$3 ./executables/funnel-sort-int $1 $2 $3
 #   let X+=1
 #   STATUS=$(ps ax|grep "$PID"|wc -l)
 #done 
+#echo "Success for worst case profile of funnel sort!"
 
-echo "Success!"
+
+#code for random memory profile
+./executables/make-unsorted-data $2
+sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
+sudo bash -c "echo 1 > /var/cgroups/$3/memory.oom_control"
+
+cgexec -g memory:$3 ./executables/funnel-sort-int $1 $2 $3 &
+PID=$!
+STATUS=$(ps ax|grep "$PID"|wc -l)
+CURRENT=$1 * 1024 * 1024
+while [ $STATUS -ge 1 ] ; do
+	sleep 5
+	if (( $RANDOM % 2 == 1 )) || (( $CURRENT == $STARTINGMEMORY*1024*1024 ));
+	then
+		echo "increasing memory"
+		let CURRENT = CURRENT + $1 * 1024 * 1024
+	else
+		echo "decreasing memory"
+		let CURRENT = CURRENT - $1 * 1024 * 1024
+	fi
+	echo $CURRENT > /var/cgroups/$1/memory.limit_in_bytes
+	STATUS=$(ps ax|grep "$PID"|wc -l) 
+done
+echo "Success for random memory profile for funnel sort!"
 
