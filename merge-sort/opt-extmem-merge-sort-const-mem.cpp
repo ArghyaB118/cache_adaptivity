@@ -144,11 +144,11 @@ int main(int argc, char *argv[]){
 	std::cout << "Total sorting time: " << duration << "\n";
  out.close();
 //introduced code for checking the accuracy of sorting result
-  for (int i = 0 ; i < num_elements; i++) {
-	 if (arr[i] > arr[i + 1]) {
-		  cout << "bad result" << endl;
-		  break; 
-	 }
-  } 
+//  for (int i = 0 ; i < num_elements; i++) {
+//	 if (arr[i] > arr[i + 1]) {
+//		  cout << "bad result" << endl;
+//		  break; 
+//	 }
+//  } 
  return 0;
 }

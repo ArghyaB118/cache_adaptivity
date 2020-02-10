@@ -12,6 +12,7 @@
 #include <string>
 #include <fcntl.h>
 #include <fstream>
+#include <cstring>
 using namespace std;
 #define TYPE int
 std::clock_t start;

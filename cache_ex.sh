@@ -26,11 +26,11 @@ fi
 
 cgcreate -g "memory:$1" -t arghya:arghya
 
-if [ ! -f "/home/arghya/EM-MergeSort/merge-sort/nullbytes" ]
-then
-  echo "First creating file for storing data."
-  dd if=/dev/urandom of=nullbytes count=16384 bs=1048576
-fi
+#if [ ! -f "/home/arghya/EM-MergeSort/merge-sort/nullbytes" ]
+#then
+#  echo "First creating file for storing data."
+#  dd if=/dev/urandom of=nullbytes count=16384 bs=1048576
+#fi
 
 g++ ./large-file-creation/make-unsorted-data.cpp -o ./executables/make-unsorted-data
 chmod a+x ./executables/make-unsorted-data
@@ -41,18 +41,18 @@ chmod a+x ./executables/make-unsorted-data
 #cgexec -g memory:$3 ./executables/opt-extmem-merge-sort-const-mem $1 $2 $3
 
 #code for constant memory profile
-./executables/make-unsorted-data $2
-sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
-sudo bash -c "echo 1 > /var/cgroups/$3/memory.oom_control"
+#./executables/make-unsorted-data $2
+#sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
+#sudo bash -c "echo 1 > /var/cgroups/$3/memory.oom_control"
 
-cgexec -g memory:$3 ./executables/k-way-merge-sort-constant-memory $1 $2 $3
+#cgexec -g memory:$3 ./executables/k-way-merge-sort-constant-memory $1 $2 $3
 
 
-./executables/make-unsorted-data $2
-sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
-sudo bash -c "echo 1 > /var/cgroups/$3/memory.oom_control"
+#./executables/make-unsorted-data $2
+#sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
+#sudo bash -c "echo 1 > /var/cgroups/$3/memory.oom_control"
 
-cgexec -g memory:$3 ./executables/funnel-sort-int $1 $2 $3
+#cgexec -g memory:$3 ./executables/funnel-sort-int $1 $2 $3
 
 #code for worst case memory profile
 
@@ -87,27 +87,53 @@ cgexec -g memory:$3 ./executables/funnel-sort-int $1 $2 $3
 #echo "Success for worst case profile of funnel sort!"
 
 
-#code for random memory profile
+#code for random memory profile for merge sort
 ./executables/make-unsorted-data $2
 sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
 sudo bash -c "echo 1 > /var/cgroups/$3/memory.oom_control"
 
-cgexec -g memory:$3 ./executables/funnel-sort-int $1 $2 $3 &
+cgexec -g memory:$3 ./executables/opt-extmem-merge-sort-const-mem $1 $2 $3 &
 PID=$!
 STATUS=$(ps ax|grep "$PID"|wc -l)
-CURRENT=$1 * 1024 * 1024
-while [ $STATUS -ge 1 ] ; do
+CURRENT=$1*1024*1024
+while [ $STATUS -gt 1 ] ; do
 	sleep 5
-	if (( $RANDOM % 2 == 1 )) || (( $CURRENT == $1 * 1024 * 1024 ));
+	if (( $RANDOM % 2 == 1 )) || (( $CURRENT == $1*1024*1024 ));
 	then
 		echo "increasing memory"
-		let CURRENT = CURRENT + $1 * 1024 * 1024
+		let CURRENT=$CURRENT+$1*1024*1024
 	else
 		echo "decreasing memory"
-		let CURRENT = CURRENT - $1 * 1024 * 1024
+		let CURRENT=CURRENT-$1*1024*1024
 	fi
 	echo $CURRENT > /var/cgroups/$1/memory.limit_in_bytes
 	STATUS=$(ps ax|grep "$PID"|wc -l) 
 done
-echo "Success for random memory profile for funnel sort!"
+echo "Success for random memory profile for merge sort!"
+
+
+
+#code for random memory profile
+#./executables/make-unsorted-data $2
+#sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
+#sudo bash -c "echo 1 > /var/cgroups/$3/memory.oom_control"
+
+#cgexec -g memory:$3 ./executables/funnel-sort-int $1 $2 $3 &
+#PID=$!
+#STATUS=$(ps ax|grep "$PID"|wc -l)
+#CURRENT=$1*1024*1024
+#while [ $STATUS -gt 1 ] ; do
+#	sleep 5
+#	if (( $RANDOM % 2 == 1 )) || (( $CURRENT == $1*1024*1024 ));
+#	then
+#		echo "increasing memory"
+#		let CURRENT=$CURRENT+$1*1024*1024
+#	else
+#		echo "decreasing memory"
+#		let CURRENT=CURRENT-$1*1024*1024
+#	fi
+#	echo $CURRENT > /var/cgroups/$1/memory.limit_in_bytes
+#	STATUS=$(ps ax|grep "$PID"|wc -l) 
+#done
+#echo "Success for random memory profile for funnel sort!"
 
