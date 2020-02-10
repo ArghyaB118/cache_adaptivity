@@ -18,6 +18,7 @@ using namespace std;
 std::clock_t start;
 double duration;
 std::ofstream out;
+std::ofstream out-sorting;
 char* cgroup_name;
 std::vector<long> io_stats = {0,0};
 
@@ -72,6 +73,9 @@ int main(int argc, char *argv[]){
   std::cout << "\n==================================================================\n";
   CacheHelper::print_io_data(io_stats, "Printing I/O statistics just after sorting start @@@@@ \n");
 	std::cout << "Total sorting time: " << duration << "\n";
+  out-sorting = std::ofstream("/home/arghya/EM-MergeSort/out-sorting.txt",std::ofstream::out | std::ofstream::app);
+  out-sorting << "Funnel sort " << "," << duration << "," << io_stats[0] << "," << io_stats[1] << std::endl;
  out.close(); 
+ out-sorting.close();
  return 0;
 }
