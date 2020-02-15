@@ -1,0 +1,14 @@
+merge sort constant memory for data size 128 and memory size 32
+Merge sort,99.5713,4579188736,268926976
+funnel sort constant memory for data size 128 and memory size 32
+Funnel sort,38.1394,1614577664,270020608
+merge sort random memory for data size 128 and memory size 32
+Merge sort,91.7549,3310723072,268632064
+funnel sort random memory for data size 128 and memory size 32
+Funnel sort,36.2749,1166282752,269844480
+merge sort to generate worse case memory for data size 128 and memory size 32
+Merge sort,104.143,4706177024,268959744
+merge sort rerun on worse case memory for data size 128 and memory size 32
+Merge sort,99.7731,4570488832,269373440
+funnel sort on worse case memory for data size 128 and memory size 32
+Funnel sort,38.2144,1655234560,270012416
