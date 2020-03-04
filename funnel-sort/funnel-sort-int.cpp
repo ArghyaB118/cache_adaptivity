@@ -21,6 +21,8 @@ std::ofstream out;
 std::ofstream out_sorting;
 char* cgroup_name;
 std::vector<long> io_stats = {0,0};
+int data_in_megabytes, memory_given_MB;
+unsigned long long num_elements;
 
 class Integer_comparator
 {
@@ -46,19 +48,18 @@ int main(int argc, char *argv[]){
 		printf ("can't create nullbytes for writing\n");
 		return 0;
 	}
-	const int data_in_megabytes = atoi(argv[2]);
-  const int memory_given_MB = atoi(argv[1]);
+	data_in_megabytes = atoi(argv[2]); memory_given_MB = atoi(argv[1]);
   cgroup_name = new char[strlen(argv[3]) + 1](); strncpy(cgroup_name,argv[3],strlen(argv[3]));
-  const unsigned long long num_elements = data_in_megabytes*1024*1024/4;
+  num_elements = (data_in_megabytes / sizeof(TYPE)) * 1024 * 1024;
   std::cout << "\n==================================================================\n";
   CacheHelper::print_io_data(io_stats, "Printing I/O statistics at program start @@@@@ \n");
 
   std::cout << "Running lazy funnel sort on an array of size: " << (int)num_elements << "\n";
 	TYPE* arr;
-    if (((arr = (TYPE*) mmap(0, sizeof(int)*num_elements, PROT_READ | PROT_WRITE, MAP_SHARED , fdout, 0)) == (TYPE*)MAP_FAILED)){
-        printf ("mmap error for output with code");
-        return 0;
-    }
+  if (((arr = (TYPE*) mmap(0, sizeof(TYPE)*num_elements, PROT_READ | PROT_WRITE, MAP_SHARED , fdout, 0)) == (TYPE*)MAP_FAILED)){
+    printf ("mmap error for output with code");
+    return 0;
+  }
 
 	Integer_comparator comp;
   start = std::clock();

@@ -24,6 +24,8 @@ std::ofstream out;
 std::ofstream out_sorting;
 char* cgroup_name;
 std::vector<long> io_stats = {0,0};
+int type_of_run, data_in_megabytes, memory_given_MB;
+unsigned long long num_elements, base_case;
 
 /* UTILITY FUNCTIONS */
 /* Function to print an array */
@@ -32,7 +34,7 @@ void printArray(int A[], int size) {
     cout << A[i] << " ";
   cout << endl; 
 } 
-
+/* M/B-way merge, to be precise M/4B */
 void merge(int arr[], int temp_arr[], int l, int m, int r, int k) {
   int itr = 0;
   priority_queue<ppi, vector<ppi>, greater<ppi> > pq;
@@ -57,50 +59,43 @@ void merge(int arr[], int temp_arr[], int l, int m, int r, int k) {
     arr[i + l] = temp_arr[i];
 }
 
-
 /* l is for left index and r is right index of the 
 sub-array of arr to be sorted */
-void mergeSort(int arr[], int l, int r, int temp_arr[], int b, int k, int data_in_megabytes, int memory_given_MB) { 
-  //cout << l << " " << r << endl;
+void mergeSort(int arr[], int l, int r, int temp_arr[], int b, int k) { 
   if (l < r && r - l + 1 > b) {
-    // Same as (l+r)/2, but avoids overflow for large l and h 
     int m = (r - l + 1) / k; 
     for (int i = 0; i < k; ++i) {
-      mergeSort(arr, l + i*m, l + i*m + m - 1, temp_arr, b, k, data_in_megabytes, memory_given_MB); 
+      mergeSort(arr, l + i*m, l + i*m + m - 1, temp_arr, b, k); 
     }
-    unsigned long long memory = (r - l + 1) + 1024;
-    duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
-    out << duration << " " << memory << std::endl;
-    CacheHelper::limit_memory(memory, cgroup_name);  
-    merge(arr, temp_arr, l, m, r, k);
-    memory = memory_given_MB*1024*1024;
-    duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
-    out << duration << " " << memory << std::endl; 
-    CacheHelper::limit_memory(memory, cgroup_name);
+    if (type_of_run == 1) {
+      cout << "merging elements from " << l << " to " << r << endl;
+      merge(arr, temp_arr, l, m, r, k); 
+    }
+    else if (type_of_run == 2) {
+      unsigned long long memory = (r - l + 1) * sizeof(TYPE) + memory_given_MB * 1024 * 1024;
+  	  duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
+  	  out << duration << " " << memory << std::endl;
+  	  CacheHelper::limit_memory(memory, cgroup_name);
+  	  merge(arr, temp_arr, l, m, r, k);
+  	  memory = memory_given_MB * 1024 * 1024;
+  	  duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
+  	  out << duration << " " << memory << std::endl;
+  	  CacheHelper::limit_memory(memory, cgroup_name);
+    }
   }
   else if (l < r && r - l + 1 <= b) {
-//	cout << "i'm here" << endl;
-    for (int i = 0; i < r - l + 1; i++) {
-      temp_arr[i] = arr[i + l]; 
-    }
-    sort(temp_arr, temp_arr + r - l + 1);
-    for (int i = 0; i < r - l + 1; i++) {
-      arr[i + l] = temp_arr[i]; 
-    }
-//      cout << "leaving here" << endl; 
+  	sort(arr + l, arr + (r + 1));
   }
 } 
 
-
-
-void rootMergeSort(int arr[], int *arr_first, int *arr_last, int base_case, int k, int data_in_megabytes, int memory_given_MB) {
+/* root function to call merge sort */
+void rootMergeSort(int arr[], int *arr_first, int *arr_last, int base_case, int k) {
   int num_elements = arr_last - arr_first;
-  //int temp_arr[num_elements];
 
   int* temp_arr = NULL;
   temp_arr = new int[num_elements];
 
-  mergeSort(arr, 0, num_elements, temp_arr, base_case, k, data_in_megabytes, memory_given_MB);
+  mergeSort(arr, 0, num_elements, temp_arr, base_case, k);
   delete [] temp_arr; temp_arr = NULL; // to deallocate memory for temp array
 }
 
@@ -108,8 +103,10 @@ void rootMergeSort(int arr[], int *arr_first, int *arr_last, int base_case, int 
 int main(int argc, char *argv[]){
 	srand (time(NULL));
 
-	if (argc < 3){
-		std::cout << "Insufficient arguments! Usage: funnel_sort <memory_limit> <cgroup_name>\n";
+	if (argc < 5){
+		std::cout << "Insufficient arguments! Usage: ./opt-extmem-merge-sort <memory_limit> <data_size> <cgroup_name> <type> <k_logical>\n";
+		//type = 1 for constant memory and 2 for worse case memory
+		//k_logical = 0 for optimized choice of k, otherwise it's directly given as integer
 		exit(1);
 	}
 
@@ -119,16 +116,19 @@ int main(int argc, char *argv[]){
 		printf ("can't create nullbytes for writing\n");
 		return 0;
 	}
-  const int data_in_megabytes = atoi(argv[2]);
-  const int memory_given_MB = atoi(argv[1]);	
-  const unsigned long long num_elements = data_in_megabytes * 1024 * 1024 / 4;
-  const unsigned long long base_case = memory_given_MB * 1024 * 1024 / 4;
+  int k, k_logical = atoi(argv[5]);
+  type_of_run = atoi(argv[4]);
+  data_in_megabytes = atoi(argv[2]); memory_given_MB = atoi(argv[1]);	
+  num_elements = (data_in_megabytes / sizeof(TYPE)) * 1024 * 1024; //num_elements = data_in_megabytes; cout << num_elements << endl;
+  base_case = memory_given_MB * 1024 * 1024 / sizeof(TYPE);
   cgroup_name = new char[strlen(argv[3]) + 1](); strncpy(cgroup_name,argv[3],strlen(argv[3]));
-  //int k  = (int)num_elements / (int)base_case;
-  int k = memory_given_MB * 256 / 8; // memory_given_MB * 1024 * 1024 / (4 * 1024);
-	std::cout << "\n==================================================================\n";
-	CacheHelper::print_io_data(io_stats, "Printing I/O statistics at program start @@@@@ \n");
-  std::cout << "Running " << k <<"-way merge sort on an array of size: " << (int)num_elements << " with base case " << (int)base_case << std::endl;
+  if (k_logical == 0) 
+     k = (memory_given_MB / 4) * 256; // memory_given_MB * 1024 * 1024 / (4 * 1024);
+  else
+     k = k_logical;
+ 	std::cout << "\n==================================================================\n";
+  	CacheHelper::print_io_data(io_stats, "Printing I/O statistics at program start @@@@@ \n");
+  std::cout << "Running " << k <<"-way merge sort on an array of size: " << num_elements << " with base case " << base_case << std::endl;
   TYPE* arr;
   if (((arr = (TYPE*) mmap(0, sizeof(TYPE)*num_elements, PROT_READ | PROT_WRITE, MAP_SHARED , fdout, 0)) == (TYPE*)MAP_FAILED)){
       printf ("mmap error for output with code");
@@ -141,24 +141,22 @@ int main(int argc, char *argv[]){
 	std::cout << "\n==================================================================\n";
 	CacheHelper::print_io_data(io_stats, "Printing I/O statistics just before sorting start @@@@@ \n");
 
-  rootMergeSort(arr, &arr[0], &arr[num_elements - 1], base_case, k, data_in_megabytes, memory_given_MB);
+  rootMergeSort(arr, &arr[0], &arr[num_elements - 1], base_case, k);
 	duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
 	std::cout << "\n==================================================================\n";
 	CacheHelper::print_io_data(io_stats, "Printing I/O statistics just after sorting start @@@@@ \n");
 
-//  cout << "sorted array is" << endl;  
-//  printArray(arr, num_elements);
 	std::cout << "Total sorting time: " << duration << "\n";
   out_sorting = std::ofstream("/home/arghya/EM-MergeSort/out-sorting.txt",std::ofstream::out | std::ofstream::app);
   out_sorting << "Merge sort" << "," << duration << "," << io_stats[0] << "," << io_stats[1] << std::endl;
- out.close();
- out_sorting.close();
-//introduced code for checking the accuracy of sorting result
-//  for (int i = 0 ; i < num_elements; i++) {
-//	 if (arr[i] > arr[i + 1]) {
-//		  cout << "bad result" << endl;
+  out.close(); out_sorting.close();
+  //introduced code for checking the accuracy of sorting result
+  CacheHelper::limit_memory(1024 * 1024 * 1024, cgroup_name);
+  for (int i = 1 ; i < num_elements; i++) {
+	 if ((int)arr[i - 1] > (int)arr[i]) {
+		  cout << "bad result " << (int)i << " " << (int)arr[i - 2] << " " << (int)arr[i - 1] << " " << (int)arr[i] << " " << (int)arr[i + 1] << endl;
 //		  break; 
-//	 }
-//  } 
+	 }
+  }
  return 0;
 }
