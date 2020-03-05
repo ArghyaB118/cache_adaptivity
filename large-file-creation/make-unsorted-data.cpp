@@ -18,13 +18,13 @@ const int B = 2;
 
 int main(int argc, char *argv[]){
   if (argc < 2){
-    std::cout << "Insufficient arguments! Usage: mm_data <matrix_width>\n";
+    std::cout << "Insufficient arguments! Usage: ./executables/make-unsorted-data $data_size_run\n";
     exit(1);
   }
   data_in_MiB = std::stol(argv[1]);
   
   int fdout;
-  if ((fdout = open ("/home/arghya/EM-MergeSort/merge-sort/nullbytes", O_RDWR, 0x0777 )) < 0){
+  if ((fdout = open ("merge-sort/nullbytes", O_RDWR, 0x0777 )) < 0){
     printf ("can't create nullbytes for writing\n");
     return 0;
   }
@@ -35,7 +35,7 @@ int main(int argc, char *argv[]){
        return 0;
   }
 
-  for (unsigned long int i = 0; i < data_in_MiB*1024*1024/sizeof(TYPE); i++)
+  for (unsigned long int i = 0; i < (data_in_MiB/sizeof(TYPE))*1024*1024; i++)
 	{
 		dst[i] = rand() % 100000;
 		//std::cout << array[i] << " ";

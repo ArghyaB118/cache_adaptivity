@@ -1,2 +1,1 @@
-funnel sort on worse case memory for data size 1536 and memory size 16
-Funnel sort,638.219,17719037952,4939190272
+merge sort constant memory for data size 1536 and memory size 16

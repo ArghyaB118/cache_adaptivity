@@ -44,7 +44,7 @@ int main(int argc, char *argv[]){
 
 	int fdout;
 
-	if ((fdout = open ("/home/arghya/EM-MergeSort/merge-sort/nullbytes", O_RDWR, 0x0777 )) < 0){
+	if ((fdout = open ("merge-sort/nullbytes", O_RDWR, 0x0777 )) < 0){
 		printf ("can't create nullbytes for writing\n");
 		return 0;
 	}
@@ -74,7 +74,7 @@ int main(int argc, char *argv[]){
   std::cout << "\n==================================================================\n";
   CacheHelper::print_io_data(io_stats, "Printing I/O statistics just after sorting start @@@@@ \n");
 	std::cout << "Total sorting time: " << duration << "\n";
-  out_sorting = std::ofstream("/home/arghya/EM-MergeSort/out-sorting.txt",std::ofstream::out | std::ofstream::app);
+  out_sorting = std::ofstream("out-sorting.txt",std::ofstream::out | std::ofstream::app);
   out_sorting << "Funnel sort" << "," << duration << "," << io_stats[0] << "," << io_stats[1] << std::endl;
  out.close(); 
  out_sorting.close();
