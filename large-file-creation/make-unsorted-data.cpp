@@ -37,7 +37,7 @@ int main(int argc, char *argv[]){
 
   for (unsigned long int i = 0; i < (data_in_MiB/sizeof(TYPE))*1024*1024; i++)
 	{
-		dst[i] = rand() % 100000;
+		dst[i] = rand() % 1000;
 		//std::cout << array[i] << " ";
 	}
   return 0;

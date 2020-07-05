@@ -1,2 +1,82 @@
-out-sorting.txt already exists. Deleting it first.
-mem_profile.txt already exists. Deleting it first.
+UID        PID  PPID  C    SZ   RSS PSR STIME TTY          TIME CMD
+abiyaz    1710 31207  0 11188  4544   1 Feb27 pts/61   01:39:43 top
+root      1727  1473  0 21082  1936  10  2019 pts/45   00:00:00 sudo iotop -a
+root      1728  1727  5 14301 15588  11  2019 pts/45   5-06:46:37 /usr/bin/python3 /usr/sbin/iotop -a
+abiyaz    1731  1312  0 11194  3152  12  2019 pts/44   20:37:37 top
+root      2640 17784  0 21080  4648   3 Mar02 pts/33   00:00:00 sudo iotop
+root      2644  2640  5 15743 20220  10 Mar02 pts/33   03:55:13 /usr/bin/python3 /usr/sbin/iotop
+root      2849  2660  0 21082  1944  19  2019 pts/51   00:00:00 sudo systemd-cgtop
+root      2850  2849  0 15484  1564  16  2019 pts/51   15:32:25 systemd-cgtop
+root      2851  2468  0 21082  1936   3  2019 pts/50   00:00:00 sudo vmstat 1
+root      2852  2851  0  7060  1672  12  2019 pts/50   00:56:47 vmstat 1
+abiyaz    2987 30763  0 11180  3264  10  2019 pts/2    1-00:15:21 top
+root      3023 30954  0 21081  1940   8  2019 pts/3    00:00:00 sudo iotop -a
+root      3029  3023  5 14275 15652  11  2019 pts/3    6-07:58:06 /usr/bin/python3 /usr/sbin/iotop -a
+abiyaz    5013 17646  0 11163  4524   7 Mar02 pts/1    00:41:00 top
+root      5362  5096  0 21082  1980   6  2019 pts/16   00:00:00 sudo iotop -a
+root      5363  5362  5 14180 15256   6  2019 pts/16   6-05:07:50 /usr/bin/python3 /usr/sbin/iotop -a
+abiyaz    5377  4856  0 11178  2764   0  2019 pts/15   23:53:53 top
+abiyaz    5627 10320  0 13814  8872   8 Feb28 pts/59   00:00:00 vim HW1_TEST_IDEAS
+root      6740  6466  0 21082  1980   8  2019 pts/39   00:00:00 sudo iotop -a
+root      6741  6740  5 14306 15868   4  2019 pts/39   5-15:59:36 /usr/bin/python3 /usr/sbin/iotop -a
+abiyaz    6747  6356  0 11178  2772  13  2019 pts/38   21:55:54 top
+root      6969  6649  0 21082  2056   9  2019 pts/25   00:00:00 sudo iotop -a
+root      6976  6969  5 15405 15696   6  2019 pts/25   6-00:27:24 /usr/bin/python3 /usr/sbin/iotop -a
+root      7602  7334  0 21082  1980   8  2019 pts/28   00:00:00 sudo iotop -a
+root      7603  7602  5 14393 16012  13  2019 pts/28   5-23:30:27 /usr/bin/python3 /usr/sbin/iotop -a
+abiyaz    7606  7224  0 11180  3156   6  2019 pts/27   23:02:35 top
+root      8011 21489  0 21081  2056   3 Jan31 pts/56   00:00:00 sudo iotop -a
+root      8021  8011  5 14243 15584   8 Jan31 pts/56   1-23:38:54 /usr/bin/python3 /usr/sbin/iotop -a
+abiyaz    8412  3890  0 13843  2296   8  2019 pts/10   00:00:00 vim sort-DB.cpp
+root      9646  9281  0 21082  1892   6  2019 pts/47   00:00:00 sudo iotop -a
+root      9647  9646  5 14339 15872  15  2019 pts/47   5-07:57:11 /usr/bin/python3 /usr/sbin/iotop -a
+abiyaz    9650  9258  0 11188  2112   7  2019 pts/46   20:48:42 top
+abiyaz   10283  8920  0  5302  3264   9 Feb24 pts/58   00:00:00 tmux
+arghya   10466  4185  0 13839  9060   7 Mar04 pts/67   00:00:00 vim out-sorting-backup3.txt
+root     10615 10405  0 21081  2056   1  2019 pts/32   00:00:00 sudo iotop -a
+root     10616 10615  5 15626 16456  18  2019 pts/32   5-20:40:47 /usr/bin/python3 /usr/sbin/iotop -a
+abiyaz   10619 10236  0 11180  3144  17  2019 pts/31   23:05:45 top
+root     11941 11751  0 21082  1984  13  2019 pts/43   00:00:00 sudo iotop -a
+root     11942 11941  5 14409 15932   0  2019 pts/43   5-09:34:55 /usr/bin/python3 /usr/sbin/iotop -a
+abiyaz   12106 32293  0 11172  2956  13  2019 pts/26   22:38:02 top
+abiyaz   12247 32322  0 11160  4296   1 Mar02 pts/71   00:00:00 top
+root     13769 13463  0 21082  1936   9  2019 pts/22   00:00:00 sudo iotop -a
+root     13770 13769  5 15614 16476   8  2019 pts/22   6-00:48:53 /usr/bin/python3 /usr/sbin/iotop -a
+abiyaz   13781 13391  0 11180  3168   2  2019 pts/21   23:38:45 top
+abiyaz   15239 11558  0 11184  2044   4  2019 pts/42   20:59:26 top
+root     17457 17132  0 21082  1936   8  2019 pts/20   00:00:00 sudo iotop -a
+root     17467 17457  5 15479 16100   8  2019 pts/20   6-03:04:39 /usr/bin/python3 /usr/sbin/iotop -a
+abiyaz   17509 17068  0 11180  2556   4  2019 pts/14   23:46:35 top
+abiyaz   17629 24766  0  5302  1748   7  2019 pts/4    00:00:00 tmux
+abiyaz   17920  6576  0 11184  3232   3  2019 pts/24   23:12:12 top
+root     19631 19268  0 21082  1976   9  2019 pts/8    00:00:00 sudo iotop -a
+root     19633 19631  5 15349 15548  13  2019 pts/8    6-08:12:53 /usr/bin/python3 /usr/sbin/iotop -a
+root     19636 19247  0 21083  1948  13  2019 pts/7    00:00:00 sudo top
+root     19637 19636  0 11178  2676   7  2019 pts/7    1-00:23:37 top
+arghya   21417 21217  0 11156  4412  14 10:40 pts/83   00:03:13 top
+abiyaz   21715 21151  0 11189  3000  17 Jan30 pts/52   07:30:58 top
+arghya   24023 22596  0  5301  3156   7 16:56 pts/84   00:00:00 tmux
+abiyaz   24366 24122  0  3672  2648  18  2019 pts/41   03:38:29 watch -d1 cat /var/cgroups/cache-test/memory.stat
+root     24520 23953  0 21014  1996   5  2019 pts/40   00:00:00 sudo watch -d1 cat /var/cgroups/cache-test/memory.usage_in_bytes
+root     24521 24520  0  3674  2564   2  2019 pts/40   07:48:50 watch -d1 cat /var/cgroups/cache-test/memory.usage_in_bytes
+root     25123 24904  0 21081  1932   2  2019 pts/55   00:00:00 sudo systemd-cgtop
+root     25131 25123  0 15484  1880   7  2019 pts/55   15:23:43 systemd-cgtop
+root     25579 24024  0 21013  4684   8 17:02 pts/85   00:00:00 sudo taskset --cpu-list 9 ./cache-experiments.sh
+root     25584 25579  0  3221  3172   9 17:02 pts/85   00:00:00 /bin/bash ./cache-experiments.sh
+root     25698 25584 69 265699 17064  9 17:02 pts/85   00:00:09 ./executables/opt-extmem-merge-sort 16 512 cache-test-arghya 1 8
+arghya   25768 24047  0  9342  3236   7 17:03 pts/86   00:00:00 ps -aF
+root     26922 26612  0 21081  1996   7  2019 pts/23   00:00:00 sudo iotop -a
+root     26925 26922  5 14301 15732  17  2019 pts/23   5-23:27:15 /usr/bin/python3 /usr/sbin/iotop -a
+abiyaz   26930 26538  0 11179  2804  18  2019 pts/19   23:12:17 top
+root     27616 27389  0 21082  1904  19  2019 pts/49   00:00:00 sudo iotop -a
+root     27617 27616  5 14323 15728   6  2019 pts/49   5-05:45:13 /usr/bin/python3 /usr/sbin/iotop -a
+abiyaz   27620 27236  0 11180  2588   8  2019 pts/48   20:25:35 top
+abiyaz   27671 27367  0 11189  4540  19 Feb26 pts/53   01:46:56 top
+root     30595 24717  0 21082  1932  12  2019 pts/54   00:00:00 sudo vmstat 1
+root     30604 30595  0  7060  1944  12  2019 pts/54   00:56:00 vmstat 1
+abiyaz   31051 19368  0  5301  3268  13 02:24 pts/78   00:00:00 tmux
+root     32438 32247  0 21081  1984  18  2019 pts/18   00:00:00 sudo iotop -a
+root     32439 32438  5 15398 15748   8  2019 pts/18   6-00:38:32 /usr/bin/python3 /usr/sbin/iotop -a
+abiyaz   32442 32056  0 11178  3256   4  2019 pts/17   23:14:01 top
+root     32726 32356  0 21082  1932   8  2019 pts/34   00:00:00 sudo iotop -a
+root     32744 32726  5 15603 16180  19  2019 pts/34   5-21:21:49 /usr/bin/python3 /usr/sbin/iotop -a

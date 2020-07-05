@@ -30,9 +30,9 @@ then
 fi
 
 # to achieve depth 4 while using 4-way merge sort
-declare -a data_size=( 512 1024 1536 2048 )
-declare -a memory_given=( 16 16 16 16 ) # here M/4B is 1024
-NUMRUNS=3
+declare -a data_size=( 8192 )
+declare -a memory_given=( 256 ) # here M/4B is 1024
+NUMRUNS=1
 
 for i in `seq 1 $NUMRUNS`;
 do
@@ -41,65 +41,24 @@ do
 		data_size_run=${data_size[$index]}
 		memory_given_run=${memory_given[$index]}
 		#code for constant memory profile merge sort
-		./cgroup_creation.sh cache-test-arghya
-		./executables/make-unsorted-data $data_size_run
-		sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
-		echo "merge sort constant memory for data size $data_size_run and memory size $memory_given_run" >> out-sorting.txt 
-		cgexec -g memory:cache-test-arghya ./executables/opt-extmem-merge-sort $memory_given_run $data_size_run cache-test-arghya 1 0
+#		./cgroup_creation.sh cache-test-arghya
+#		./executables/make-unsorted-data $data_size_run
+#		sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
+#		echo "merge sort constant memory for data size $data_size_run and memory size $memory_given_run" >> out-sorting.txt 
+#		cgexec -g memory:cache-test-arghya ./executables/opt-extmem-merge-sort $memory_given_run $data_size_run cache-test-arghya 1 4 16 #3
+		#./executables/opt-extmem-merge-sort $memory_given_run $data_size_run cache-test-arghya 1 4 8
 
 		./cgroup_creation.sh cache-test-arghya
 		./executables/make-unsorted-data $data_size_run
 		sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
 		echo "merge sort constant memory for data size $data_size_run and memory size $memory_given_run" >> out-sorting.txt 
-		cgexec -g memory:cache-test-arghya ./executables/opt-extmem-merge-sort $memory_given_run $data_size_run cache-test-arghya 1 512
-
-		./cgroup_creation.sh cache-test-arghya
-		./executables/make-unsorted-data $data_size_run
-		sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
-		echo "merge sort constant memory for data size $data_size_run and memory size $memory_given_run" >> out-sorting.txt 
-		cgexec -g memory:cache-test-arghya ./executables/opt-extmem-merge-sort $memory_given_run $data_size_run cache-test-arghya 1 256
-
-		./cgroup_creation.sh cache-test-arghya
-		./executables/make-unsorted-data $data_size_run
-		sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
-		echo "merge sort constant memory for data size $data_size_run and memory size $memory_given_run" >> out-sorting.txt 
-		cgexec -g memory:cache-test-arghya ./executables/opt-extmem-merge-sort $memory_given_run $data_size_run cache-test-arghya 1 128
-
-		./cgroup_creation.sh cache-test-arghya
-		./executables/make-unsorted-data $data_size_run
-		sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
-		echo "merge sort constant memory for data size $data_size_run and memory size $memory_given_run" >> out-sorting.txt 
-		cgexec -g memory:cache-test-arghya ./executables/opt-extmem-merge-sort $memory_given_run $data_size_run cache-test-arghya 1 64
-
-		./cgroup_creation.sh cache-test-arghya
-		./executables/make-unsorted-data $data_size_run
-		sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
-		echo "merge sort constant memory for data size $data_size_run and memory size $memory_given_run" >> out-sorting.txt 
-		cgexec -g memory:cache-test-arghya ./executables/opt-extmem-merge-sort $memory_given_run $data_size_run cache-test-arghya 1 32
-
-		./cgroup_creation.sh cache-test-arghya
-		./executables/make-unsorted-data $data_size_run
-		sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
-		echo "merge sort constant memory for data size $data_size_run and memory size $memory_given_run" >> out-sorting.txt 
-		cgexec -g memory:cache-test-arghya ./executables/opt-extmem-merge-sort $memory_given_run $data_size_run cache-test-arghya 1 16
-
-		./cgroup_creation.sh cache-test-arghya
-		./executables/make-unsorted-data $data_size_run
-		sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
-		echo "merge sort constant memory for data size $data_size_run and memory size $memory_given_run" >> out-sorting.txt 
-		cgexec -g memory:cache-test-arghya ./executables/opt-extmem-merge-sort $memory_given_run $data_size_run cache-test-arghya 1 8
+		cgexec -g memory:cache-test-arghya ./executables/opt-extmem-merge-sort $memory_given_run $data_size_run cache-test-arghya 1 8 16 #2
 
 
-		./cgroup_creation.sh cache-test-arghya
-		./executables/make-unsorted-data $data_size_run
-		sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
-		echo "merge sort constant memory for data size $data_size_run and memory size $memory_given_run" >> out-sorting.txt 
-		cgexec -g memory:cache-test-arghya ./executables/opt-extmem-merge-sort $memory_given_run $data_size_run cache-test-arghya 1 4
-
-		./cgroup_creation.sh cache-test-arghya
-		./executables/make-unsorted-data $data_size_run
-		sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
-		echo "merge sort constant memory for data size $data_size_run and memory size $memory_given_run" >> out-sorting.txt 
-		cgexec -g memory:cache-test-arghya ./executables/opt-extmem-merge-sort $memory_given_run $data_size_run cache-test-arghya 1 2
+		#./cgroup_creation.sh cache-test-arghya
+		#./executables/make-unsorted-data $data_size_run
+		#sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
+		#echo "merge sort constant memory for data size $data_size_run and memory size $memory_given_run" >> out-sorting.txt 
+		#cgexec -g memory:cache-test-arghya ./executables/funnel-sort-int $memory_given_run $data_size_run cache-test-arghya
 	done
 done

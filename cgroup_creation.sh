@@ -13,4 +13,5 @@ then
 fi
 
 cgcreate -g "memory:$1" -t arghya:arghya
+#cgcreate -g "memory:$1" -t rathish-exp:rathish-exp
 sudo bash -c "echo 1 > /var/cgroups/$1/memory.oom_control"

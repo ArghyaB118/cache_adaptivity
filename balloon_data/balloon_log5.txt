@@ -1,0 +1,8 @@
+Starting balloon program
+Balloon data filename: ./balloon_data/balloon_data5
+Mem profile filename: mem_profile_use.txt
+0
+Each balloon is mmapping 780641000
+cgroup memory 8858370048
+num balloons 11
+111

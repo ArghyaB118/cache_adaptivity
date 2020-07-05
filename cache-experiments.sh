@@ -1,4 +1,5 @@
 #!/bin/bash
+#set -ex
 #how-to-tun: sudo ./cache-ex.sh 32 128 cache-test-arghya
 #g++ ./merge-sort/binary-merge-sort.cpp -o ./executables/binary-merge-sort
 #chmod a+x ./executables/binary-merge-sort
@@ -52,10 +53,13 @@ then
   touch mem_profile.txt
 fi
 
-declare -a data_size=( 512 1024 1536 2048 ) 
-declare -a memory_given=( 16 16 16 16 )
+#declare -a data_size=( 512 1024 1536 2048 2560 3072 3584 4096 5120 6144 7168 8192 9216 10240 ) 
+#declare -a memory_given=( 256 256 256 256 256 256 256 256 256 256 256 256 256 256 )
 
-NUMRUNS=3
+declare -a data_size=( 8192 )
+declare -a memory_given=( 256 )
+
+NUMRUNS=2
 
 for i in `seq 1 $NUMRUNS`;
 do
@@ -64,13 +68,13 @@ do
 		data_size_run=${data_size[$index]}
 		memory_given_run=${memory_given[$index]}
 		
-
+		
 		#code for constant memory profile merge sort
 		./cgroup_creation.sh cache-test-arghya
 		./executables/make-unsorted-data $data_size_run
 		sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
 		echo "merge sort constant memory for data size $data_size_run and memory size $memory_given_run" >> out-sorting.txt 
-		cgexec -g memory:cache-test-arghya ./executables/opt-extmem-merge-sort $memory_given_run $data_size_run cache-test-arghya 1 8
+		cgexec -g memory:cache-test-arghya ./executables/opt-extmem-merge-sort $memory_given_run $data_size_run cache-test-arghya 1 8 8
 		
 		#code for constant memory profile funnel sort
 		./cgroup_creation.sh cache-test-arghya
@@ -79,65 +83,13 @@ do
 		echo "funnel sort constant memory for data size $data_size_run and memory size $memory_given_run" >> out-sorting.txt 
 		cgexec -g memory:cache-test-arghya ./executables/funnel-sort-int $memory_given_run $data_size_run cache-test-arghya
 
-		#code for random memory profile for merge sort
-	#	./cgroup_creation.sh cache-test-arghya
-	#	./executables/make-unsorted-data $data_size_run
-	#	sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
-	#	echo "merge sort random memory for data size $data_size_run and memory size $memory_given_run" >> out-sorting.txt 
-	#	cgexec -g memory:cache-test-arghya ./executables/opt-extmem-merge-sort-const-mem $memory_given_run $data_size_run cache-test-arghya &
-	#	PID=$!
-	#	STATUS=$(ps ax|grep "$PID"|wc -l)
-	#	CURRENT=$memory_given_run*1024*1024
-	#	while [ $STATUS -gt 1 ] ; do
-	#		sleep 5
-	#		if (( $RANDOM % 2 == 1 )) || (( $CURRENT == $memory_given_run*1024*1024 )) || (( $CURRENT == 2*$memory_given_MB*1024*1024 ));
-	#		then
-	#			echo "increasing memory"
-	#			let CURRENT=$CURRENT+$memory_given_run*1024*1024
-	#		else
-	#			echo "decreasing memory"
-	#			let CURRENT=$CURRENT-$memory_given_run*1024*1024
-	#		fi
-	#		echo $CURRENT > /var/cgroups/cache-test-arghya/memory.limit_in_bytes
-	#		STATUS=$(ps ax|grep "$PID"|wc -l) 
-	#	done
-	#	echo "Success for random memory profile for merge sort!"
-	#	wait
-
-
-		#code for random memory profile for funnel sort
-	#	./cgroup_creation.sh cache-test-arghya
-	#	./executables/make-unsorted-data $data_size_run
-	#	sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
-	#	echo "funnel sort random memory for data size $data_size_run and memory size $memory_given_run" >> out-sorting.txt 
-	#	cgexec -g memory:cache-test-arghya ./executables/funnel-sort-int $memory_given_run $data_size_run cache-test-arghya &
-	#	PID=$!
-	#	STATUS=$(ps ax|grep "$PID"|wc -l)
-	#	CURRENT=$memory_given_run*1024*1024
-	#	while [ $STATUS -gt 1 ] ; do
-	#		sleep 5
-	#		if (( $RANDOM % 2 == 1 )) || (( $CURRENT == $memory_given_run*1024*1024 )) || (( $CURRENT == 2*$memory_given_MB*1024*1024 )) ;
-	#		then
-	#			echo "increasing memory"
-	#			let CURRENT=$CURRENT+$memory_given_run*1024*1024
-	#		else
-	#			echo "decreasing memory"
-	#			let CURRENT=$CURRENT-$memory_given_run*1024*1024
-	#		fi
-	#		echo $CURRENT > /var/cgroups/cache-test-arghya/memory.limit_in_bytes
-	#		STATUS=$(ps ax|grep "$PID"|wc -l) 
-	#	done
-	#	echo "Success for random memory profile for funnel sort!"
-	#	wait
-
-
 		#code to generate worse case memory profile from merge sort
 		./cgroup_creation.sh cache-test-arghya
 		./executables/make-unsorted-data $data_size_run
 		sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
 		sudo bash -c "echo 1 > /var/cgroups/cache-test-arghya/memory.oom_control"
 		echo "merge sort to generate worse case memory for data size $data_size_run and memory size $memory_given_run" >> out-sorting.txt
-		cgexec -g memory:cache-test-arghya ./executables/opt-extmem-merge-sort $memory_given_run $data_size_run cache-test-arghya 2 8
+		cgexec -g memory:cache-test-arghya ./executables/opt-extmem-merge-sort $memory_given_run $data_size_run cache-test-arghya 2 8 8
 
 
 		#code to run worse case memory profile on merge sort
@@ -148,7 +100,7 @@ do
 		cp mem_profile.txt mem_profile_use.txt
 		IFS=$'\r\n ' GLOBIGNORE='*' command eval  'XYZ=($(cat mem_profile_use.txt))'
 		echo "merge sort rerun on worse case memory for data size $data_size_run and memory size $memory_given_run" >> out-sorting.txt
-		cgexec -g memory:cache-test-arghya ./executables/opt-extmem-merge-sort $memory_given_run $data_size_run cache-test-arghya 1 8 &
+		cgexec -g memory:cache-test-arghya ./executables/opt-extmem-merge-sort $memory_given_run $data_size_run cache-test-arghya 1 8 8 &
 		PID=$!
 		STATUS=$(ps ax|grep "$PID"|wc -l)
 		X=0
@@ -170,7 +122,7 @@ do
 		./cgroup_creation.sh cache-test-arghya
 		./executables/make-unsorted-data $data_size_run
 		sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
-		IFS=$'\r\n ' GLOBIGNORE='*' command eval  'XYZ=($(cat mem_profile_use.txt))'
+		IFS=$'\r\n ' GLOBIGNORE='*' command eval  'XYZ=($(cat mem_profile_use_backupfor8GB.txt))'
 		echo "funnel sort on worse case memory for data size $data_size_run and memory size $memory_given_run" >> out-sorting.txt
 		cgexec -g memory:cache-test-arghya ./executables/funnel-sort-int $memory_given_run $data_size_run cache-test-arghya &
 		PID=$!
