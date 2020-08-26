@@ -34,8 +34,7 @@ chmod a+x ./executables/make-unsorted-data
 if [ ! -f "merge-sort/nullbytes" ]
 then
   echo "First creating file for storing data."
-  dd if=/dev/urandom of=nullbytes count=32768 bs=1048576
-  mv nullbytes merge-sort/nullbytes
+  dd if=/dev/urandom of=merge-sort/nullbytes count=32768 bs=1048576
 fi
 #deleting out-sorting.txt and creating again
 if [ -f "out-sorting.txt" ]
@@ -56,10 +55,10 @@ fi
 #declare -a data_size=( 512 1024 1536 2048 2560 3072 3584 4096 5120 6144 7168 8192 9216 10240 ) 
 #declare -a memory_given=( 256 256 256 256 256 256 256 256 256 256 256 256 256 256 )
 
-declare -a data_size=( 8192 )
-declare -a memory_given=( 256 )
+declare -a data_size=( 256 512 1024 )
+declare -a memory_given=( 256 256 256 )
 
-NUMRUNS=2
+NUMRUNS=1
 
 for i in `seq 1 $NUMRUNS`;
 do
@@ -122,7 +121,7 @@ do
 		./cgroup_creation.sh cache-test-arghya
 		./executables/make-unsorted-data $data_size_run
 		sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches; echo 0 > /proc/sys/vm/vfs_cache_pressure"
-		IFS=$'\r\n ' GLOBIGNORE='*' command eval  'XYZ=($(cat mem_profile_use_backupfor8GB.txt))'
+		IFS=$'\r\n ' GLOBIGNORE='*' command eval  'XYZ=($(cat mem_profile_use.txt))'
 		echo "funnel sort on worse case memory for data size $data_size_run and memory size $memory_given_run" >> out-sorting.txt
 		cgexec -g memory:cache-test-arghya ./executables/funnel-sort-int $memory_given_run $data_size_run cache-test-arghya &
 		PID=$!

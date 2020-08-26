@@ -127,8 +127,9 @@ int main(int argc, char *argv[]){
     index += 1000;
     std::chrono::system_clock::time_point t_end = std::chrono::system_clock::now();
     auto wall_time = std::chrono::duration<double, std::milli>(t_end-t_start).count();
+    wall_time = wall_time / 1000;
     if (memory_profile_type == 1){
-      if (counter < times.size() && wall_time > times[counter]){
+      if (counter < times.size() && 4 * wall_time > times[counter]){
         std::cout << "value stored in times array: " << times[counter] << std::endl;
         munmap(dst,MEMORY);
         MEMORY = set_memory_in_bytes(CGROUP_MEMORY, memory_values[counter], NUM_BALLOONS);

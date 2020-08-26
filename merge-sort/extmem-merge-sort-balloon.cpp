@@ -6,6 +6,7 @@
 #include <sys/stat.h>
 #include <sys/mman.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <unistd.h>
 #include <memory>
 #include <string>
@@ -15,7 +16,8 @@
 #include <algorithm>
 #include <fstream>
 #include <time.h>
-#include <stdio.h>
+#include <vector>
+
 using namespace std;
 #define TYPE int
 
@@ -23,27 +25,20 @@ typedef pair<int, pair<int, int> > ppi;
 //std::clock_t start;
 time_t start, finish; // introduced to measure wall clock time
 double duration;
-std::ofstream out;
-std::ofstream out_sorting;
+std::ofstream out, out_sorting, logfile;
 //char* cgroup_name;
 std::vector<long> io_stats = {0,0};
-int type_of_run, data_in_megabytes, memory_given_MB, k_logical, logical_block_size_MB, actual_block_size_MB;
+int type_of_run, data_in_megabytes, memory_given_MB, k_logical, logical_block_size_KB, actual_block_size_KB;
+vector<int> random_memory;
 unsigned long long num_elements, base_case, memory;
 unsigned long long* dst2;
 
-/* UTILITY FUNCTIONS */
-/* Function to print an array */
-void printArray(int A[], int size) { 
-  for (int i = 0; i < size; i++) 
-    cout << A[i] << " ";
-  cout << endl; 
-} 
 /* M/B-way merge, to be precise M/4B */
 void merge(int arr[], int temp_arr[], unsigned long long l, unsigned long long m, unsigned long long r) {
   unsigned long long itr = 0ULL;
   priority_queue<ppi, vector<ppi>, greater<ppi> > pq;
   for (int i = 0; i < k_logical; i++) {
-    for (unsigned long long j = 0; j < 1048576ULL * actual_block_size_MB / sizeof(TYPE); j++) {
+    for (unsigned long long j = 0; j < 1024ULL * actual_block_size_KB / sizeof(TYPE); j++) {
         pq.push({arr[l + i*m + j], {i, j}});
     }
   }
@@ -54,9 +49,9 @@ void merge(int arr[], int temp_arr[], unsigned long long l, unsigned long long m
     temp_arr[itr] = curr.first; itr++;
     int i = curr.second.first;   
     unsigned long long j = curr.second.second;
-    if (j + 1 < m && (j + 1) % (1048576ULL * actual_block_size_MB / sizeof(TYPE)) == 0) {
+    if (j + 1 < m && (j + 1) % (1024ULL * actual_block_size_KB / sizeof(TYPE)) == 0) {
       //cout << "here " << j + 1 << " " << 1048576ULL * actual_block_size_MB / sizeof(TYPE) << endl;
-      for (unsigned long long p = 0ULL; p < 1048576ULL * actual_block_size_MB / sizeof(TYPE); ++p) {
+      for (unsigned long long p = 0ULL; p < 1024ULL * actual_block_size_KB / sizeof(TYPE); ++p) {
         pq.push({arr[m*i + j + p], {i, j + p + 1}});
       }
     } 
@@ -68,36 +63,71 @@ void merge(int arr[], int temp_arr[], unsigned long long l, unsigned long long m
 /* l is for left index and r is right index of the 
 sub-array of arr to be sorted */
 void mergeSort(int arr[], unsigned long long l, unsigned long long r, int temp_arr[]) { 
-  cout << "here" << endl;
   if (l < r && r - l + 1 > base_case) {
+    logfile << "recursive call" << endl;
     unsigned long long m = (r - l + 1) / k_logical; 
     for (int i = 0; i < k_logical; ++i) {
       mergeSort(arr, l + i*m, l + i*m + m - 1, temp_arr); 
     }
+    // constant memory profile
     if (type_of_run == 1) {
-      //cout << "merging elements from " << l << " to " << r << endl;
+      logfile << "merging elements from " << l << " to " << r << endl;
       merge(arr, temp_arr, l, m, r); 
     }
+    // adaptive adversarial memory profile
     else if (type_of_run == 2) {
       memory = 1048576ULL * memory_given_MB + (r - l + 1) * sizeof(TYPE);
       //memory = memory / 1048576;
       //duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
       duration = time(NULL) - start;
       out << duration << " " << memory << std::endl;
-      cout << "writing new " << memory << endl;
       dst2[0] = memory;  //CacheHelper::limit_memory(memory, cgroup_name);
+      logfile << "increasing memory before merge to: " << dst2[0] << endl;
+      logfile << "merging elements from " << l << " to " << r << endl;
       merge(arr, temp_arr, l, m, r);
       memory = 1048576ULL * memory_given_MB; //memory = memory / 1048576;
       //duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
       duration = time(NULL) - start;
       out << duration << " " << memory << std::endl;  
-      cout << "writing old back " << memory << endl;
       dst2[0] = memory;  //CacheHelper::limit_memory(memory, cgroup_name);
+      logfile << "decreasing memory after merge to: " << dst2[0] << endl;
+    }
+    // random memory profile
+    else if (type_of_run == 3) {
+      srand((unsigned) time(0));
+      int element =  rand() % random_memory.size();
+      memory = 1048576ULL * memory_given_MB + 1024ULL * random_memory[element];
+      duration = time(NULL) - start;
+      out << duration << " " << memory << std::endl;
+      dst2[0] = memory;
+      logfile << "increasing memory before merge to: " << dst2[0] << endl;
+      logfile << "merging elements from " << l << " to " << r << endl;
+      merge(arr, temp_arr, l, m, r);
+      memory = 1048576ULL * memory_given_MB;
+      duration = time(NULL) - start;
+      out << duration << " " << memory << std::endl; 
+      dst2[0] = memory;
+      logfile << "decreasing memory after merge to: " << dst2[0] << endl;
+    }
+    // adaptive benevolent memory profile
+    else if (type_of_run == 4) {
+      memory = 1048576ULL * memory_given_MB / 16;
+      duration = time(NULL) - start;
+      out << duration << " " << memory << std::endl;
+      dst2[0] = memory;
+      logfile << "decreasing memory before merge to: " << dst2[0] << endl;
+      logfile << "merging elements from " << l << " to " << r << endl;
+      merge(arr, temp_arr, l, m, r);
+      memory = 1048576ULL * memory_given_MB;
+      duration = time(NULL) - start;
+      out << duration << " " << memory << std::endl;  
+      dst2[0] = memory;
+      logfile << "decreasing memory after merge to: " << dst2[0] << endl;
     }
   }
   else if (l < r && r - l + 1 <= base_case) {
-    cout << "came here" << endl;
-    actual_block_size_MB = (r - l + 1) * sizeof(TYPE) / (1024 * 1024);
+    logfile << "in-memory sort" << endl;
+    actual_block_size_KB = (r - l + 1) * sizeof(TYPE) / 1024;
     sort(arr + l, arr + (r + 1));
   }
 } 
@@ -114,7 +144,7 @@ void rootMergeSort(int arr[], int *arr_first, int *arr_last) {
 
 int main(int argc, char *argv[]){
   srand (time(NULL));
-
+  logfile = std::ofstream("log.txt",std::ofstream::out | std::ofstream::app);
   if (argc < 7){
     std::cout << "Insufficient arguments! Usage: ./a.out <memory_limit> <data_size> <cgroup_name> <type> <k_logical> <block_size>";
     //type = 1 for constant memory and 2 for worse case memory
@@ -136,19 +166,30 @@ int main(int argc, char *argv[]){
        return 0;
   }
   memory_given_MB = atoi(argv[1]); data_in_megabytes = atoi(argv[2]); type_of_run = atoi(argv[4]); 
-  k_logical = atoi(argv[5]); logical_block_size_MB = atoi(argv[6]);
-  num_elements = 1048576ULL * data_in_megabytes / sizeof(TYPE); cout << num_elements << endl;
-  base_case = 1048576ULL * logical_block_size_MB / sizeof(TYPE);
+  k_logical = atoi(argv[5]); logical_block_size_KB = atoi(argv[6]);
+  num_elements = 1048576ULL * data_in_megabytes / sizeof(TYPE);
+  base_case = 1024ULL * logical_block_size_KB / sizeof(TYPE);
+  
+  if (type_of_run == 3) {
+    int initial_memory = data_in_megabytes*1024, i = initial_memory, counter = 1;
+    random_memory.push_back(initial_memory);
+    while (i > logical_block_size_KB) {
+      i = i / k_logical;
+      counter = counter * k_logical;
+      for (int j = 0; j < counter; ++j)
+        random_memory.push_back(i);
+    }
+  }
   // string manipulation for cgroup name
   //cgroup_name = new char[strlen(argv[3]) + 1](); strncpy(cgroup_name,argv[3],strlen(argv[3]));
   //some checks are required here
-  if ((k_logical + 1) * logical_block_size_MB > memory_given_MB) {
+  if ((k_logical + 1) * logical_block_size_KB / 1024 > memory_given_MB) {
     cout << "constraint not met" << endl;
     return 0;
   }
   std::cout << "\n==================================================================\n";
   CacheHelper::print_io_data(io_stats, "Printing I/O statistics at program start @@@@@ \n");
-  std::cout << "Running " << k_logical <<"-way merge sort on an array of size: " << num_elements << " with base case " << base_case << std::endl;
+  logfile << "Running " << k_logical <<"-way merge sort on an array of size: " << num_elements << " with base case " << base_case << std::endl;
   TYPE* arr;
   if (((arr = (TYPE*) mmap(0, sizeof(TYPE)*num_elements, PROT_READ | PROT_WRITE, MAP_SHARED , fdout, 0)) == (TYPE*)MAP_FAILED)){
     printf ("mmap error for output with code");
@@ -167,23 +208,16 @@ int main(int argc, char *argv[]){
   duration = (finish - start);
   std::cout << "\n==================================================================\n";
   CacheHelper::print_io_data(io_stats, "Printing I/O statistics just after sorting start @@@@@ \n");
-
-  std::cout << "Total sorting time: " << duration << "\n";
+  logfile << "Total sorting time: " << duration << "\n";
   out_sorting = std::ofstream("out-sorting.txt",std::ofstream::out | std::ofstream::app);
-  out_sorting << "Merge sort, logical block size in MiB is " << logical_block_size_MB << ", actual block size in MiB is " << actual_block_size_MB << "," << duration << "," << io_stats[0] << "," << io_stats[1] << std::endl;
-  out.close(); out_sorting.close();
+  out_sorting << "Merge sort, logical block size in KB is " << logical_block_size_KB << ", actual block size in KB is " << actual_block_size_KB << "," << duration << "," << io_stats[0] << "," << io_stats[1] << std::endl;
   //introduced code for checking the accuracy of sorting result
-  //memory = 1048576ULL * data_in_megabytes;
-  //CacheHelper::limit_memory(memory, cgroup_name);
   std::ofstream test_out = std::ofstream("test_out.txt", std::ofstream::out);
   for (unsigned long long i = 1 ; i < num_elements; i++) {
    if ((int)arr[i - 1] > (int)arr[i]) {
-      cout << "bad result " << (unsigned long long)i << " " << (int)arr[i - 2] << " " << (int)arr[i - 1] << " " << (int)arr[i] << " " << (int)arr[i + 1] << endl;
-//      break; 
-      for (unsigned long long j = i - 100; j <= i + 100; j++)
-        test_out << arr[j] << endl;
+      logfile << "bad result " << (unsigned long long)i << " " << (int)arr[i - 2] << " " << (int)arr[i - 1] << " " << (int)arr[i] << " " << (int)arr[i + 1] << endl;
    }
   }
-  test_out.close();
- return 0;
+  out.close(); out_sorting.close(); logfile.close();
+  return 0;
 }

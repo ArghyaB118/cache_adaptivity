@@ -1,41 +1,29 @@
-merge sort constant memory for data size 512 and memory size 256
-Merge sort, logical block size in MiB is 8, actual block size in MiB is 8,2975,3969425408,1610657792
-funnel sort constant memory for data size 512 and memory size 256
-Funnel sort,746,2590167040,1076727808
+merge sort to generate worse case memory for data size 256 and memory size 256
+Merge sort, logical block size in KB is 8192, actual block size in KB is 4096,1187,697507840,805433344
+funnel sort on worse case memory for data size 256 and memory size 256
+Funnel sort,286,576671744,540426240
+merge sort to generate adaptive benevolent memory for data size 256 and memory size 256
+Merge sort, logical block size in KB is 8192, actual block size in KB is 4096,1298,1120518144,745472000
+funnel sort on adaptive benevolent memory for data size 256 and memory size 256
+Funnel sort,494,956833792,566554624
 merge sort to generate worse case memory for data size 512 and memory size 256
-Merge sort, logical block size in MiB is 8, actual block size in MiB is 8,1207,2886856704,1610702848
-merge sort to replay worse case memory for data size 512 and memory size 256
-Merge sort, logical block size in MiB is 8, actual block size in MiB is 8,3180,3966955520,1610670080
+Merge sort, logical block size in KB is 8192, actual block size in KB is 8192,2503,2370326528,1625604096
 funnel sort on worse case memory for data size 512 and memory size 256
-Funnel sort,876,2604220416,1076506624
-merge sort constant memory for data size 1024 and memory size 256
-Merge sort, logical block size in MiB is 8, actual block size in MiB is 2,3289,7108870144,3521130496
-funnel sort constant memory for data size 1024 and memory size 256
-Funnel sort,2746,6850596864,2152542208
+Funnel sort,587,1501212672,1089851392
+merge sort to generate adaptive benevolent memory for data size 512 and memory size 256
+Merge sort, logical block size in KB is 8192, actual block size in KB is 8192,4401,2169610240,1380093952
+funnel sort on adaptive benevolent memory for data size 512 and memory size 256
+Funnel sort,1407,1960394752,1142775808
 merge sort to generate worse case memory for data size 1024 and memory size 256
-Merge sort, logical block size in MiB is 8, actual block size in MiB is 2,2849,5771620352,3385638912
-merge sort to replay worse case memory for data size 1024 and memory size 256
-Merge sort, logical block size in MiB is 8, actual block size in MiB is 2,4541,7427526656,3489746944
+Merge sort, logical block size in KB is 8192, actual block size in KB is 2048,6106,5124538368,4295909376
 funnel sort on worse case memory for data size 1024 and memory size 256
-Funnel sort,2153,6724730880,2154213376
-merge sort constant memory for data size 2048 and memory size 256
-Merge sort, logical block size in MiB is 8, actual block size in MiB is 4,10967,17611857920,7503642624
-funnel sort constant memory for data size 2048 and memory size 256
-Funnel sort,5498,13445578752,4319617024
+Funnel sort,1342,3472789504,2271793152
+merge sort to generate adaptive benevolent memory for data size 1024 and memory size 256
+Merge sort, logical block size in KB is 8192, actual block size in KB is 2048,9861,6765891584,4182724608
+funnel sort on adaptive benevolent memory for data size 1024 and memory size 256
+Funnel sort,5721,4094316544,2363949056
 merge sort to generate worse case memory for data size 2048 and memory size 256
-Merge sort, logical block size in MiB is 8, actual block size in MiB is 4,7650,13554413568,6983827456
-merge sort to replay worse case memory for data size 2048 and memory size 256
-Merge sort, logical block size in MiB is 8, actual block size in MiB is 4,13627,17779195904,7474626560
+Merge sort, logical block size in KB is 8192, actual block size in KB is 4096,19908,10661978112,8924864512
 funnel sort on worse case memory for data size 2048 and memory size 256
-Funnel sort,3522,11541151744,4294971392
-merge sort constant memory for data size 4096 and memory size 256
-Merge sort, logical block size in MiB is 8, actual block size in MiB is 8,27355,43010985984,15776583680
-funnel sort constant memory for data size 4096 and memory size 256
-Funnel sort,19446,23528083456,8589938688
-merge sort to generate worse case memory for data size 4096 and memory size 256
-Merge sort, logical block size in MiB is 8, actual block size in MiB is 8,15922,33278881792,16818913280
-merge sort to replay worse case memory for data size 4096 and memory size 256
-Merge sort, logical block size in MiB is 8, actual block size in MiB is 8,25390,42302627840,15249145856
-funnel sort on worse case memory for data size 4096 and memory size 256
-Funnel sort,17028,22796021760,8589938688
-merge sort constant memory for data size 8192 and memory size 256
+Funnel sort,4013,7190573056,4394942464
+merge sort to generate adaptive benevolent memory for data size 2048 and memory size 256

@@ -89,7 +89,6 @@ int main(int argc, char *argv[]){
 	std::cout << "Total sorting time: " << duration << "\n";
   out_sorting = std::ofstream("out-sorting.txt",std::ofstream::out | std::ofstream::app);
   out_sorting << "Funnel sort" << "," << duration << "," << io_stats[0] << "," << io_stats[1] << std::endl;
- out.close(); 
- out_sorting.close();
- return 0;
+  out.close(); out_sorting.close();
+  return 0;
 }
