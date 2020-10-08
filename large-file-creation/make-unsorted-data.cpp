@@ -9,12 +9,15 @@
 #include <unistd.h>
 #include <memory>
 #include <string>
+#include <cstring>
 #include <fstream>
+
 using namespace std;
 #define TYPE int
 
 unsigned long data_in_MiB = 0;
 const int B = 2;
+char* datafile;
 
 int main(int argc, char *argv[]){
   if (argc < 2){
@@ -22,9 +25,9 @@ int main(int argc, char *argv[]){
     exit(1);
   }
   data_in_MiB = std::stol(argv[1]);
-  
+  datafile = new char[strlen(argv[2]) + 1](); strncpy(datafile,argv[2],strlen(argv[2]));
   int fdout;
-  if ((fdout = open ("merge-sort/nullbytes", O_RDWR, 0x0777 )) < 0){
+  if ((fdout = open (datafile, O_RDWR, 0x0777 )) < 0){
     printf ("can't create nullbytes for writing\n");
     return 0;
   }

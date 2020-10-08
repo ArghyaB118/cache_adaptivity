@@ -1,3 +1,5 @@
 merge-sort/nullbytes
 balloon_data/balloon_data*
 executables/
+data_files/*
+memory_profile*
