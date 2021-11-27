@@ -1,6 +1,0 @@
-merge sort constant memory for data size 2048 and memory size 256
-Merge sort, logical block size in KB is 8192, actual block size in KB is 4096,234,2148454400,2264190976
-Merge sort, logical block size in KB is 8192, actual block size in KB is 4096,239,2148081664,2274680832
-merge sort constant memory for data size 2048 and memory size 256
-Merge sort, logical block size in KB is 8192, actual block size in KB is 4096,240,2147745792,2259587072
-Merge sort, logical block size in KB is 8192, actual block size in KB is 4096,242,2148331520,2257731584

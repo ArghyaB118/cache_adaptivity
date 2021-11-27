@@ -1,1 +1,0 @@
-funnel sort constant memory for data size 256 and memory size 256

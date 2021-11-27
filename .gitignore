@@ -1,5 +1,7 @@
-merge-sort/nullbytes
-balloon_data/balloon_data*
-executables/
+balloon_data/*
+executables/*
 data_files/*
-memory_profile*
+mem_profiles/*
+*.out
+*.json
+Trash/

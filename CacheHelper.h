@@ -6,9 +6,13 @@
 #include<vector>
 #include<unistd.h>
 
+bool verbose = true;
 
 namespace CacheHelper{
+  //int MM_BASE_SIZE = 1024; //for block_mm in 16 MiB 
   int MM_BASE_SIZE = 128;
+  int MM_BLOCK_BASE_SIZE = 128;
+  int EM_BASE_SIZE = 4096;
   std::string exec(std::string cmd) {
       std::array<char, 128> buffer;
       std::string result;
@@ -43,6 +47,7 @@ namespace CacheHelper{
   }
 
   void print_io_data(std::vector<long>& data, std::string header){
+    std::cout << "\n==================================================================\n";
     std::cout << header;
     std::string command = std::string("cat /proc/") + std::to_string(getpid()) + std::string("/io");
     std::string command_output = exec(command);
@@ -61,18 +66,26 @@ namespace CacheHelper{
 
   //limits the memory, memory in bytes and
   void limit_memory(unsigned long long memory_in_bytes, const char* string2){
-    //std::cout << "Entering limit memory function\n";
+    if(verbose) { std::cout << "Entering limit memory function\n"; }
     std::string string = std::to_string(memory_in_bytes);
     std::string command = std::string("bash -c \"echo ") + string + std::string(" > /var/cgroups/") + string2 + std::string("/memory.limit_in_bytes\"");
-    //std::cout << "Command: " << command << std::endl;
+    if(verbose) { std::cout << "Command: " << command << std::endl; }
     int return_code = system(command.c_str());
-    //std::cout << "Memory usage: " << exec(std::string("cat /var/cgroups/") + string2 + std::string("/memory.usage_in_bytes")) << std::endl;
+    std::string command1 = std::string("bash -c \"echo ") + string + std::string(" > /sys/fs/cgroup/memory/") + string2 + std::string("/memory.limit_in_bytes\"");
+    if(verbose) { std::cout << "Command: " << command << std::endl; }
+    int return_code1 = system(command1.c_str());
+    if(verbose) { std::cout << "Memory usage: " << exec(std::string("cat /var/cgroups/") + string2 + std::string("/memory.usage_in_bytes")) << std::endl; }
     if (return_code != 0){
       std::cout << "Error. Unable to set cgroup memory " << string << " Code: " << return_code << "\n";
       std::cout << "Memory usage: " << exec(std::string("cat /var/cgroups/") + string2 + std::string("/memory.usage_in_bytes")) << std::endl;
       //exit(1);
     }
-    //std::cout << "Limiting cgroup memory: " << string << " bytes\n";
+    if (return_code1 != 0){
+      std::cout << "Error. Unable to set cgroup memory " << string << " Code: " << return_code << "\n";
+      std::cout << "Memory usage: " << exec(std::string("cat /sys/fs/cgroup/memory/") + string2 + std::string("/memory.usage_in_bytes")) << std::endl;
+      //exit(1);
+    }
+    if(verbose) { std::cout << "Limiting cgroup memory: " << string << " bytes\n"; }
   }
 
 }
