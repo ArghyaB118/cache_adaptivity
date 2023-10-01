@@ -2,7 +2,6 @@
 // merge sort 
 #include <iostream> 
 #include <string>
-#include <queue>
 using namespace std; 
 
 struct MinHeapNode { 
@@ -12,13 +11,128 @@ struct MinHeapNode {
 	int root; 
 }; 
 
-// Comparison object to be used to order the heaps 
-struct comp { 
+// Prototype of a utility function to swap two min heap nodes 
+// A utility function to swap two elements 
+void swap(MinHeapNode* x, MinHeapNode* y) { 
+	MinHeapNode temp = *x; 
+	*x = *y; 
+	*y = temp; 
+} 
+
+// A class for Min Heap 
+class MinHeap { 
+	MinHeapNode* heap_arr; // pointer to array of elements in heap 
+	int heap_size;	 // size of min heap 
+
 public: 
-    bool operator() (const MinHeapNode lhs, const MinHeapNode rhs) const { 
-        return lhs.element > rhs.element;
-    } 
+	// Constructor: creates a min heap of given size from a given array a[] 
+	MinHeap(MinHeapNode arr[], int size) { 
+		heap_size = size; 
+		heap_arr = arr; // store address of array 
+		int i = (size - 1) / 2; 
+		while (i >= 0) { 
+			MinHeapify(i); 
+			i--; 
+		} 
+	};
+
+	// to get index of left child of node at index i 
+	int left(int root) { return (2 * root + 1); } 
+
+	// to get index of right child of node at index i 
+	int right(int root) { return (2 * root + 2); } 
+
+	// to get the root 
+	MinHeapNode getMin() { return heap_arr[0]; } 
+
+	// to replace root with new node x and heapify() 
+	// new root 
+	void replaceMin(MinHeapNode x) 
+	{ 
+		heap_arr[0] = x; 
+		MinHeapify(0); 
+	} 
+
+	// A recursive method to heapify a subtree with root 
+	// at given index. This method assumes that the 
+	// subtrees are already heapified 
+	void MinHeapify(int i) { 
+		int l = left(i); 
+		int r = right(i); 
+		int smallest = i; 
+		if (l < heap_size && heap_arr[l].element < heap_arr[i].element) 
+			smallest = l; 
+		if (r < heap_size && heap_arr[r].element < heap_arr[smallest].element) 
+			smallest = r; 
+		if (smallest != i) { 
+			swap(&heap_arr[i], &heap_arr[smallest]); 
+			MinHeapify(smallest); 
+		} 
+	};
 }; 
+
+
+
+
+// Merges two subarrays of arr[]. 
+// First subarray is arr[l..m] 
+// Second subarray is arr[m+1..r] 
+void merge(int arr[], int l, int m, int r) 
+{ 
+	int i, j, k; 
+	int n1 = m - l + 1; 
+	int n2 = r - m; 
+
+	/* create temp arrays */
+	int L[n1], R[n2]; 
+
+	/* Copy data to temp arrays L[] and R[] */
+	for(i = 0; i < n1; i++) 
+		L[i] = arr[l + i]; 
+	for(j = 0; j < n2; j++) 
+		R[j] = arr[m + 1 + j]; 
+
+	/* Merge the temp arrays back into arr[l..r]*/
+	i = 0; // Initial index of first subarray 
+	j = 0; // Initial index of second subarray 
+	k = l; // Initial index of merged subarray 
+	while (i < n1 && j < n2) 
+	{ 
+		if (L[i] <= R[j]) 
+			arr[k++] = L[i++]; 
+		else
+			arr[k++] = R[j++]; 
+	} 
+
+	/* Copy the remaining elements of L[], if there 
+	are any */
+	while (i < n1) 
+		arr[k++] = L[i++]; 
+
+	/* Copy the remaining elements of R[], if there 
+	are any */
+	while(j < n2) 
+		arr[k++] = R[j++]; 
+} 
+
+/* l is for left index and r is right index of the 
+sub-array of arr to be sorted */
+void mergeSort(int arr[], int l, int r) 
+{ 
+	if (l < r) 
+	{ 
+		// Same as (l+r)/2, but avoids overflow for 
+		// large l and h 
+		int m = l + (r - l) / 2; 
+
+		// Sort first and second halves 
+		mergeSort(arr, l, m); 
+		mergeSort(arr, m + 1, r); 
+
+		merge(arr, l, m, r); 
+	} 
+} 
+
 
 // Merges k sorted files. Names of files are assumed 
 // to be 1, 2, 3, ... k 
@@ -40,17 +154,17 @@ void mergeFiles(char *output_file, int n, int k) {
 
 	// Create a min heap with k heap nodes. Every heap node 
 	// has first element of scratch output file 
-	MinHeapNode heap_arr[k]; 
-	priority_queue<MinHeapNode, vector<MinHeapNode>, comp> pq;
+	MinHeapNode* heap_arr = new MinHeapNode[k]; 
 	int i; 
 	for (i = 0; i < k; i++) { 
 		// break if no output file is empty and 
 		// index i will be no. of input files 
 		if (fscanf(in[i], "%d ", &heap_arr[i].element) != 1) 
 			break; 
+
 		heap_arr[i].root = i; // Index of scratch output file 
-		pq.push(heap_arr[i]);
-	}
+	} 
+	MinHeap hp(heap_arr, i); // Create the heap 
 
 	int count = 0; 
 
@@ -59,8 +173,7 @@ void mergeFiles(char *output_file, int n, int k) {
 	// run till all filled input files reach EOF 
 	while (count != i) { 
 		// Get the minimum element and store it in output file 
-		MinHeapNode root = pq.top();
-		pq.pop();
+		MinHeapNode root = hp.getMin(); 
 		fprintf(out, "%d\n", root.element); 
 
 		// Find the next element that will replace current 
@@ -72,7 +185,7 @@ void mergeFiles(char *output_file, int n, int k) {
 		} 
 
 		// Replace root with next element of input file 
-		pq.push(root);
+		hp.replaceMin(root); 
 	} 
 
 	// close input and output files 
@@ -81,6 +194,7 @@ void mergeFiles(char *output_file, int n, int k) {
 
 	fclose(out); 
 } 
+
 
 // Driver program to test above 
 int main() { 
@@ -91,7 +205,7 @@ int main() {
 	int run_size = 1000; 
 
 	char input_file[] = "input.txt"; 
-	char output_file[] = "output-cpp-lib.txt"; 
+	char output_file[] = "output.txt"; 
 	
 	// Using a merge-sort algorithm, create the initial runs 
 	// and divide them evenly among the output files 
@@ -128,8 +242,8 @@ int main() {
 			} 
 		} 
 
-		// sort array using stl sort 
-		sort(arr, arr + run_size);
+		// sort array using merge sort 
+		mergeSort(arr, 0, i - 1); 
 
 		// write the records to the appropriate scratch output file 
 		// can't assume that the loop runs to run_size 
@@ -149,7 +263,6 @@ int main() {
 
 	mergeFiles(output_file, run_size, num_ways); 
 	
-	//this is to send the temprary files in a separate folder
 	for (int i = 0; i < num_ways; i++) { 
 		string cmd = "mv " + to_string(i) + " ./temp-files-cpp";
 		const char *command = cmd.c_str();

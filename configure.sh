@@ -10,7 +10,7 @@ g++ ./matrix-mul/mm_balloon.cpp -o ./executables/mm_balloon
 chmod a+x ./executables/mm_balloon
 g++ ./merge-sort/EMS_balloon.cpp -o ./executables/EMS_balloon
 chmod a+x ./executables/EMS_balloon
-g++ ./merge-sort/EMS.cpp -o ./executables/EMS
+g++ ./merge-sort/EMS_optimized.cpp -o ./executables/EMS
 chmod a+x ./executables/EMS
 g++ ./funnel-sort/LFS.cpp -o ./executables/LFS
 chmod a+x ./executables/LFS
@@ -18,7 +18,7 @@ g++ ./large-file-creation/make-unsorted-data.cpp -o ./executables/make-unsorted-
 chmod a+x ./executables/make-unsorted-data
 g++ ./merge-sort/EMS_cgroup.cpp -o ./executables/EMS_cgroup
 chmod a+x ./executables/EMS_cgroup
-g
+chmod +x setup_stxxl.sh
 
 if [ ! -d "data_files" ]
 then
@@ -47,38 +47,38 @@ fi
 userid="arghya"
 touch out-mm.txt && touch out-sorting.txt
 
+#########################################
+# configuarion parameters for the mm tests
 declare -a matrixwidth=( 1000 2000 3000 4000 5000 6000 )
 declare -a startingmemory=( 10 10 10 10 10 10 )
+NUMBALLOONS=9 #used for mm
+TOTALMEMORY_MB=100
+TOTALMEMORY=$((TOTALMEMORY_MB*1024*1024))
 NUMRUNS=1
 
 constant=true
 adversarial=false
 benevolent=false
 oblivious=true
+database=true
 
-declare -a data=( 256 512 1024 2048 ) #input data size given in MiB
-declare -a memory=( 256 256 256 256 ) #input memory size given in MiB
-declare -a fanouts=( 8 8 8 8 )
+constant_memory=true
+double_memory=false
+half_memory=false
+EMS=true
+LFS=false
 
 # configuarion parameters for sorting experiments
-NUMBALLOONS=2
+declare -a data=( 512 ) #input data size given in MiB
+declare -a memory=( 64 ) #input memory size given in MiB
+declare -a fanouts=( 8 8 8 8 8 8 8 ) #this is used in the balloon program
+declare -a fanouts_varied=( 32 ) #this is used in the constant memory program
+block_size=2048 #this is used in both balloon and constant memory program
 
-# configuarion parameters for mm experiments
-NUMBALLOONS=9
-TOTALMEMORY_MB=100
-TOTALMEMORY=$((TOTALMEMORY_MB*1024*1024))
+NUMBALLOONS=2 #used for sorting
+datafile="data_files/nullbytes"
+#########################################
 
-
-# configuarion parameters for constant memory sorting test
-declare -a data_size=( 256 1024 )
-declare -a memory_given=( 128 256 )
-declare -a fanouts=( 4 8 16 ) 
-NUMRUNS=1
-constant_memory=true
-double_memory=true
-half_memory=true
-EMS=false
-LFS=true
 
 
 function drop_caches() {

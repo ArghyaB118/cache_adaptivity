@@ -39,6 +39,18 @@ print cwd
 largeFileName = "input.txt"
 smallFileSize = 1000
 
+
+from random import randint
+f=open(largeFileName,"w")
+k=0
+while True:
+    n=randint(0, smallFileSize)
+    f.write(str(n)+"\n")
+    k=k+1
+    if k==100:
+        f.close()
+        break
+
 import mmap
 with open(largeFileName, "r+b") as f:
     largeFileHandler = mmap.mmap(f.fileno(), 0)
@@ -69,7 +81,7 @@ with open(largeFileName, "r+b") as f:
     	list.append(heapnode(item, tempFileHandler))
 
     construct_heap(list)
-    file = open('output-python.txt', 'w')
+    file = open('output.txt', 'w')
     file.close()
     while True:
         min = list[0]
@@ -85,7 +97,7 @@ with open(largeFileName, "r+b") as f:
         list[0] = heapnode(item, fileHandler)
         heapify(list, 0, len(list))
     for no in sorted_output:
-        file = open('output-python.txt', 'a')
+        file = open('output.txt', 'a')
         file.write(str(no) + '\n')
         file.close()
 '''

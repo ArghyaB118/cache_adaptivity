@@ -6,7 +6,7 @@
 #include<vector>
 #include<unistd.h>
 
-bool verbose = true;
+bool verbose = false;
 
 namespace CacheHelper{
   //int MM_BASE_SIZE = 1024; //for block_mm in 16 MiB 

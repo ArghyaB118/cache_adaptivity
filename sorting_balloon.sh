@@ -14,8 +14,7 @@ do
 		program_memory=${memory[$index]} #program memory in bytes
 		total_memory=$((input_data+program_memory)) #total memory for cgroup in bytes
 		fanout=${fanouts[$index]}
-		block_size=8192
-
+		
 		if $constant ; then
 			touch dummy.txt
 
@@ -178,6 +177,23 @@ do
 			cgexec -g memory:cache-test-arghya mysql -u root -parghya118 tpcc1000 < create_table.sql > ~/tpcc-output-ps-55-bpool-256.log
 			cgexec -g memory:cache-test-arghya mysql -u root -parghya118 tpcc1000 < add_fkey_idx.sql > ~/tpcc-output-ps-55-bpool-256.log
 			cgexec -g memory:cache-test-arghya ./tpcc_load -h127.0.0.1 -dtpcc1000 -uroot -parghya118 -w20 > ~/tpcc-output-ps-55-bpool-256.log
+			./executables/make-unsorted-data $input_data data_files/nullbytes
+			drop_caches
+			cgroup_limit_memory cache-test-arghya $((program_memory*1024*1024))
+			cgexec -g memory:cache-test-arghya ./executables/EMS $input_data $fanout $block_size $datafile &
+			for i in {1..100}
+			do
+				cgexec -g memory:cache-test-arghya ./tpcc_start -h127.0.0.1 -dtpcc1000 -uroot -parghya118 -w20 -c16 -r10 -l1200 > ~/tpcc-output-ps-55-bpool-256.log
+			done
+
+			cgexec -g memory:cache-test-arghya mysql -u root -parghya118 -e "CREATE DATABASE tpcc1000;"
+			cgexec -g memory:cache-test-arghya mysql -u root -parghya118 tpcc1000 < create_table.sql > ~/tpcc-output-ps-55-bpool-256.log
+			cgexec -g memory:cache-test-arghya mysql -u root -parghya118 tpcc1000 < add_fkey_idx.sql > ~/tpcc-output-ps-55-bpool-256.log
+			cgexec -g memory:cache-test-arghya ./tpcc_load -h127.0.0.1 -dtpcc1000 -uroot -parghya118 -w20 > ~/tpcc-output-ps-55-bpool-256.log
+			./executables/make-unsorted-data $input_data data_files/nullbytes
+			drop_caches
+			cgroup_limit_memory cache-test-arghya $((program_memory*1024*1024))
+			cgexec -g memory:cache-test-arghya ./executables/LFS $input_data $datafile &
 			for i in {1..100}
 			do
 				cgexec -g memory:cache-test-arghya ./tpcc_start -h127.0.0.1 -dtpcc1000 -uroot -parghya118 -w20 -c16 -r10 -l1200 > ~/tpcc-output-ps-55-bpool-256.log
