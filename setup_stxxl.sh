@@ -1,10 +1,12 @@
 #!/bin/bash
 
-if [ ! -d "stxxl" ]
-then
+# Setup stxxl if not done already
+# Reference: 
 # https://stxxl.org/tags/1.4.1/install_unix.html
 # https://stxxl.org/tags/1.4.1/tutorial_sorter.html
 # https://stxxl.org/tags/1.4.1/design_algo_sort.html
+if [ ! -d "stxxl" ]
+then
 git clone http://github.com/stxxl/stxxl.git stxxl
 cd stxxl
 mkdir build && cd build
