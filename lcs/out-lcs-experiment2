@@ -1,0 +1,2056 @@
+data/data-262144.in lcs_hirschberg 262144 4194304
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 262144
+|Y| = 262144
+
+
+data read for m = 262144 and n = 262144
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960436, 240959, 94840450, 17188651, 2780227, 2440986, 57918968, 37636574, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-hirschberg: 6480.71
+Activity report for sda5: 0, 0, 0, 0, 7503, 5211, 105144, 25878, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/164119/statm
+2981 1353 876 9 0 1443 0
+ALG_Hirschberg ( dynamic mem ) user time = 926.7578 sec, system time = 1015.0581 sec, total time = 1941.8159
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 926.7578 sec, avg. system time = 1015.0581 sec, avg. total time = 1941.8159 ( 0h 32m 22s )
+
+run 1: user time = 926.7578 sec, system time = 1015.0581 sec, total time = 1941.8159 ( 0h 32m 22s ), LCS length = 85403
+
+Running 1 concurrent process
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 262144
+|Y| = 262144
+
+
+data read for m = 262144 and n = 262144
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960436, 240959, 94840450, 17188651, 2787730, 2446197, 58024112, 37662452, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-hirschberg: 6612.7
+Activity report for sda5: 0, 0, 0, 0, 7524, 6252, 116992, 33956, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/166704/statm
+2981 1285 812 9 0 1443 0
+ALG_Hirschberg ( dynamic mem ) user time = 913.4991 sec, system time = 995.3212 sec, total time = 1908.8203
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 913.4991 sec, avg. system time = 995.3212 sec, avg. total time = 1908.8203 ( 0h 31m 49s )
+
+run 1: user time = 913.4991 sec, system time = 995.3212 sec, total time = 1908.8203 ( 0h 31m 49s ), LCS length = 85403
+
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 262144
+|Y| = 262144
+
+
+data read for m = 262144 and n = 262144
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960436, 240959, 94840450, 17188651, 2795254, 2452449, 58141104, 37696408, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-hirschberg: 6679.49
+Activity report for sda5: 0, 0, 0, 0, 6733, 4280, 90808, 20782, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/169170/statm
+2981 1264 800 9 0 1443 0
+ALG_Hirschberg ( dynamic mem ) user time = 916.5428 sec, system time = 1003.1742 sec, total time = 1919.7170
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 916.5428 sec, avg. system time = 1003.1742 sec, avg. total time = 1919.7170 ( 0h 32m 0s )
+
+run 1: user time = 916.5428 sec, system time = 1003.1742 sec, total time = 1919.7170 ( 0h 32m 0s ), LCS length = 85403
+
+Running 2 concurrent processes
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 262144
+|Y| = 262144
+
+
+data read for m = 262144 and n = 262144
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960436, 240959, 94840450, 17188651, 2801987, 2456729, 58231912, 37717190, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 262144
+|Y| = 262144
+
+
+data read for m = 262144 and n = 262144
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960436, 240959, 94840450, 17188651, 2801987, 2456729, 58231920, 37717190, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-hirschberg: 710.262
+Activity report for sda5: 0, 0, 0, 0, 803, 633, 11904, 2670, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/171165/statm
+2981 1636 878 9 0 1443 0
+ALG_Hirschberg ( dynamic mem ) user time = 709.5843 sec, system time = 0.0097 sec, total time = 709.5940
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 709.5843 sec, avg. system time = 0.0097 sec, avg. total time = 709.5940 ( 0h 11m 50s )
+
+run 1: user time = 709.5843 sec, system time = 0.0097 sec, total time = 709.5940 ( 0h 11m 50s ), LCS length = 85403
+
+Real time to finish lcs-hirschberg: 710.849
+Activity report for sda5: 0, 0, 0, 0, 803, 633, 11896, 2670, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/171166/statm
+2981 1636 870 9 0 1443 0
+ALG_Hirschberg ( dynamic mem ) user time = 710.2206 sec, system time = 0.0110 sec, total time = 710.2316
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 710.2206 sec, avg. system time = 0.0110 sec, avg. total time = 710.2316 ( 0h 11m 50s )
+
+run 1: user time = 710.2206 sec, system time = 0.0110 sec, total time = 710.2316 ( 0h 11m 50s ), LCS length = 85403
+
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 262144
+|Y| = 262144
+
+
+data read for m = 262144 and n = 262144
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960436, 240959, 94840450, 17188651, 2802790, 2457362, 58243816, 37719860, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 262144
+|Y| = 262144
+
+
+data read for m = 262144 and n = 262144
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960436, 240959, 94840450, 17188651, 2802790, 2457362, 58243816, 37719860, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-hirschberg: 708.636
+Activity report for sda5: 1, 0, 8, 0, 649, 278, 7712, 2416, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/171575/statm
+2981 1691 890 9 0 1443 0
+ALG_Hirschberg ( dynamic mem ) user time = 707.8279 sec, system time = 0.0198 sec, total time = 707.8476
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 707.8279 sec, avg. system time = 0.0198 sec, avg. total time = 707.8476 ( 0h 11m 48s )
+
+run 1: user time = 707.8279 sec, system time = 0.0198 sec, total time = 707.8476 ( 0h 11m 48s ), LCS length = 85403
+
+Real time to finish lcs-hirschberg: 709.262
+Activity report for sda5: 1, 0, 8, 0, 649, 278, 7712, 2416, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/171576/statm
+2981 1658 881 9 0 1443 0
+ALG_Hirschberg ( dynamic mem ) user time = 708.6712 sec, system time = 0.0160 sec, total time = 708.6872
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 708.6712 sec, avg. system time = 0.0160 sec, avg. total time = 708.6872 ( 0h 11m 49s )
+
+run 1: user time = 708.6712 sec, system time = 0.0160 sec, total time = 708.6872 ( 0h 11m 49s ), LCS length = 85403
+
+Running 4 concurrent processes
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 262144
+|Y| = 262144
+
+
+data read for m = 262144 and n = 262144
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960437, 240959, 94840458, 17188651, 2803439, 2457640, 58251528, 37722276, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 262144
+|Y| = 262144
+
+
+data read for m = 262144 and n = 262144
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960437, 240959, 94840458, 17188651, 2803439, 2457640, 58251528, 37722276, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 262144
+|Y| = 262144
+
+
+data read for m = 262144 and n = 262144
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960437, 240959, 94840458, 17188651, 2803439, 2457640, 58251528, 37722276, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 262144
+|Y| = 262144
+
+
+data read for m = 262144 and n = 262144
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960437, 240959, 94840458, 17188651, 2803439, 2457640, 58251528, 37722276, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-hirschberg: 747.731
+Activity report for sda5: 1, 0, 8, 10, 1133, 414, 13144, 4322, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/171614/statm
+2981 1796 863 9 0 1443 0
+ALG_Hirschberg ( dynamic mem ) user time = 747.2759 sec, system time = 0.0246 sec, total time = 747.3005
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 747.2759 sec, avg. system time = 0.0246 sec, avg. total time = 747.3005 ( 0h 12m 27s )
+
+run 1: user time = 747.2759 sec, system time = 0.0246 sec, total time = 747.3005 ( 0h 12m 27s ), LCS length = 85403
+
+Real time to finish lcs-hirschberg: 747.79
+Activity report for sda5: 1, 0, 8, 10, 1133, 414, 13144, 4322, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/171612/statm
+2981 1663 874 9 0 1443 0
+ALG_Hirschberg ( dynamic mem ) user time = 747.5565 sec, system time = 0.0291 sec, total time = 747.5857
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 747.5565 sec, avg. system time = 0.0291 sec, avg. total time = 747.5857 ( 0h 12m 28s )
+
+run 1: user time = 747.5565 sec, system time = 0.0291 sec, total time = 747.5857 ( 0h 12m 28s ), LCS length = 85403
+
+Real time to finish lcs-hirschberg: 747.82
+Activity report for sda5: 1, 0, 8, 10, 1133, 414, 13144, 4322, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/171615/statm
+2981 1645 852 9 0 1443 0
+ALG_Hirschberg ( dynamic mem ) user time = 747.6107 sec, system time = 0.0134 sec, total time = 747.6241
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 747.6107 sec, avg. system time = 0.0134 sec, avg. total time = 747.6241 ( 0h 12m 28s )
+
+run 1: user time = 747.6107 sec, system time = 0.0134 sec, total time = 747.6241 ( 0h 12m 28s ), LCS length = 85403
+
+Real time to finish lcs-hirschberg: 747.864
+Activity report for sda5: 1, 0, 8, 10, 1133, 414, 13144, 4322, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/171613/statm
+2981 1675 876 9 0 1443 0
+ALG_Hirschberg ( dynamic mem ) user time = 747.6724 sec, system time = 0.0160 sec, total time = 747.6884
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 747.6724 sec, avg. system time = 0.0160 sec, avg. total time = 747.6884 ( 0h 12m 28s )
+
+run 1: user time = 747.6724 sec, system time = 0.0160 sec, total time = 747.6884 ( 0h 12m 28s ), LCS length = 85403
+
+data/data-262144.in lcs_oblivious 262144 8388608
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 262144
+|Y| = 262144
+
+
+data read for m = 262144 and n = 262144
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960438, 240959, 94840466, 17188661, 2804572, 2458054, 58264672, 37726598, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-oblivious: 516.98
+Activity report for sda5: 1, 0, 8, 0, 798, 241, 8896, 1969, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/171727/statm
+4643 2303 896 9 0 3105 0
+rec_linear_LCS ( dynamic mem ) user time = 516.6347 sec, system time = 0.0133 sec, total time = 516.6480
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 516.6347 sec, avg. system time = 0.0133 sec, avg. total time = 516.6480 ( 0h 8m 37s )
+
+run 1: user time = 516.6347 sec, system time = 0.0133 sec, total time = 516.6480 ( 0h 8m 37s ), LCS length = 85403
+
+Running 1 concurrent process
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 262144
+|Y| = 262144
+
+
+data read for m = 262144 and n = 262144
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960439, 240959, 94840474, 17188661, 2805370, 2458295, 58273568, 37728567, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-oblivious: 516.502
+Activity report for sda5: 1, 0, 8, 0, 400, 185, 4856, 1084, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/171810/statm
+4643 2310 869 9 0 3105 0
+rec_linear_LCS ( dynamic mem ) user time = 516.1805 sec, system time = 0.0152 sec, total time = 516.1956
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 516.1805 sec, avg. system time = 0.0152 sec, avg. total time = 516.1956 ( 0h 8m 36s )
+
+run 1: user time = 516.1805 sec, system time = 0.0152 sec, total time = 516.1956 ( 0h 8m 36s ), LCS length = 85403
+
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 262144
+|Y| = 262144
+
+
+data read for m = 262144 and n = 262144
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960440, 240959, 94840482, 17188661, 2805770, 2458480, 58278424, 37729651, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-oblivious: 516.602
+Activity report for sda5: 1, 0, 8, 0, 635, 287, 20168, 2361, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/171835/statm
+4643 2273 868 9 0 3105 0
+rec_linear_LCS ( dynamic mem ) user time = 516.2758 sec, system time = 0.0200 sec, total time = 516.2958
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 516.2758 sec, avg. system time = 0.0200 sec, avg. total time = 516.2958 ( 0h 8m 36s )
+
+run 1: user time = 516.2758 sec, system time = 0.0200 sec, total time = 516.2958 ( 0h 8m 36s ), LCS length = 85403
+
+Running 2 concurrent processes
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 262144
+|Y| = 262144
+
+
+data read for m = 262144 and n = 262144
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960441, 240959, 94840490, 17188661, 2806405, 2458767, 58298592, 37732012, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 262144
+|Y| = 262144
+
+
+data read for m = 262144 and n = 262144
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960441, 240959, 94840490, 17188661, 2806405, 2458767, 58298592, 37732012, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-oblivious: 531.251
+Activity report for sda5: 1, 0, 8, 1, 194, 84, 2400, 617, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/171934/statm
+4643 2596 837 9 0 3105 0
+rec_linear_LCS ( dynamic mem ) user time = 531.0280 sec, system time = 0.0240 sec, total time = 531.0520
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 531.0280 sec, avg. system time = 0.0240 sec, avg. total time = 531.0520 ( 0h 8m 51s )
+
+run 1: user time = 531.0280 sec, system time = 0.0240 sec, total time = 531.0520 ( 0h 8m 51s ), LCS length = 85403
+
+Real time to finish lcs-oblivious: 531.286
+Activity report for sda5: 1, 0, 8, 1, 194, 84, 2400, 617, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/171933/statm
+4643 2520 828 9 0 3105 0
+rec_linear_LCS ( dynamic mem ) user time = 531.1174 sec, system time = 0.0177 sec, total time = 531.1350
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 531.1174 sec, avg. system time = 0.0177 sec, avg. total time = 531.1350 ( 0h 8m 51s )
+
+run 1: user time = 531.1174 sec, system time = 0.0177 sec, total time = 531.1350 ( 0h 8m 51s ), LCS length = 85403
+
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 262144
+|Y| = 262144
+
+
+data read for m = 262144 and n = 262144
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960442, 240959, 94840498, 17188662, 2806599, 2458851, 58300992, 37732629, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 262144
+|Y| = 262144
+
+
+data read for m = 262144 and n = 262144
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960442, 240959, 94840498, 17188662, 2806599, 2458851, 58300992, 37732629, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-oblivious: 531.468
+Activity report for sda5: 1, 0, 8, 0, 210, 93, 2552, 626, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/171950/statm
+4643 2664 895 9 0 3105 0
+rec_linear_LCS ( dynamic mem ) user time = 531.2619 sec, system time = 0.0191 sec, total time = 531.2810
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 531.2619 sec, avg. system time = 0.0191 sec, avg. total time = 531.2810 ( 0h 8m 51s )
+
+run 1: user time = 531.2619 sec, system time = 0.0191 sec, total time = 531.2810 ( 0h 8m 51s ), LCS length = 85403
+
+Real time to finish lcs-oblivious: 531.513
+Activity report for sda5: 1, 0, 8, 0, 210, 93, 2552, 626, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/171951/statm
+4643 2615 886 9 0 3105 0
+rec_linear_LCS ( dynamic mem ) user time = 531.3363 sec, system time = 0.0160 sec, total time = 531.3523
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 531.3363 sec, avg. system time = 0.0160 sec, avg. total time = 531.3523 ( 0h 8m 51s )
+
+run 1: user time = 531.3363 sec, system time = 0.0160 sec, total time = 531.3523 ( 0h 8m 51s ), LCS length = 85403
+
+Running 4 concurrent processes
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 262144
+|Y| = 262144
+
+
+data read for m = 262144 and n = 262144
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960443, 240959, 94840506, 17188662, 2806809, 2458944, 58303544, 37733255, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 262144
+|Y| = 262144
+
+
+data read for m = 262144 and n = 262144
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960443, 240959, 94840506, 17188662, 2806809, 2458944, 58303544, 37733255, 
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 262144
+|Y| = 262144
+
+
+data read for m = 262144 and n = 262144
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960443, 240959, 94840506, 17188662, 2806809, 2458944, 58303544, 37733255, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 262144
+|Y| = 262144
+
+
+data read for m = 262144 and n = 262144
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960443, 240959, 94840506, 17188662, 2806809, 2458944, 58303544, 37733255, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-oblivious: 560.101
+Activity report for sda5: 1, 0, 8, 0, 268, 101, 3160, 753, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/171961/statm
+4643 2700 892 9 0 3105 0
+rec_linear_LCS ( dynamic mem ) user time = 559.9592 sec, system time = 0.0091 sec, total time = 559.9683
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 559.9592 sec, avg. system time = 0.0091 sec, avg. total time = 559.9683 ( 0h 9m 20s )
+
+run 1: user time = 559.9592 sec, system time = 0.0091 sec, total time = 559.9683 ( 0h 9m 20s ), LCS length = 85403
+
+Real time to finish lcs-oblivious: 560.149
+Activity report for sda5: 1, 0, 8, 0, 268, 101, 3160, 753, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/171962/statm
+4643 2693 887 9 0 3105 0
+rec_linear_LCS ( dynamic mem ) user time = 560.0390 sec, system time = 0.0040 sec, total time = 560.0430
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 560.0390 sec, avg. system time = 0.0040 sec, avg. total time = 560.0430 ( 0h 9m 20s )
+
+run 1: user time = 560.0390 sec, system time = 0.0040 sec, total time = 560.0430 ( 0h 9m 20s ), LCS length = 85403
+
+Real time to finish lcs-oblivious: 560.272
+Activity report for sda5: 1, 0, 8, 0, 268, 101, 3160, 753, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/171963/statm
+4643 2679 848 9 0 3105 0
+rec_linear_LCS ( dynamic mem ) user time = 560.2017 sec, system time = 0.0080 sec, total time = 560.2097
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 560.2017 sec, avg. system time = 0.0080 sec, avg. total time = 560.2097 ( 0h 9m 20s )
+
+run 1: user time = 560.2017 sec, system time = 0.0080 sec, total time = 560.2097 ( 0h 9m 20s ), LCS length = 85403
+
+Real time to finish lcs-oblivious: 560.34
+Activity report for sda5: 1, 0, 8, 0, 268, 101, 3160, 753, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/171964/statm
+4643 2753 906 9 0 3105 0
+rec_linear_LCS ( dynamic mem ) user time = 560.2401 sec, system time = 0.0151 sec, total time = 560.2551
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 560.2401 sec, avg. system time = 0.0151 sec, avg. total time = 560.2551 ( 0h 9m 20s )
+
+run 1: user time = 560.2401 sec, system time = 0.0151 sec, total time = 560.2551 ( 0h 9m 20s ), LCS length = 85403
+
+data/data-524288.in lcs_hirschberg 524288 16777216
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 524288
+|Y| = 524288
+
+
+data read for m = 524288 and n = 524288
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960455, 240959, 94842786, 17188693, 2807077, 2459045, 58306704, 37734008, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-hirschberg: 2760.64
+Activity report for sda5: 1, 0, 256, 1, 1239, 1350, 21600, 6080, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/171980/statm
+4325 3513 870 9 0 2787 0
+ALG_Hirschberg ( dynamic mem ) user time = 2760.5950 sec, system time = 0.0042 sec, total time = 2760.5992
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 2760.5950 sec, avg. system time = 0.0042 sec, avg. total time = 2760.5992 ( 0h 46m 1s )
+
+run 1: user time = 2760.5950 sec, system time = 0.0042 sec, total time = 2760.5992 ( 0h 46m 1s ), LCS length = 170676
+
+Running 1 concurrent process
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 524288
+|Y| = 524288
+
+
+data read for m = 524288 and n = 524288
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960456, 240959, 94843042, 17188694, 2808316, 2460395, 58328304, 37740088, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-hirschberg: 2761.78
+Activity report for sda5: 0, 0, 0, 0, 1279, 1345, 21936, 5492, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/173060/statm
+4325 3500 859 9 0 2787 0
+ALG_Hirschberg ( dynamic mem ) user time = 2761.6796 sec, system time = 0.0207 sec, total time = 2761.7003
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 2761.6796 sec, avg. system time = 0.0207 sec, avg. total time = 2761.7003 ( 0h 46m 2s )
+
+run 1: user time = 2761.6796 sec, system time = 0.0207 sec, total time = 2761.7003 ( 0h 46m 2s ), LCS length = 170676
+
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 524288
+|Y| = 524288
+
+
+data read for m = 524288 and n = 524288
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960456, 240959, 94843042, 17188694, 2809595, 2461740, 58350240, 37745580, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-hirschberg: 2756.51
+Activity report for sda5: 3, 0, 24, 81, 1350, 828, 403304, 10804, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/174171/statm
+4325 3476 833 9 0 2787 0
+ALG_Hirschberg ( dynamic mem ) user time = 2756.4785 sec, system time = 0.0035 sec, total time = 2756.4820
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 2756.4785 sec, avg. system time = 0.0035 sec, avg. total time = 2756.4820 ( 0h 45m 56s )
+
+run 1: user time = 2756.4785 sec, system time = 0.0035 sec, total time = 2756.4820 ( 0h 45m 56s ), LCS length = 170676
+
+Running 2 concurrent processes
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 524288
+|Y| = 524288
+
+
+data read for m = 524288 and n = 524288
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960459, 240959, 94843066, 17188775, 2810945, 2462568, 58753544, 37756384, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 524288
+|Y| = 524288
+
+
+data read for m = 524288 and n = 524288
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960459, 240959, 94843066, 17188775, 2810945, 2462568, 58753544, 37756384, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-hirschberg: 2838.7
+Activity report for sda5: 0, 0, 0, 0, 1148, 1350, 20704, 5218, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/174621/statm
+4325 3456 812 9 0 2787 0
+ALG_Hirschberg ( dynamic mem ) user time = 2838.6520 sec, system time = 0.0080 sec, total time = 2838.6600
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 2838.6520 sec, avg. system time = 0.0080 sec, avg. total time = 2838.6600 ( 0h 47m 19s )
+
+run 1: user time = 2838.6520 sec, system time = 0.0080 sec, total time = 2838.6600 ( 0h 47m 19s ), LCS length = 170676
+
+Real time to finish lcs-hirschberg: 2839.16
+Activity report for sda5: 0, 0, 0, 0, 1148, 1350, 20704, 5218, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/174622/statm
+4325 3517 876 9 0 2787 0
+ALG_Hirschberg ( dynamic mem ) user time = 2839.0703 sec, system time = 0.0200 sec, total time = 2839.0903
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 2839.0703 sec, avg. system time = 0.0200 sec, avg. total time = 2839.0903 ( 0h 47m 19s )
+
+run 1: user time = 2839.0703 sec, system time = 0.0200 sec, total time = 2839.0903 ( 0h 47m 19s ), LCS length = 170676
+
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 524288
+|Y| = 524288
+
+
+data read for m = 524288 and n = 524288
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960459, 240959, 94843066, 17188775, 2812093, 2463918, 58774248, 37761602, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 524288
+|Y| = 524288
+
+
+data read for m = 524288 and n = 524288
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960459, 240959, 94843066, 17188775, 2812093, 2463918, 58774248, 37761602, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-hirschberg: 2837.11
+Activity report for sda5: 5, 0, 40, 153, 1478, 1170, 283856, 9182, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/175625/statm
+4325 3466 822 9 0 2787 0
+ALG_Hirschberg ( dynamic mem ) user time = 2837.0015 sec, system time = 0.0311 sec, total time = 2837.0326
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 2837.0015 sec, avg. system time = 0.0311 sec, avg. total time = 2837.0326 ( 0h 47m 17s )
+
+run 1: user time = 2837.0015 sec, system time = 0.0311 sec, total time = 2837.0326 ( 0h 47m 17s ), LCS length = 170676
+
+Real time to finish lcs-hirschberg: 2838.71
+Activity report for sda5: 5, 0, 40, 153, 1478, 1170, 283856, 9182, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/175624/statm
+4325 3519 880 9 0 2787 0
+ALG_Hirschberg ( dynamic mem ) user time = 2838.6645 sec, system time = 0.0073 sec, total time = 2838.6719
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 2838.6645 sec, avg. system time = 0.0073 sec, avg. total time = 2838.6719 ( 0h 47m 19s )
+
+run 1: user time = 2838.6645 sec, system time = 0.0073 sec, total time = 2838.6719 ( 0h 47m 19s ), LCS length = 170676
+
+Running 4 concurrent processes
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 524288
+|Y| = 524288
+
+
+data read for m = 524288 and n = 524288
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960464, 240959, 94843106, 17188928, 2813571, 2465088, 59058104, 37770784, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 524288
+|Y| = 524288
+
+
+data read for m = 524288 and n = 524288
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960464, 240959, 94843106, 17188928, 2813571, 2465088, 59058104, 37770784, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 524288
+|Y| = 524288
+
+
+data read for m = 524288 and n = 524288
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960464, 240959, 94843106, 17188928, 2813571, 2465088, 59058104, 37770784, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 524288
+|Y| = 524288
+
+
+data read for m = 524288 and n = 524288
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960464, 240959, 94843106, 17188928, 2813571, 2465088, 59058104, 37770784, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-hirschberg: 2995.2
+Activity report for sda5: 0, 0, 0, 0, 1512, 1559, 25688, 6799, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/176581/statm
+4325 3519 878 9 0 2787 0
+ALG_Hirschberg ( dynamic mem ) user time = 2995.1565 sec, system time = 0.0086 sec, total time = 2995.1651
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 2995.1565 sec, avg. system time = 0.0086 sec, avg. total time = 2995.1651 ( 0h 49m 55s )
+
+run 1: user time = 2995.1565 sec, system time = 0.0086 sec, total time = 2995.1651 ( 0h 49m 55s ), LCS length = 170676
+
+Real time to finish lcs-hirschberg: 2997.16
+Activity report for sda5: 0, 0, 0, 0, 1512, 1559, 25688, 6799, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/176584/statm
+4325 3514 874 9 0 2787 0
+ALG_Hirschberg ( dynamic mem ) user time = 2997.1359 sec, system time = 0.0031 sec, total time = 2997.1390
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 2997.1359 sec, avg. system time = 0.0031 sec, avg. total time = 2997.1390 ( 0h 49m 57s )
+
+run 1: user time = 2997.1359 sec, system time = 0.0031 sec, total time = 2997.1390 ( 0h 49m 57s ), LCS length = 170676
+
+Real time to finish lcs-hirschberg: 2997.71
+Activity report for sda5: 0, 0, 0, 0, 1512, 1559, 25688, 6799, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/176582/statm
+4325 3466 822 9 0 2787 0
+ALG_Hirschberg ( dynamic mem ) user time = 2997.6841 sec, system time = 0.0015 sec, total time = 2997.6856
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 2997.6841 sec, avg. system time = 0.0015 sec, avg. total time = 2997.6856 ( 0h 49m 58s )
+
+run 1: user time = 2997.6841 sec, system time = 0.0015 sec, total time = 2997.6856 ( 0h 49m 58s ), LCS length = 170676
+
+Real time to finish lcs-hirschberg: 2997.75
+Activity report for sda5: 0, 0, 0, 0, 1512, 1559, 25688, 6799, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/176583/statm
+4325 3520 881 9 0 2787 0
+ALG_Hirschberg ( dynamic mem ) user time = 2997.6477 sec, system time = 0.0142 sec, total time = 2997.6620
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 2997.6477 sec, avg. system time = 0.0142 sec, avg. total time = 2997.6620 ( 0h 49m 58s )
+
+run 1: user time = 2997.6477 sec, system time = 0.0142 sec, total time = 2997.6620 ( 0h 49m 58s ), LCS length = 170676
+
+data/data-524288.in lcs_oblivious 524288 33554432
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 524288
+|Y| = 524288
+
+
+data read for m = 524288 and n = 524288
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960464, 240959, 94843106, 17188928, 2815083, 2466647, 59083792, 37777583, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-oblivious: 2065.78
+Activity report for sda5: 0, 0, 0, 0, 944, 357, 11248, 2759, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/177702/statm
+7651 5261 837 9 0 6113 0
+rec_linear_LCS ( dynamic mem ) user time = 2065.7522 sec, system time = 0.0124 sec, total time = 2065.7646
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 2065.7522 sec, avg. system time = 0.0124 sec, avg. total time = 2065.7646 ( 0h 34m 26s )
+
+run 1: user time = 2065.7522 sec, system time = 0.0124 sec, total time = 2065.7646 ( 0h 34m 26s ), LCS length = 170676
+
+Running 1 concurrent process
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 524288
+|Y| = 524288
+
+
+data read for m = 524288 and n = 524288
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960464, 240959, 94843106, 17188928, 2816027, 2467004, 59095040, 37780342, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-oblivious: 2071.33
+Activity report for sda5: 0, 0, 0, 0, 1443, 1320, 23312, 6394, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/177828/statm
+7651 5315 894 9 0 6113 0
+rec_linear_LCS ( dynamic mem ) user time = 2071.2630 sec, system time = 0.0154 sec, total time = 2071.2785
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 2071.2630 sec, avg. system time = 0.0154 sec, avg. total time = 2071.2785 ( 0h 34m 31s )
+
+run 1: user time = 2071.2630 sec, system time = 0.0154 sec, total time = 2071.2785 ( 0h 34m 31s ), LCS length = 170676
+
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 524288
+|Y| = 524288
+
+
+data read for m = 524288 and n = 524288
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960464, 240959, 94843106, 17188928, 2817470, 2468324, 59118352, 37786736, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-oblivious: 2070.29
+Activity report for sda5: 0, 0, 0, 0, 1478, 1182, 22496, 5473, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/178964/statm
+7651 5273 849 9 0 6113 0
+rec_linear_LCS ( dynamic mem ) user time = 2070.2302 sec, system time = 0.0129 sec, total time = 2070.2431
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 2070.2302 sec, avg. system time = 0.0129 sec, avg. total time = 2070.2431 ( 0h 34m 30s )
+
+run 1: user time = 2070.2302 sec, system time = 0.0129 sec, total time = 2070.2431 ( 0h 34m 30s ), LCS length = 170676
+
+Running 2 concurrent processes
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 524288
+|Y| = 524288
+
+
+data read for m = 524288 and n = 524288
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960464, 240959, 94843106, 17188928, 2818948, 2469506, 59140848, 37792209, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 524288
+|Y| = 524288
+
+
+data read for m = 524288 and n = 524288
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960464, 240959, 94843106, 17188928, 2818948, 2469506, 59140848, 37792209, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-oblivious: 2126.77
+Activity report for sda5: 0, 0, 0, 0, 852, 758, 13560, 3701, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/179781/statm
+7651 5305 882 9 0 6113 0
+rec_linear_LCS ( dynamic mem ) user time = 2126.6951 sec, system time = 0.0240 sec, total time = 2126.7191
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 2126.6951 sec, avg. system time = 0.0240 sec, avg. total time = 2126.7191 ( 0h 35m 27s )
+
+run 1: user time = 2126.6951 sec, system time = 0.0240 sec, total time = 2126.7191 ( 0h 35m 27s ), LCS length = 170676
+
+Real time to finish lcs-oblivious: 2126.77
+Activity report for sda5: 0, 0, 0, 0, 852, 758, 13560, 3701, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/179780/statm
+7651 5311 890 9 0 6113 0
+rec_linear_LCS ( dynamic mem ) user time = 2126.7427 sec, system time = 0.0085 sec, total time = 2126.7513
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 2126.7427 sec, avg. system time = 0.0085 sec, avg. total time = 2126.7513 ( 0h 35m 27s )
+
+run 1: user time = 2126.7427 sec, system time = 0.0085 sec, total time = 2126.7513 ( 0h 35m 27s ), LCS length = 170676
+
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 524288
+|Y| = 524288
+
+
+data read for m = 524288 and n = 524288
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960464, 240959, 94843106, 17188928, 2819800, 2470264, 59154408, 37795910, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 524288
+|Y| = 524288
+
+
+data read for m = 524288 and n = 524288
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960464, 240959, 94843106, 17188928, 2819800, 2470264, 59154408, 37795910, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-oblivious: 2126.14
+Activity report for sda5: 0, 0, 0, 0, 901, 331, 10584, 2691, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/180212/statm
+7651 5305 882 9 0 6113 0
+rec_linear_LCS ( dynamic mem ) user time = 2126.1149 sec, system time = 0.0080 sec, total time = 2126.1229
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 2126.1149 sec, avg. system time = 0.0080 sec, avg. total time = 2126.1229 ( 0h 35m 26s )
+
+run 1: user time = 2126.1149 sec, system time = 0.0080 sec, total time = 2126.1229 ( 0h 35m 26s ), LCS length = 170676
+
+Real time to finish lcs-oblivious: 2137.14
+Activity report for sda5: 0, 0, 0, 0, 903, 332, 10608, 2710, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/180211/statm
+7651 5260 837 9 0 6113 0
+rec_linear_LCS ( dynamic mem ) user time = 2137.0648 sec, system time = 0.0325 sec, total time = 2137.0973
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 2137.0648 sec, avg. system time = 0.0325 sec, avg. total time = 2137.0973 ( 0h 35m 37s )
+
+run 1: user time = 2137.0648 sec, system time = 0.0325 sec, total time = 2137.0973 ( 0h 35m 37s ), LCS length = 170676
+
+Running 4 concurrent processes
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 524288
+|Y| = 524288
+
+
+data read for m = 524288 and n = 524288
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960464, 240959, 94843106, 17188928, 2820703, 2470596, 59165016, 37798620, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 524288
+|Y| = 524288
+
+
+data read for m = 524288 and n = 524288
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960464, 240959, 94843106, 17188928, 2820703, 2470596, 59165016, 37798620, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 524288
+|Y| = 524288
+
+
+data read for m = 524288 and n = 524288
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960464, 240959, 94843106, 17188928, 2820703, 2470596, 59165016, 37798620, 
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 524288
+|Y| = 524288
+
+
+data read for m = 524288 and n = 524288
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960464, 240959, 94843106, 17188928, 2820703, 2470596, 59165016, 37798620, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-oblivious: 2240.96
+Activity report for sda5: 0, 0, 0, 0, 1077, 403, 12896, 3711, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/180282/statm
+7651 5304 882 9 0 6113 0
+rec_linear_LCS ( dynamic mem ) user time = 2240.9468 sec, system time = 0.0120 sec, total time = 2240.9588
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 2240.9468 sec, avg. system time = 0.0120 sec, avg. total time = 2240.9588 ( 0h 37m 21s )
+
+run 1: user time = 2240.9468 sec, system time = 0.0120 sec, total time = 2240.9588 ( 0h 37m 21s ), LCS length = 170676
+
+Real time to finish lcs-oblivious: 2241.4
+Activity report for sda5: 0, 0, 0, 0, 1077, 403, 12896, 3711, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/180280/statm
+7651 5246 823 9 0 6113 0
+rec_linear_LCS ( dynamic mem ) user time = 2241.3398 sec, system time = 0.0120 sec, total time = 2241.3518
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 2241.3398 sec, avg. system time = 0.0120 sec, avg. total time = 2241.3518 ( 0h 37m 21s )
+
+run 1: user time = 2241.3398 sec, system time = 0.0120 sec, total time = 2241.3518 ( 0h 37m 21s ), LCS length = 170676
+
+Real time to finish lcs-oblivious: 2241.72
+Activity report for sda5: 0, 0, 0, 0, 1077, 403, 12896, 3711, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/180281/statm
+7651 5267 848 9 0 6113 0
+rec_linear_LCS ( dynamic mem ) user time = 2241.7092 sec, system time = 0.0034 sec, total time = 2241.7127
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 2241.7092 sec, avg. system time = 0.0034 sec, avg. total time = 2241.7127 ( 0h 37m 22s )
+
+run 1: user time = 2241.7092 sec, system time = 0.0034 sec, total time = 2241.7127 ( 0h 37m 22s ), LCS length = 170676
+
+Real time to finish lcs-oblivious: 2242.28
+Activity report for sda5: 0, 0, 0, 0, 1077, 403, 12896, 3711, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/180279/statm
+7651 5295 873 9 0 6113 0
+rec_linear_LCS ( dynamic mem ) user time = 2242.2653 sec, system time = 0.0000 sec, total time = 2242.2653
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 2242.2653 sec, avg. system time = 0.0000 sec, avg. total time = 2242.2653 ( 0h 37m 22s )
+
+run 1: user time = 2242.2653 sec, system time = 0.0000 sec, total time = 2242.2653 ( 0h 37m 22s ), LCS length = 170676
+
+data/data-1048576.in lcs_hirschberg 1048576 67108864
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 1048576
+|Y| = 1048576
+
+
+data read for m = 1048576 and n = 1048576
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960483, 240959, 94847426, 17188984, 2821780, 2470999, 59177912, 37802331, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-hirschberg: 11052.6
+Activity report for sda5: 1, 0, 256, 1, 6932, 5927, 109000, 28879, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/180357/statm
+7013 6069 852 9 0 5475 0
+ALG_Hirschberg ( dynamic mem ) user time = 11052.1742 sec, system time = 0.1175 sec, total time = 11052.2916
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 11052.1742 sec, avg. system time = 0.1175 sec, avg. total time = 11052.2916 ( 3h 4m 12s )
+
+run 1: user time = 11052.1742 sec, system time = 0.1175 sec, total time = 11052.2916 ( 3h 4m 12s ), LCS length = 341596
+
+Running 1 concurrent process
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 1048576
+|Y| = 1048576
+
+
+data read for m = 1048576 and n = 1048576
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960484, 240959, 94847682, 17188985, 2828712, 2476926, 59286912, 37831210, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-hirschberg: 11054.2
+Activity report for sda5: 0, 0, 0, 0, 7638, 5056, 110936, 28726, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/185052/statm
+7013 6030 812 9 0 5475 0
+ALG_Hirschberg ( dynamic mem ) user time = 11053.7569 sec, system time = 0.1123 sec, total time = 11053.8691
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 11053.7569 sec, avg. system time = 0.1123 sec, avg. total time = 11053.8691 ( 3h 4m 14s )
+
+run 1: user time = 11053.7569 sec, system time = 0.1123 sec, total time = 11053.8691 ( 3h 4m 14s ), LCS length = 341596
+
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 1048576
+|Y| = 1048576
+
+
+data read for m = 1048576 and n = 1048576
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960484, 240959, 94847682, 17188985, 2836350, 2481982, 59397848, 37859936, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-hirschberg: 11045.8
+Activity report for sda5: 0, 0, 0, 0, 6250, 4122, 87536, 22912, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/188961/statm
+7013 6107 893 9 0 5475 0
+ALG_Hirschberg ( dynamic mem ) user time = 11045.6989 sec, system time = 0.0039 sec, total time = 11045.7029
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 11045.6989 sec, avg. system time = 0.0039 sec, avg. total time = 11045.7029 ( 3h 4m 6s )
+
+run 1: user time = 11045.6989 sec, system time = 0.0039 sec, total time = 11045.7029 ( 3h 4m 6s ), LCS length = 341596
+
+Running 2 concurrent processes
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 1048576
+|Y| = 1048576
+
+
+data read for m = 1048576 and n = 1048576
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960484, 240959, 94847682, 17188985, 2842600, 2486104, 59485384, 37882848, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 1048576
+|Y| = 1048576
+
+
+data read for m = 1048576 and n = 1048576
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960484, 240959, 94847682, 17188985, 2842600, 2486104, 59485384, 37882848, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-hirschberg: 11393.9
+Activity report for sda5: 1, 0, 8, 12, 6351, 6900, 113960, 29989, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/191596/statm
+7013 6076 861 9 0 5475 0
+ALG_Hirschberg ( dynamic mem ) user time = 11393.6803 sec, system time = 0.0076 sec, total time = 11393.6879
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 11393.6803 sec, avg. system time = 0.0076 sec, avg. total time = 11393.6879 ( 3h 9m 54s )
+
+run 1: user time = 11393.6803 sec, system time = 0.0076 sec, total time = 11393.6879 ( 3h 9m 54s ), LCS length = 341596
+
+Real time to finish lcs-hirschberg: 11397.6
+Activity report for sda5: 1, 0, 8, 12, 6351, 6900, 113960, 29989, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/191595/statm
+7013 6089 876 9 0 5475 0
+ALG_Hirschberg ( dynamic mem ) user time = 11397.1263 sec, system time = 0.1301 sec, total time = 11397.2564
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 11397.1263 sec, avg. system time = 0.1301 sec, avg. total time = 11397.2564 ( 3h 9m 57s )
+
+run 1: user time = 11397.1263 sec, system time = 0.1301 sec, total time = 11397.2564 ( 3h 9m 57s ), LCS length = 341596
+
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 1048576
+|Y| = 1048576
+
+
+data read for m = 1048576 and n = 1048576
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960485, 240959, 94847690, 17188997, 2848951, 2493004, 59599344, 37912837, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 1048576
+|Y| = 1048576
+
+
+data read for m = 1048576 and n = 1048576
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960485, 240959, 94847690, 17188997, 2848951, 2493004, 59599344, 37912837, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-hirschberg: 11387
+Activity report for sda5: 0, 0, 0, 0, 5561, 4915, 87192, 22327, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/195134/statm
+7013 6069 852 9 0 5475 0
+ALG_Hirschberg ( dynamic mem ) user time = 11386.7736 sec, system time = 0.0114 sec, total time = 11386.7849
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 11386.7736 sec, avg. system time = 0.0114 sec, avg. total time = 11386.7849 ( 3h 9m 47s )
+
+run 1: user time = 11386.7736 sec, system time = 0.0114 sec, total time = 11386.7849 ( 3h 9m 47s ), LCS length = 341596
+
+Real time to finish lcs-hirschberg: 11390.2
+Activity report for sda5: 0, 0, 0, 0, 5563, 4923, 87272, 22346, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/195135/statm
+7013 6099 886 9 0 5475 0
+ALG_Hirschberg ( dynamic mem ) user time = 11389.8577 sec, system time = 0.1000 sec, total time = 11389.9577
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 11389.8577 sec, avg. system time = 0.1000 sec, avg. total time = 11389.9577 ( 3h 9m 50s )
+
+run 1: user time = 11389.8577 sec, system time = 0.1000 sec, total time = 11389.9577 ( 3h 9m 50s ), LCS length = 341596
+
+Running 4 concurrent processes
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 1048576
+|Y| = 1048576
+
+
+data read for m = 1048576 and n = 1048576
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960485, 240959, 94847690, 17188997, 2854514, 2497927, 59686616, 37935183, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 1048576
+|Y| = 1048576
+
+
+data read for m = 1048576 and n = 1048576
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960485, 240959, 94847690, 17188997, 2854514, 2497927, 59686616, 37935183, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 1048576
+|Y| = 1048576
+
+
+data read for m = 1048576 and n = 1048576
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960485, 240959, 94847690, 17188997, 2854514, 2497927, 59686616, 37935183, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 1048576
+|Y| = 1048576
+
+
+data read for m = 1048576 and n = 1048576
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960485, 240959, 94847690, 17188997, 2854514, 2497927, 59686616, 37935183, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-hirschberg: 12025.7
+Activity report for sda5: 1, 0, 8, 41, 5760, 4091, 466904, 27824, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/198430/statm
+7013 6082 866 9 0 5475 0
+ALG_Hirschberg ( dynamic mem ) user time = 12025.3515 sec, system time = 0.1040 sec, total time = 12025.4555
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 12025.3515 sec, avg. system time = 0.1040 sec, avg. total time = 12025.4555 ( 3h 20m 25s )
+
+run 1: user time = 12025.3515 sec, system time = 0.1040 sec, total time = 12025.4555 ( 3h 20m 25s ), LCS length = 341596
+
+Real time to finish lcs-hirschberg: 12033.9
+Activity report for sda5: 1, 0, 8, 41, 5764, 4118, 467152, 27861, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/198432/statm
+7013 6094 880 9 0 5475 0
+ALG_Hirschberg ( dynamic mem ) user time = 12033.7720 sec, system time = 0.0076 sec, total time = 12033.7796
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 12033.7720 sec, avg. system time = 0.0076 sec, avg. total time = 12033.7796 ( 3h 20m 34s )
+
+run 1: user time = 12033.7720 sec, system time = 0.0076 sec, total time = 12033.7796 ( 3h 20m 34s ), LCS length = 341596
+
+Real time to finish lcs-hirschberg: 12037
+Activity report for sda5: 1, 0, 8, 41, 5764, 4118, 467152, 27861, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/198429/statm
+7013 6050 833 9 0 5475 0
+ALG_Hirschberg ( dynamic mem ) user time = 12036.8048 sec, system time = 0.0032 sec, total time = 12036.8081
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 12036.8048 sec, avg. system time = 0.0032 sec, avg. total time = 12036.8081 ( 3h 20m 37s )
+
+run 1: user time = 12036.8048 sec, system time = 0.0032 sec, total time = 12036.8081 ( 3h 20m 37s ), LCS length = 341596
+
+Real time to finish lcs-hirschberg: 12147.2
+Activity report for sda5: 1, 0, 8, 41, 5838, 4243, 468808, 28245, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/198431/statm
+7013 6107 895 9 0 5475 0
+ALG_Hirschberg ( dynamic mem ) user time = 12147.0672 sec, system time = 0.0044 sec, total time = 12147.0715
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 12147.0672 sec, avg. system time = 0.0044 sec, avg. total time = 12147.0715 ( 3h 22m 27s )
+
+run 1: user time = 12147.0672 sec, system time = 0.0044 sec, total time = 12147.0715 ( 3h 22m 27s ), LCS length = 341596
+
+data/data-1048576.in lcs_oblivious 1048576 134217728
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 1048576
+|Y| = 1048576
+
+
+data read for m = 1048576 and n = 1048576
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960486, 240959, 94847698, 17189038, 2860352, 2502170, 60155424, 37963428, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-oblivious: 8277.74
+Activity report for sda5: 1, 0, 8, 35, 4106, 3316, 323384, 20243, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/201435/statm
+13667 9674 897 9 0 12129 0
+rec_linear_LCS ( dynamic mem ) user time = 8277.6768 sec, system time = 0.0001 sec, total time = 8277.6769
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 8277.6768 sec, avg. system time = 0.0001 sec, avg. total time = 8277.6769 ( 2h 17m 58s )
+
+run 1: user time = 8277.6768 sec, system time = 0.0001 sec, total time = 8277.6769 ( 2h 17m 58s ), LCS length = 341596
+
+Running 1 concurrent process
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 1048576
+|Y| = 1048576
+
+
+data read for m = 1048576 and n = 1048576
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960487, 240959, 94847706, 17189073, 2864458, 2505486, 60478808, 37983671, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-oblivious: 8281.38
+Activity report for sda5: 2, 0, 16, 26, 4367, 4298, 71776, 20609, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/203610/statm
+13667 9674 897 9 0 12129 0
+rec_linear_LCS ( dynamic mem ) user time = 8281.3116 sec, system time = 0.0120 sec, total time = 8281.3235
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 8281.3116 sec, avg. system time = 0.0120 sec, avg. total time = 8281.3235 ( 2h 18m 1s )
+
+run 1: user time = 8281.3116 sec, system time = 0.0120 sec, total time = 8281.3235 ( 2h 18m 1s ), LCS length = 341596
+
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 1048576
+|Y| = 1048576
+
+
+data read for m = 1048576 and n = 1048576
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960489, 240959, 94847722, 17189099, 2868825, 2509784, 60550584, 38004280, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-oblivious: 8282.63
+Activity report for sda5: 2, 0, 16, 20, 4354, 3300, 64128, 15533, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/206768/statm
+13667 9609 828 9 0 12129 0
+rec_linear_LCS ( dynamic mem ) user time = 8282.5619 sec, system time = 0.0040 sec, total time = 8282.5659
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 8282.5619 sec, avg. system time = 0.0040 sec, avg. total time = 8282.5659 ( 2h 18m 3s )
+
+run 1: user time = 8282.5619 sec, system time = 0.0040 sec, total time = 8282.5659 ( 2h 18m 3s ), LCS length = 341596
+
+Running 2 concurrent processes
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 1048576
+|Y| = 1048576
+
+
+data read for m = 1048576 and n = 1048576
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960491, 240959, 94847738, 17189119, 2873179, 2513084, 60614712, 38019813, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 1048576
+|Y| = 1048576
+
+
+data read for m = 1048576 and n = 1048576
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960491, 240959, 94847738, 17189119, 2873179, 2513084, 60614712, 38019813, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-oblivious: 8523.15
+Activity report for sda5: 0, 0, 0, 0, 4520, 4477, 74536, 19173, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/209124/statm
+13667 9670 892 9 0 12129 0
+rec_linear_LCS ( dynamic mem ) user time = 8522.9179 sec, system time = 0.0519 sec, total time = 8522.9698
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 8522.9179 sec, avg. system time = 0.0519 sec, avg. total time = 8522.9698 ( 2h 22m 3s )
+
+run 1: user time = 8522.9179 sec, system time = 0.0519 sec, total time = 8522.9698 ( 2h 22m 3s ), LCS length = 341596
+
+Real time to finish lcs-oblivious: 8527.27
+Activity report for sda5: 0, 0, 0, 0, 4520, 4477, 74536, 19173, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/209123/statm
+13667 9687 911 9 0 12129 0
+rec_linear_LCS ( dynamic mem ) user time = 8527.1836 sec, system time = 0.0159 sec, total time = 8527.1995
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 8527.1836 sec, avg. system time = 0.0159 sec, avg. total time = 8527.1995 ( 2h 22m 7s )
+
+run 1: user time = 8527.1836 sec, system time = 0.0159 sec, total time = 8527.1995 ( 2h 22m 7s ), LCS length = 341596
+
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 1048576
+|Y| = 1048576
+
+
+data read for m = 1048576 and n = 1048576
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960491, 240959, 94847738, 17189119, 2877699, 2517561, 60689248, 38038986, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 1048576
+|Y| = 1048576
+
+
+data read for m = 1048576 and n = 1048576
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960491, 240959, 94847738, 17189119, 2877699, 2517561, 60689248, 38038986, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-oblivious: 8518.56
+Activity report for sda5: 0, 0, 0, 0, 4183, 3383, 63184, 18130, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/212489/statm
+13667 9648 868 9 0 12129 0
+rec_linear_LCS ( dynamic mem ) user time = 8518.4747 sec, system time = 0.0120 sec, total time = 8518.4867
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 8518.4747 sec, avg. system time = 0.0120 sec, avg. total time = 8518.4867 ( 2h 21m 58s )
+
+run 1: user time = 8518.4747 sec, system time = 0.0120 sec, total time = 8518.4867 ( 2h 21m 58s ), LCS length = 341596
+
+Real time to finish lcs-oblivious: 8520.09
+Activity report for sda5: 0, 0, 0, 0, 4183, 3383, 63184, 18130, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/212488/statm
+13667 9619 838 9 0 12129 0
+rec_linear_LCS ( dynamic mem ) user time = 8519.8708 sec, system time = 0.0447 sec, total time = 8519.9155
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 8519.8708 sec, avg. system time = 0.0447 sec, avg. total time = 8519.9155 ( 2h 22m 0s )
+
+run 1: user time = 8519.8708 sec, system time = 0.0447 sec, total time = 8519.9155 ( 2h 22m 0s ), LCS length = 341596
+
+Running 4 concurrent processes
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 1048576
+|Y| = 1048576
+
+
+data read for m = 1048576 and n = 1048576
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960491, 240959, 94847738, 17189119, 2881882, 2520944, 60752432, 38057116, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 1048576
+|Y| = 1048576
+
+
+data read for m = 1048576 and n = 1048576
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960491, 240959, 94847738, 17189119, 2881882, 2520944, 60752432, 38057116, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 1048576
+|Y| = 1048576
+
+
+data read for m = 1048576 and n = 1048576
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960491, 240959, 94847738, 17189119, 2881882, 2520944, 60752432, 38057116, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 1048576
+|Y| = 1048576
+
+
+data read for m = 1048576 and n = 1048576
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960491, 240959, 94847738, 17189119, 2881882, 2520944, 60752432, 38057116, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-oblivious: 8975.86
+Activity report for sda5: 0, 0, 0, 0, 5613, 3469, 76472, 20445, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/214789/statm
+13667 9673 897 9 0 12129 0
+rec_linear_LCS ( dynamic mem ) user time = 8975.7743 sec, system time = 0.0530 sec, total time = 8975.8272
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 8975.7743 sec, avg. system time = 0.0530 sec, avg. total time = 8975.8272 ( 2h 29m 36s )
+
+run 1: user time = 8975.7743 sec, system time = 0.0530 sec, total time = 8975.8272 ( 2h 29m 36s ), LCS length = 341596
+
+Real time to finish lcs-oblivious: 8978.07
+Activity report for sda5: 0, 0, 0, 0, 5613, 3469, 76472, 20445, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/214788/statm
+13667 9628 849 9 0 12129 0
+rec_linear_LCS ( dynamic mem ) user time = 8978.0216 sec, system time = 0.0048 sec, total time = 8978.0264
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 8978.0216 sec, avg. system time = 0.0048 sec, avg. total time = 8978.0264 ( 2h 29m 38s )
+
+run 1: user time = 8978.0216 sec, system time = 0.0048 sec, total time = 8978.0264 ( 2h 29m 38s ), LCS length = 341596
+
+Real time to finish lcs-oblivious: 8978.5
+Activity report for sda5: 0, 0, 0, 0, 5613, 3469, 76472, 20445, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/214790/statm
+13667 9635 855 9 0 12129 0
+rec_linear_LCS ( dynamic mem ) user time = 8978.2768 sec, system time = 0.0401 sec, total time = 8978.3169
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 8978.2768 sec, avg. system time = 0.0401 sec, avg. total time = 8978.3169 ( 2h 29m 38s )
+
+run 1: user time = 8978.2768 sec, system time = 0.0401 sec, total time = 8978.3169 ( 2h 29m 38s ), LCS length = 341596
+
+Real time to finish lcs-oblivious: 8979.76
+Activity report for sda5: 0, 0, 0, 0, 5613, 3469, 76472, 20445, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/214791/statm
+13667 9671 896 9 0 12129 0
+rec_linear_LCS ( dynamic mem ) user time = 8979.6951 sec, system time = 0.0035 sec, total time = 8979.6986
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 8979.6951 sec, avg. system time = 0.0035 sec, avg. total time = 8979.6986 ( 2h 29m 40s )
+
+run 1: user time = 8979.6951 sec, system time = 0.0035 sec, total time = 8979.6986 ( 2h 29m 40s ), LCS length = 341596
+
+data/data-2097152.in lcs_hirschberg 2097152 268435456
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 2097152
+|Y| = 2097152
+
+
+data read for m = 2097152 and n = 2097152
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960526, 240959, 94856154, 17189191, 2887495, 2524413, 60828904, 38077561, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-hirschberg: 44234.3
+Activity report for sda5: 13, 0, 488, 225, 26548, 14362, 1005880, 100764, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/218240/statm
+12389 11295 866 9 0 10851 0
+ALG_Hirschberg ( dynamic mem ) user time = 44233.2776 sec, system time = 0.0095 sec, total time = 44233.2871
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 44233.2776 sec, avg. system time = 0.0095 sec, avg. total time = 44233.2871 ( 12h 17m 13s )
+
+run 1: user time = 44233.2776 sec, system time = 0.0095 sec, total time = 44233.2871 ( 12h 17m 13s ), LCS length = 683259
+
+Running 1 concurrent process
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 2097152
+|Y| = 2097152
+
+
+data read for m = 2097152 and n = 2097152
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960539, 240959, 94856642, 17189416, 2914043, 2538775, 61834784, 38178325, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-hirschberg: 44223.8
+Activity report for sda5: 0, 0, 0, 0, 20416, 10522, 263056, 65811, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/225505/statm
+12389 11253 822 9 0 10851 0
+ALG_Hirschberg ( dynamic mem ) user time = 44221.9533 sec, system time = 0.4127 sec, total time = 44222.3660
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 44221.9533 sec, avg. system time = 0.4127 sec, avg. total time = 44222.3660 ( 12h 17m 2s )
+
+run 1: user time = 44221.9533 sec, system time = 0.4127 sec, total time = 44222.3660 ( 12h 17m 2s ), LCS length = 683259
+
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 2097152
+|Y| = 2097152
+
+
+data read for m = 2097152 and n = 2097152
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960539, 240959, 94856642, 17189416, 2934459, 2549297, 62097840, 38244136, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-hirschberg: 44218.1
+Activity report for sda5: 54, 0, 680, 790, 23268, 10844, 938368, 92754, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/231221/statm
+12389 11306 880 9 0 10851 0
+ALG_Hirschberg ( dynamic mem ) user time = 44216.5555 sec, system time = 0.2766 sec, total time = 44216.8320
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 44216.5555 sec, avg. system time = 0.2766 sec, avg. total time = 44216.8320 ( 12h 16m 57s )
+
+run 1: user time = 44216.5555 sec, system time = 0.2766 sec, total time = 44216.8320 ( 12h 16m 57s ), LCS length = 683259
+
+Running 2 concurrent processes
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 2097152
+|Y| = 2097152
+
+
+data read for m = 2097152 and n = 2097152
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960593, 240959, 94857322, 17190206, 2957727, 2560141, 63036208, 38336890, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 2097152
+|Y| = 2097152
+
+
+data read for m = 2097152 and n = 2097152
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960593, 240959, 94857322, 17190206, 2957727, 2560141, 63036208, 38336890, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-hirschberg: 45649.7
+Activity report for sda5: 0, 0, 0, 0, 26021, 10571, 322456, 82786, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/235058/statm
+12389 11305 876 9 0 10851 0
+ALG_Hirschberg ( dynamic mem ) user time = 45648.5842 sec, system time = 0.0126 sec, total time = 45648.5968
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 45648.5842 sec, avg. system time = 0.0126 sec, avg. total time = 45648.5968 ( 12h 40m 49s )
+
+run 1: user time = 45648.5842 sec, system time = 0.0126 sec, total time = 45648.5968 ( 12h 40m 49s ), LCS length = 683259
+
+Real time to finish lcs-hirschberg: 45661.6
+Activity report for sda5: 0, 0, 0, 0, 26023, 10572, 322480, 82816, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/235057/statm
+12389 11296 866 9 0 10851 0
+ALG_Hirschberg ( dynamic mem ) user time = 45659.8744 sec, system time = 0.4878 sec, total time = 45660.3621
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 45659.8744 sec, avg. system time = 0.4878 sec, avg. total time = 45660.3621 ( 12h 41m 0s )
+
+run 1: user time = 45659.8744 sec, system time = 0.4878 sec, total time = 45660.3621 ( 12h 41m 0s ), LCS length = 683259
+
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 2097152
+|Y| = 2097152
+
+
+data read for m = 2097152 and n = 2097152
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960593, 240959, 94857322, 17190206, 2983750, 2570713, 63358688, 38419706, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 2097152
+|Y| = 2097152
+
+
+data read for m = 2097152 and n = 2097152
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960593, 240959, 94857322, 17190206, 2983750, 2570713, 63358688, 38419706, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-hirschberg: 45684.5
+Activity report for sda5: 5, 0, 152, 44, 53644, 32175, 1360208, 184924, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/239040/statm
+12389 11304 874 9 0 10851 0
+ALG_Hirschberg ( dynamic mem ) user time = 45682.9620 sec, system time = 0.0201 sec, total time = 45682.9821
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 45682.9620 sec, avg. system time = 0.0201 sec, avg. total time = 45682.9821 ( 12h 41m 23s )
+
+run 1: user time = 45682.9620 sec, system time = 0.0201 sec, total time = 45682.9821 ( 12h 41m 23s ), LCS length = 683259
+
+Real time to finish lcs-hirschberg: 45705
+Activity report for sda5: 5, 0, 152, 44, 53647, 32176, 1360240, 184942, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/239041/statm
+12389 11292 863 9 0 10851 0
+ALG_Hirschberg ( dynamic mem ) user time = 45703.3655 sec, system time = 0.4922 sec, total time = 45703.8577
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 45703.3655 sec, avg. system time = 0.4922 sec, avg. total time = 45703.8577 ( 12h 41m 44s )
+
+run 1: user time = 45703.3655 sec, system time = 0.4922 sec, total time = 45703.8577 ( 12h 41m 44s ), LCS length = 683259
+
+Running 4 concurrent processes
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 2097152
+|Y| = 2097152
+
+
+data read for m = 2097152 and n = 2097152
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960598, 240959, 94857474, 17190250, 3037397, 2602889, 64718928, 38604648, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 2097152
+|Y| = 2097152
+
+
+data read for m = 2097152 and n = 2097152
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960598, 240959, 94857474, 17190250, 3037397, 2602889, 64718928, 38604648, 
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 2097152
+|Y| = 2097152
+
+
+data read for m = 2097152 and n = 2097152
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960598, 240959, 94857474, 17190250, 3037397, 2602889, 64718928, 38604648, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_hirschberg
+
+sequence pair 1:
+|X| = 2097152
+|Y| = 2097152
+
+
+data read for m = 2097152 and n = 2097152
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960598, 240959, 94857474, 17190250, 3037397, 2602889, 64718928, 38604648, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-hirschberg: 48281.8
+Activity report for sda5: 2, 0, 16, 18, 45783, 29071, 639248, 159449, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/251551/statm
+12389 11296 866 9 0 10851 0
+ALG_Hirschberg ( dynamic mem ) user time = 48280.9223 sec, system time = 0.0164 sec, total time = 48280.9387
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 48280.9223 sec, avg. system time = 0.0164 sec, avg. total time = 48280.9387 ( 13h 24m 41s )
+
+run 1: user time = 48280.9223 sec, system time = 0.0164 sec, total time = 48280.9387 ( 13h 24m 41s ), LCS length = 683259
+
+Real time to finish lcs-hirschberg: 48285.3
+Activity report for sda5: 2, 0, 16, 18, 45783, 29071, 639248, 159449, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/251548/statm
+12389 11292 863 9 0 10851 0
+ALG_Hirschberg ( dynamic mem ) user time = 48284.1040 sec, system time = 0.0197 sec, total time = 48284.1238
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 48284.1040 sec, avg. system time = 0.0197 sec, avg. total time = 48284.1238 ( 13h 24m 44s )
+
+run 1: user time = 48284.1040 sec, system time = 0.0197 sec, total time = 48284.1238 ( 13h 24m 44s ), LCS length = 683259
+
+Real time to finish lcs-hirschberg: 48289.5
+Activity report for sda5: 2, 0, 16, 18, 45785, 29072, 639272, 159467, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/251550/statm
+12389 11301 870 9 0 10851 0
+ALG_Hirschberg ( dynamic mem ) user time = 48288.9968 sec, system time = 0.0000 sec, total time = 48288.9968
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 48288.9968 sec, avg. system time = 0.0000 sec, avg. total time = 48288.9968 ( 13h 24m 49s )
+
+run 1: user time = 48288.9968 sec, system time = 0.0000 sec, total time = 48288.9968 ( 13h 24m 49s ), LCS length = 683259
+
+Real time to finish lcs-hirschberg: 48295.7
+Activity report for sda5: 2, 0, 16, 18, 45787, 29073, 639296, 159496, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/251549/statm
+12389 11245 812 9 0 10851 0
+ALG_Hirschberg ( dynamic mem ) user time = 48293.7076 sec, system time = 0.7600 sec, total time = 48294.4676
+
+ALG_Hirschberg ( dynamic mem ) avg. user time = 48293.7076 sec, avg. system time = 0.7600 sec, avg. total time = 48294.4676 ( 13h 24m 54s )
+
+run 1: user time = 48293.7076 sec, system time = 0.7600 sec, total time = 48294.4676 ( 13h 24m 54s ), LCS length = 683259
+
+data/data-2097152.in lcs_oblivious 2097152 536870912
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 2097152
+|Y| = 2097152
+
+
+data read for m = 2097152 and n = 2097152
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960600, 240959, 94857490, 17190268, 3083184, 2631962, 65358224, 38764144, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-oblivious: 33124.2
+Activity report for sda5: 0, 0, 0, 0, 31913, 19448, 1073304, 121312, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/269452/statm
+25699 18473 848 9 0 24161 0
+rec_linear_LCS ( dynamic mem ) user time = 33123.8366 sec, system time = 0.0363 sec, total time = 33123.8729
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 33123.8366 sec, avg. system time = 0.0363 sec, avg. total time = 33123.8729 ( 9h 12m 4s )
+
+run 1: user time = 33123.8366 sec, system time = 0.0363 sec, total time = 33123.8729 ( 9h 12m 4s ), LCS length = 683259
+
+Running 1 concurrent process
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 2097152
+|Y| = 2097152
+
+
+data read for m = 2097152 and n = 2097152
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960600, 240959, 94857490, 17190268, 3115097, 2651410, 66431528, 38885456, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-oblivious: 33132.9
+Activity report for sda5: 0, 0, 0, 0, 31967, 19555, 430520, 108034, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/281395/statm
+25699 18519 897 9 0 24161 0
+rec_linear_LCS ( dynamic mem ) user time = 33132.2135 sec, system time = 0.1280 sec, total time = 33132.3415
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 33132.2135 sec, avg. system time = 0.1280 sec, avg. total time = 33132.3415 ( 9h 12m 12s )
+
+run 1: user time = 33132.2135 sec, system time = 0.1280 sec, total time = 33132.3415 ( 9h 12m 12s ), LCS length = 683259
+
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 2097152
+|Y| = 2097152
+
+
+data read for m = 2097152 and n = 2097152
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960600, 240959, 94857490, 17190268, 3147064, 2670965, 66862048, 38993490, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-oblivious: 33127.7
+Activity report for sda5: 0, 0, 0, 0, 31649, 20118, 435112, 117574, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/294488/statm
+25699 18453 828 9 0 24161 0
+rec_linear_LCS ( dynamic mem ) user time = 33126.7615 sec, system time = 0.1764 sec, total time = 33126.9379
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 33126.7615 sec, avg. system time = 0.1764 sec, avg. total time = 33126.9379 ( 9h 12m 7s )
+
+run 1: user time = 33126.7615 sec, system time = 0.1764 sec, total time = 33126.9379 ( 9h 12m 7s ), LCS length = 683259
+
+Running 2 concurrent processes
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 2097152
+|Y| = 2097152
+
+
+data read for m = 2097152 and n = 2097152
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960600, 240959, 94857490, 17190268, 3178713, 2691083, 67297160, 39111064, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 2097152
+|Y| = 2097152
+
+
+data read for m = 2097152 and n = 2097152
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960600, 240959, 94857490, 17190268, 3178713, 2691083, 67297160, 39111064, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-oblivious: 34056.5
+Activity report for sda5: 265, 0, 2120, 1628, 32218, 15940, 1060200, 112927, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/303391/statm
+25699 18516 896 9 0 24161 0
+rec_linear_LCS ( dynamic mem ) user time = 34055.6616 sec, system time = 0.1479 sec, total time = 34055.8095
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 34055.6616 sec, avg. system time = 0.1479 sec, avg. total time = 34055.8095 ( 9h 27m 36s )
+
+run 1: user time = 34055.6616 sec, system time = 0.1479 sec, total time = 34055.8095 ( 9h 27m 36s ), LCS length = 683259
+
+Real time to finish lcs-oblivious: 34058.5
+Activity report for sda5: 265, 0, 2120, 1628, 32218, 15940, 1060200, 112927, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/303392/statm
+25699 18516 894 9 0 24161 0
+rec_linear_LCS ( dynamic mem ) user time = 34058.2079 sec, system time = 0.0239 sec, total time = 34058.2319
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 34058.2079 sec, avg. system time = 0.0239 sec, avg. total time = 34058.2319 ( 9h 27m 38s )
+
+run 1: user time = 34058.2079 sec, system time = 0.0239 sec, total time = 34058.2319 ( 9h 27m 38s ), LCS length = 683259
+
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 2097152
+|Y| = 2097152
+
+
+data read for m = 2097152 and n = 2097152
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960865, 240959, 94859610, 17191896, 3210931, 2707023, 68357360, 39223991, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 2097152
+|Y| = 2097152
+
+
+data read for m = 2097152 and n = 2097152
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960865, 240959, 94859610, 17191896, 3210931, 2707023, 68357360, 39223991, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-oblivious: 34062.1
+Activity report for sda5: 1, 0, 8, 15, 31906, 11145, 357848, 95838, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/308587/statm
+25699 18472 849 9 0 24161 0
+rec_linear_LCS ( dynamic mem ) user time = 34061.2063 sec, system time = 0.2184 sec, total time = 34061.4247
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 34061.2063 sec, avg. system time = 0.2184 sec, avg. total time = 34061.4247 ( 9h 27m 41s )
+
+run 1: user time = 34061.2063 sec, system time = 0.2184 sec, total time = 34061.4247 ( 9h 27m 41s ), LCS length = 683259
+
+Real time to finish lcs-oblivious: 34076
+Activity report for sda5: 1, 0, 8, 15, 31911, 11146, 357896, 95866, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/308588/statm
+25699 18508 886 9 0 24161 0
+rec_linear_LCS ( dynamic mem ) user time = 34075.6861 sec, system time = 0.0276 sec, total time = 34075.7137
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 34075.6861 sec, avg. system time = 0.0276 sec, avg. total time = 34075.7137 ( 9h 27m 56s )
+
+run 1: user time = 34075.6861 sec, system time = 0.0276 sec, total time = 34075.7137 ( 9h 27m 56s ), LCS length = 683259
+
+Running 4 concurrent processes
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 2097152
+|Y| = 2097152
+
+
+data read for m = 2097152 and n = 2097152
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960866, 240959, 94859618, 17191911, 3242842, 2718169, 68715256, 39319857, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 2097152
+|Y| = 2097152
+
+
+data read for m = 2097152 and n = 2097152
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960866, 240959, 94859618, 17191911, 3242842, 2718169, 68715256, 39319857, 
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 2097152
+|Y| = 2097152
+
+
+data read for m = 2097152 and n = 2097152
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960866, 240959, 94859618, 17191911, 3242842, 2718169, 68715256, 39319857, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Prog: ./lcs_oblivious
+
+sequence pair 1:
+|X| = 2097152
+|Y| = 2097152
+
+
+data read for m = 2097152 and n = 2097152
+number of runs = 1, base case = 32
+
+Activity report for sda5: 2960866, 240959, 94859618, 17191911, 3242842, 2718169, 68715256, 39319857, 
+Activity report for sdc: 20093, 181, 167698, 26733, 4, 0, 8, 16, 
+Real time to finish lcs-oblivious: 35856.7
+Activity report for sda5: 1, 0, 8, 17, 27289, 11746, 976976, 100255, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/310768/statm
+25699 18513 892 9 0 24161 0
+rec_linear_LCS ( dynamic mem ) user time = 35855.8199 sec, system time = 0.1239 sec, total time = 35855.9437
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 35855.8199 sec, avg. system time = 0.1239 sec, avg. total time = 35855.9437 ( 9h 57m 36s )
+
+run 1: user time = 35855.8199 sec, system time = 0.1239 sec, total time = 35855.9437 ( 9h 57m 36s ), LCS length = 683259
+
+Real time to finish lcs-oblivious: 35858.7
+Activity report for sda5: 1, 0, 8, 17, 27289, 11746, 976976, 100255, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/310771/statm
+25699 18516 896 9 0 24161 0
+rec_linear_LCS ( dynamic mem ) user time = 35858.5727 sec, system time = 0.0159 sec, total time = 35858.5886
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 35858.5727 sec, avg. system time = 0.0159 sec, avg. total time = 35858.5886 ( 9h 57m 39s )
+
+run 1: user time = 35858.5727 sec, system time = 0.0159 sec, total time = 35858.5886 ( 9h 57m 39s ), LCS length = 683259
+
+Real time to finish lcs-oblivious: 35861.2
+Activity report for sda5: 1, 0, 8, 17, 27289, 11746, 976976, 100255, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/310770/statm
+25699 18518 897 9 0 24161 0
+rec_linear_LCS ( dynamic mem ) user time = 35860.9480 sec, system time = 0.0198 sec, total time = 35860.9678
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 35860.9480 sec, avg. system time = 0.0198 sec, avg. total time = 35860.9678 ( 9h 57m 41s )
+
+run 1: user time = 35860.9480 sec, system time = 0.0198 sec, total time = 35860.9678 ( 9h 57m 41s ), LCS length = 683259
+
+Real time to finish lcs-oblivious: 35862.8
+Activity report for sda5: 1, 0, 8, 17, 27296, 11748, 977048, 100280, 
+Activity report for sdc: 0, 0, 0, 0, 0, 0, 0, 0, 
+/proc/310769/statm
+25699 18512 890 9 0 24161 0
+rec_linear_LCS ( dynamic mem ) user time = 35862.6491 sec, system time = 0.0316 sec, total time = 35862.6807
+
+rec_linear_LCS ( dynamic mem ) avg. user time = 35862.6491 sec, avg. system time = 0.0316 sec, avg. total time = 35862.6807 ( 9h 57m 43s )
+
+run 1: user time = 35862.6491 sec, system time = 0.0316 sec, total time = 35862.6807 ( 9h 57m 43s ), LCS length = 683259
+

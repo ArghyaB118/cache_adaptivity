@@ -59,7 +59,8 @@ int main(int argc, char *argv[]){
 	}
 	Integer_comparator comp;
 	start = time(NULL); 
-	FunnelSort::sort<int, class Integer_comparator>(&arr[0], &arr[num_elements-1], comp);
+	// FunnelSort::sort<int, class Integer_comparator>(&arr[0], &arr[num_elements-1], comp);
+	FunnelSort::sort<int, class Integer_comparator>(arr, arr + num_elements, comp);
 	finish = time(NULL);
 	duration = (finish - start);
 	CacheHelper::print_io_data(io_stats, "Printing I/O statistics just after sorting @@@@@ \n");

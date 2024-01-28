@@ -1,6 +1,7 @@
 /*
-Iterative LCS.
+Originally in C: Iterative LCS.
 Last Update: June 28, 2005 ( Rezaul Alam Chowdhury, UT Austin )
+Converted to Cpp: Nov, 2023 (Arghya Bhattacharya, Stony Brook CS)
 */
 
 #include <stdio.h>
@@ -10,6 +11,15 @@ Last Update: June 28, 2005 ( Rezaul Alam Chowdhury, UT Austin )
 #include <time.h>
 #include <sys/resource.h>
 #include <sys/time.h>
+#include <unistd.h>
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <chrono>
+#include <thread>
+
+#include "../tools/util.h"
 
 #define MAX_ALPHABET_SIZE 256
 
@@ -17,7 +27,7 @@ Last Update: June 28, 2005 ( Rezaul Alam Chowdhury, UT Austin )
 
 #define max( a, b ) ( ( a ) > ( b ) ) ? ( a ) : ( b )
 #define min( a, b ) ( ( a ) < ( b ) ) ? ( a ) : ( b )
-
+using namespace std;
 //#define CLOCK ( ( double ) clock( ) )
 
 SYMBOL_TYPE *X;
@@ -42,7 +52,6 @@ int *zps;
 char alpha[ MAX_ALPHABET_SIZE + 1 ];
 
 //double tmp_t, copy_t, base_t, tri_base_t;
-
 
 void free_memory( int r, int n )
 {
@@ -82,12 +91,12 @@ void free_memory( int r, int n )
   if ( zps != NULL ) free( zps );
 }
 
+
 int allocate_memory( int m, int n, int r )
 {
   int i, d, mm;
 
   mm = min( m, n );
-
   Z = ( SYMBOL_TYPE * ) malloc( ( mm + 2 ) * sizeof( SYMBOL_TYPE ) );
 
   XS = ( char ** ) malloc( ( r ) * sizeof( char * ) );
@@ -126,7 +135,6 @@ int allocate_memory( int m, int n, int r )
   for ( i = 0; i <= n; i++ )
    {
     len[ i ] = ( int * ) malloc( ( m + 1 ) * sizeof( int ) );
-
     if ( len[ i ] == NULL )
      {
       printf( "\nError: memory allocation failed!\n\n" );
@@ -221,22 +229,15 @@ int main( int argc, char *argv[ ] )
   n = atoi( argv[ 1 ] );
   r = atoi( argv[ 2 ] );
   m = n;
-
-  if ( n <= 0 ) {
+  
+  if ( n <= 0 )
      printf("%d\n", n);
-    if ( scanf( "%d %d\n\n", &m, &n ) != 2 ) {
-      printf("%d %d\n", m, n);
-      printf( "\nError: cannot read sequence lengths!\n" );
-      return 0;
-  	}
-  }
 
   if ( m < n )
     {
      printf( "\nError: m < n!\n" );
      return 0;
     }
-
   if ( !allocate_memory( m, n, r )) return 0;
 
   if ( !read_data( r ) )
@@ -253,13 +254,20 @@ int main( int argc, char *argv[ ] )
   //  copy_t = base_t = tri_base_t = 0;
   //  c1 = CLOCK;
   getrusage( RUSAGE_SELF, &ru[ 0 ] );
+  struct timeval timecheck;
+  long start,end;
+  for ( i = 0; i < r; i++ )
+     {
+      double timer_start = get_wall_time();
+      print_io_data();
+      zps[ i ] = LCS_classic( i );
+      double timer_end = get_wall_time();
+      cout << "Real time to finish " << timer_end - timer_start << endl;
+      getrusage( RUSAGE_SELF, &ru[ i + 1 ] );
+      print_io_data();
+      print_mem_data();	
+   }
 
-  for ( i = 0; i < r; i++ ) {
-    zps[ i ] = LCS_classic( i );
-    getrusage( RUSAGE_SELF, &ru[ i + 1 ] );
-  }
-
-  print_io_data();
   //  c2 = CLOCK;
   //  tck = c2 - c1;
   ut =  ru[ r ].ru_utime.tv_sec + ( ru[ r ].ru_utime.tv_usec * 0.000001 )
@@ -298,5 +306,5 @@ int main( int argc, char *argv[ ] )
   free_memory( r, n );
 //  while (!getchar());
 
-  return 1;
+  return 0;
 }

@@ -20,7 +20,7 @@ cp ../../examples/containers/sorter2.cpp ../../local
 mv ../../local/test1.cpp ../../local/test1-backup.cpp
 mv ../../local/sorter2.cpp ../../local/test1-sorter.cpp
 mv ../../tests/io/test_io.cpp ../../local/test1-io.cpp
-cp ../../cache_adaptivity/merge-sort/stxxl_sort.cpp ../../local/test1.cpp
+cp ~/cache_adaptivity/merge-sort/stxxl_sort.cpp ../../local/test1.cpp
 make
 # now change the memory given and data size in ../../local/test.cpp
 fi

@@ -1,6 +1,7 @@
 /*
-Our cache-oblivious LCS algorithm from SODA'06.
+Originally in C: Cache-oblivious LCS algorithm from SODA'06.
 Last Update: Sep 04, 2006 ( Rezaul Alam Chowdhury, UT Austin )
+Converted to Cpp: Nov, 2023 (Arghya Bhattacharya, Stony Brook CS)
 */
 
 #include <stdio.h>
@@ -10,10 +11,16 @@ Last Update: Sep 04, 2006 ( Rezaul Alam Chowdhury, UT Austin )
 #include <time.h>
 #include <sys/resource.h>
 #include <sys/time.h>
-
+#include <thread>
+#include <chrono>
+#include <unistd.h>
+#include <iostream>
+#include <fstream>
 #define DEFAULT_BASE 32
-
+#include <vector>
 #define MAX_ALPHABET_SIZE 256
+
+#include "../tools/util.h"
 
 #define SYMBOL_TYPE char
 
@@ -22,7 +29,8 @@ Last Update: Sep 04, 2006 ( Rezaul Alam Chowdhury, UT Austin )
 #define min( a, b ) ( ( a ) < ( b ) ) ? ( a ) : ( b )
 
 #define BIDX( j, i ) ( ( ( j ) << LOG_BASE_N ) + j + i )
-
+using namespace std;
+void lcs_inverted_triangle( int bi, int bj, int n );
 int MAX_N;
 int BASE_N;
 int LOG_BASE_N;
@@ -112,7 +120,7 @@ int myceil( double v )
 
 int allocate_memory( int m, int n, int r, int b )
 {
-  int i, d, nn, mm;
+  int i, nn, mm;
 
   nn = 1;
 
@@ -241,7 +249,6 @@ int get_m_n_sep( int *m, int *n )
 
 void copy_seq( int j )
 {
-  int i;
 
   nx = nxs[ j ];
   ny = nys[ j ];
@@ -250,7 +257,6 @@ void copy_seq( int j )
   Y = YS[ j ];
 }
 
-int lcs_inverted_triangle( int bi, int bj, int n );
 
 int lcs_straight_triangle( int bi, int bj, int n )
 {
@@ -288,7 +294,7 @@ int lcs_straight_triangle( int bi, int bj, int n )
 }
 
 
-int lcs_inverted_triangle( int bi, int bj, int n )
+void lcs_inverted_triangle( int bi, int bj, int n )
 {
   int i, j, k, l, lt, nn;
 
@@ -325,7 +331,7 @@ int lcs_inverted_triangle( int bi, int bj, int n )
 }
 
 
-int rec_LCS( int bi, int bj, int n, int f )
+void rec_LCS( int bi, int bj, int n, int f )
 {
   int i, j, k, mm, nn, b = bi - bj, sv;
 
@@ -426,9 +432,9 @@ int rec_LCS( int bi, int bj, int n, int f )
 }
 
 
-int rec_linear_LCS( int r, int n )
+void rec_linear_LCS( int r, int n )
 {
-  int i, j, k, l, t;
+  int j;
 
   nx = nxs[ r ];
   ny = nys[ r ];
@@ -471,7 +477,7 @@ int find_rec_LCS( void )
 }
 
 
-int verify( void )
+void verify( void )
 {
   int i, j;
 
@@ -515,10 +521,10 @@ char *conv_sec( double t, char *st )
 
 int main( int argc, char *argv[ ] )
 {
-  int i, l, m, n, nn, r, b, prn;
+  int i, l, m, n, r, b, prn;
   double ut, st, tt;
   char str[ 50 ];
-
+  // output.open("output2",std::ios_base::app);
   printf( "Prog: %s\n\n", argv[ 0 ] );
 
   if ( argc < 3 )
@@ -582,9 +588,7 @@ int main( int argc, char *argv[ ] )
 
   if ( argc > b + 4 ) prn = atoi( argv[ b + 4 ] );
   else prn = 0;
-    
   if ( !allocate_memory( m, n, r, BASE_N )) return 0;
-
   if ( b == 0 )
     {
      if ( !read_data( r ) )
@@ -608,9 +612,13 @@ int main( int argc, char *argv[ ] )
   printf( "number of runs = %d, base case = %d\n\n", r, BASE_N );
 
   getrusage( RUSAGE_SELF, &ru[ 0 ] );
-
+  struct timeval timecheck;
+  long start,end; 
   for ( i = 0; i < r; i++ )
      {
+      print_io_data();
+      // disable_oom_killer();
+      double timer_start = get_wall_time();
       rec_linear_LCS( i, MAX_N );
       zps[ i ] = zp;
       if ( prn )
@@ -618,7 +626,12 @@ int main( int argc, char *argv[ ] )
          find_rec_LCS( );
          verify( );
         }
+      double timer_end = get_wall_time();
+      cout << "Real time to finish lcs-oblivious: " 
+        << timer_end - timer_start << endl;
+      print_io_data();
       getrusage( RUSAGE_SELF, &ru[ i + 1 ] );
+      print_mem_data();
      }
 
   ut =  ru[ r ].ru_utime.tv_sec + ( ru[ r ].ru_utime.tv_usec * 0.000001 )
@@ -647,7 +660,7 @@ int main( int argc, char *argv[ ] )
 
   printf( "\n" );
 
-  free_memory( r );
+  //free_memory( r );
 
-  return 1;
+  return 0;
 }
